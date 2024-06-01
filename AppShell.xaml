@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PythoPlus"
+    xmlns:popscr="clr-namespace:PythoPlus.PopScreens"
     Shell.FlyoutBehavior="Flyout"
     Title="PythoPlus">
     <Shell.FlyoutHeader>
@@ -15,6 +16,10 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-    
+    <FlyoutItem Title="Налаштування" Icon="settings.png" FlyoutDisplayOptions="AsSingleItem">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate popscr:SettingsUsr}" />
+        </Tab>
+    </FlyoutItem>
     <MenuItem Text="Вийти з акаунту" IconImageSource="logout.png" Command="{Binding LogoutCommand}" />
 </Shell>

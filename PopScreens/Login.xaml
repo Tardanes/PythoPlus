@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:lc="clr-namespace:PythoPlus.PopScreens"
              x:Class="PythoPlus.PopScreens.Login"
+             BackgroundColor="{DynamicResource BackColor}"
              Title="Login">
     <ContentPage.BindingContext>
         <lc:LoginViewModel/>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PythoPlus.PopScreens.SettingsUsr"
+             BackgroundColor="{DynamicResource BackColor}"
+             Title="SettingsUsr">
+
+    <ContentPage.Resources>
+        <!-- <Setter Property="" Value="" /> -->
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}" />
+            <Setter Property="Stroke" Value="{DynamicResource ThemeSupColor}" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 5" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="StrokeThickness" Value="2" />
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Frame  />
+            <Border >
+                <VerticalStackLayout>
+                    <Label Text="Колір теми (допоміжні елементи, компоненти керування, тощо)" />
+                    <Picker ItemsSource="{Binding TitleColors}" 
+                ItemDisplayBinding="{Binding .}"
+                SelectedItem="{Binding ThemeColorTitled, Mode=TwoWay}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="Колір заднього фону" />
+                    <Picker ItemsSource="{Binding TitleColors}" 
+                ItemDisplayBinding="{Binding .}"
+                SelectedItem="{Binding BackColorTitled, Mode=TwoWay}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="Колір кнопок" />
+                    <Picker ItemsSource="{Binding TitleColors}" 
+                ItemDisplayBinding="{Binding .}"
+                SelectedItem="{Binding ButtonColorTitled, Mode=TwoWay}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="Колір тексту кнопок" />
+                    <Picker ItemsSource="{Binding TitleColors}" 
+                ItemDisplayBinding="{Binding .}"
+                SelectedItem="{Binding ButtonTextColorTitled, Mode=TwoWay}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="Колір тексту" />
+                    <Picker ItemsSource="{Binding TitleColors}" 
+                ItemDisplayBinding="{Binding .}"
+                SelectedItem="{Binding TextColorTitled, Mode=TwoWay}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="Розмір шрифту у додатку" />
+                    <Slider Minimum="10" Maximum="30" Value="{Binding FontSize, Mode=TwoWay}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="{Binding FontSize}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="Типи шрифту" />
+                    <Entry Text="{Binding FontFamily, Mode=TwoWay}" Placeholder="Уведіть шрифт..." />
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="Зберегти налаштування" Command="{Binding SaveCommand}" />
+            <Button Text="Скинути налаштування" Command="{Binding RestoreCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
