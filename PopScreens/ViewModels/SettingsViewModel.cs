@@ -6,7 +6,6 @@ using System.Linq;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Graphics.Text;
-using Microsoft.UI.Xaml.Media;
 
 namespace PythoPlus.PopScreens
 {

@@ -13,9 +13,26 @@
         </StackLayout>
     </Shell.FlyoutHeader>
     <ShellContent
-        Title="Home"
+        Title="Домашня сторінка"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+    <FlyoutItem Title="Матеріали" Icon="materials.png" FlyoutDisplayOptions="AsSingleItem">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate popscr:MatCatalog}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Досягнення" Icon="achievements.png" FlyoutDisplayOptions="AsSingleItem">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate popscr:Achievments}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Статистика" Icon="statistics.png" FlyoutDisplayOptions="AsSingleItem">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate popscr:StatisticsUsr}" />
+        </Tab>
+    </FlyoutItem>
     <FlyoutItem Title="Налаштування" Icon="settings.png" FlyoutDisplayOptions="AsSingleItem">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate popscr:SettingsUsr}" />
