@@ -83,7 +83,7 @@
                 <VerticalStackLayout>
                     <Label Text="Розмір шрифту у додатку" />
                     <Slider Minimum="10" Maximum="30" Value="{Binding FontSize, Mode=TwoWay}" />
-                    <Frame/>
+                    <Frame BackgroundColor="{DynamicResource BackColor}" />
                     <Label Text="{Binding FontSize}" />
                 </VerticalStackLayout>
             </Border>

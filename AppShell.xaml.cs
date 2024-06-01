@@ -12,6 +12,7 @@
         {
             Routing.RegisterRoute(nameof(PopScreens.Login), typeof(PopScreens.Login));
             Routing.RegisterRoute(nameof(PopScreens.Registration), typeof(PopScreens.Registration));
+            Routing.RegisterRoute(nameof(PopScreens.SettingsUsr), typeof(PopScreens.SettingsUsr));
         }
     }
 }
