@@ -5,6 +5,12 @@
         public AppShell()
         {
             InitializeComponent();
+            BindingContext = new AppShellViewModel();
+            RegisterRoutes();
+        }
+        private void RegisterRoutes()
+        {
+            Routing.RegisterRoute(nameof(PopScreens.Login), typeof(PopScreens.Login));
         }
     }
 }

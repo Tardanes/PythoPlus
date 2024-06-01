@@ -1,8 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundColor="{DynamicResource BackColor}"
-             x:Class="PythoPlus.MainPage">
+             xmlns:lc="clr-namespace:PythoPlus.PopScreens"
+             x:Class="PythoPlus.PopScreens.Login"
+             Title="Login">
+    <ContentPage.BindingContext>
+        <lc:LoginViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <!--<Setter Property="" Value="" />-->
         <Style TargetType="Label">
@@ -29,16 +33,17 @@
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         </Style>
     </ContentPage.Resources>
-    <ScrollView>
-        <VerticalStackLayout
-    Padding="30,0"
-    Spacing="25">
-            <Button
-        x:Name="CounterBtn"
-        Text="Click me" 
-        SemanticProperties.Hint="Counts the number of times you click"
-        HorizontalOptions="Fill" />
-        </VerticalStackLayout>
-    </ScrollView>
-
+    <VerticalStackLayout VerticalOptions="Center" Margin="20" Spacing="20">
+        <Entry x:Name="EmailEntry"
+           Placeholder="Email"
+           Keyboard="Email"
+           Text="{Binding Email, Mode=TwoWay}"/>
+        <Entry x:Name="PasswordEntry"
+           Placeholder="Password"
+           IsPassword="True"
+           Text="{Binding Password, Mode=TwoWay}"/>
+        <Button Text="Login"
+            Command="{Binding LoginCommand}"
+            IsEnabled="{Binding IsLoginEnabled}"/>
+    </VerticalStackLayout>
 </ContentPage>
