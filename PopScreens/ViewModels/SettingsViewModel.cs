@@ -55,13 +55,28 @@ namespace PythoPlus.PopScreens
             backColorTitled = AppSettings.BackColorTitled;
             buttonTextColorTitled = AppSettings.ButtonTextColorTitled;
             themeSupColor = AppSettings.ThemeSupColor;
+            // BETA
+            ColorWork colorWork = new ColorWork();
+            // BETA
+
 
             SaveCommand = new Command(SaveSettings);
             RestoreCommand = new Command(ResetSettings);
 
+            // Если всё поломается - вернуть код ниже:
+            //AvailableColors = new ObservableCollection<Color>
+            //{
+            //    Colors.Red, Colors.Green, Colors.Blue, Colors.Yellow, Colors.Black, Colors.White, Colors.Gray
+            //};
             AvailableColors = new ObservableCollection<Color>
             {
-                Colors.Red, Colors.Green, Colors.Blue, Colors.Yellow, Colors.Black, Colors.White, Colors.Gray
+                colorWork.AdjustSaturation("#FF0000", 0.5f), // Red
+                colorWork.AdjustSaturation("#00FF00", 1f), // Green
+                colorWork.AdjustSaturation("#0000FF", 0.5f), // Blue
+                colorWork.AdjustSaturation("#FFFF00", 0.5f), // Yellow
+                colorWork.AdjustSaturation("#000000", 0.5f), // Black
+                colorWork.AdjustSaturation("#FFFFFF", 0.5f), // White
+                colorWork.AdjustSaturation("#808080", 0.5f)  // Gray
             };
             TitleColors = new ObservableCollection<string>
             {
