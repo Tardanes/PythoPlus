@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PythoPlus.PopScreens.Registration"
+             Title="Registration">
+    <VerticalStackLayout VerticalOptions="Center" Margin="100" Spacing="20">
+        <Entry x:Name="EmailEntry"
+           Placeholder="Email"
+           Keyboard="Email"
+           Text="{Binding Email, Mode=TwoWay}"/>
+        <Entry x:Name="PasswordEntry"
+           Placeholder="Password"
+           IsPassword="True"
+           Text="{Binding Password, Mode=TwoWay}"/>
+        <Entry x:Name="ConfirmPasswordEntry"
+           Placeholder="Confirm Password"
+           IsPassword="True"
+           Text="{Binding ConfirmPassword, Mode=TwoWay}"/>
+        <Button Text="Register"
+            Command="{Binding RegisterCommand}"
+            IsEnabled="{Binding IsRegisterEnabled}"/>
+    </VerticalStackLayout>
+</ContentPage>
