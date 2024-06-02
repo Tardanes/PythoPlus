@@ -19,17 +19,19 @@ namespace PythoPlus
             _fileName = fileName;
             _structure = structure;
         }
+
         public XmlFileService()
         {
             throw new Exception();
         }
-        public List<XmlFields> ReadXml()
+
+        public async Task<List<XmlFields>> ReadXmlAsync()
         {
             List<XmlFields> result = new List<XmlFields>();
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = $"PythoPlus.{_folderName}.{_fileName}";
+            var resourceName = $"{_folderName}/{_fileName}";
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (var stream = await FileSystem.OpenAppPackageFileAsync(resourceName))
             {
                 if (stream == null)
                 {

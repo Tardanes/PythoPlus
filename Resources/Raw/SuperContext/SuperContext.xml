@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SuperContext>
   <MaterialFirstNaming>PythonMaterial</MaterialFirstNaming>
-  <MaterialContextNaming>Context</MaterialContextNaming>
-  <MaterialContentNaming>FullContent</MaterialContentNaming>
+  <MaterialContextNaming>Context.xml</MaterialContextNaming>
+  <MaterialContentNaming>FullContent.xml</MaterialContentNaming>
   <MaterialCount>3</MaterialCount>
 </SuperContext>

@@ -5,7 +5,7 @@
              x:Class="PythoPlus.PopScreens.MatCatalog"
              Title="MatCatalog">
     <ContentPage.BindingContext>
-        <local:MatCatalogViewModel></local:MatCatalogViewModel>
+        <local:MatCatalogViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <Style TargetType="Label">

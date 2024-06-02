@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using PythoPlus;
 using Microsoft.Maui.Controls;
@@ -28,13 +29,30 @@ namespace PythoPlus.PopScreens
         public MatCatalogViewModel()
         {
             Materials = new ObservableCollection<Material>();
+            LoadMaterialsAsync();
             ItemTappedCommand = new Command<Material>(OnItemTapped);
-            LoadMaterials();
         }
 
-        private void LoadMaterials()
+        private async void LoadMaterialsAsync()
         {
-            for (int i = 1; i <= 3; i++)
+            var superStructure = new List<XmlFields>
+            {
+                new XmlFields("MaterialFirstNaming", string.Empty),
+                new XmlFields("MaterialContextNaming", string.Empty),
+                new XmlFields("MaterialContentNaming", string.Empty),
+                new XmlFields("MaterialCount", string.Empty),
+            };
+            var superService = new XmlFileService(superStructure);
+
+            var superInfo = await superService.ReadXmlAsync();
+
+            string matFsn = superInfo.FirstOrDefault(f => f.Name == "MaterialFirstNaming")?.Value;
+            string matCxn = superInfo.FirstOrDefault(f => f.Name == "MaterialContextNaming")?.Value;
+            string matCntForm = superInfo.FirstOrDefault(f => f.Name == "MaterialCount")?.Value;
+
+            int matCnt = int.Parse(matCntForm);
+
+            for (int i = 1; i <= matCnt; i++)
             {
                 var structure = new List<XmlFields>
                 {
@@ -42,8 +60,8 @@ namespace PythoPlus.PopScreens
                     new XmlFields("MaterialName", string.Empty),
                     new XmlFields("MaterialDescription", string.Empty)
                 };
-                var service = new XmlFileService(structure, $"PythonMaterial{i}", "Context.xml");
-                var fields = service.ReadXml();
+                var service = new XmlFileService(structure, $"{matFsn}{i}", $"{matCxn}");
+                var fields = await service.ReadXmlAsync();
 
                 string materialName = fields.FirstOrDefault(f => f.Name == "MaterialName")?.Value;
                 string materialDescription = fields.FirstOrDefault(f => f.Name == "MaterialDescription")?.Value;
@@ -55,6 +73,8 @@ namespace PythoPlus.PopScreens
                     MaterialDescription = materialDescription
                 });
             }
+            OnPropertyChanged();
+            return;
         }
 
         private void OnItemTapped(Material material)
