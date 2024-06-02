@@ -9,6 +9,9 @@ namespace PythoPlus.PopScreens
 {
     public partial class MatCatalog : ContentPage
     {
+        // VERY IMPORTANT INFO
+        List<XmlFields> fieldsTask;
+
         public MatCatalog()
         {
             InitializeComponent();
@@ -28,6 +31,8 @@ namespace PythoPlus.PopScreens
 
             var superInfo = await superService.ReadXmlAsync();
 
+            fieldsTask = superInfo;
+
             string matFsn = superInfo.FirstOrDefault(f => f.Name == "MaterialFirstNaming")?.Value;
             string matCxn = superInfo.FirstOrDefault(f => f.Name == "MaterialContextNaming")?.Value;
             string matCntForm = superInfo.FirstOrDefault(f => f.Name == "MaterialCount")?.Value;
@@ -40,6 +45,7 @@ namespace PythoPlus.PopScreens
                 {
                     new XmlFields("MaterialNumber", string.Empty),
                     new XmlFields("MaterialName", string.Empty),
+                    new XmlFields("MaterialType", string.Empty),
                     new XmlFields("MaterialDescription", string.Empty)
                 };
                 var service = new XmlFileService(structure, $"{matFsn}{i}", $"{matCxn}");
@@ -47,6 +53,7 @@ namespace PythoPlus.PopScreens
 
                 string materialName = fields.FirstOrDefault(f => f.Name == "MaterialName")?.Value;
                 string materialDescription = fields.FirstOrDefault(f => f.Name == "MaterialDescription")?.Value;
+                string materialType = fields.FirstOrDefault(f => f.Name == "MaterialType")?.Value;
 
                 var material = new Material
                 {
@@ -55,17 +62,25 @@ namespace PythoPlus.PopScreens
                     MaterialDescription = materialDescription
                 };
 
-                AddMaterialToLayout(material);
+                AddMaterialToLayout(material, materialType);
             }
         }
 
-        private void AddMaterialToLayout(Material material)
+        private void AddMaterialToLayout(Material material, string isTest)
         {
             var materialLayout = new VerticalStackLayout();
 
+            string BorderColor = "ThemeColor";
+
+            switch (isTest)
+            {
+                case "practice": BorderColor = "ButtonColor"; break;
+                default: break;
+            }
+
             var border = new Border
             {
-                BackgroundColor = (Color)Application.Current.Resources["ThemeColor"],
+                BackgroundColor = ((isTest == "summary") ? Colors.OrangeRed : (Color)Application.Current.Resources[BorderColor] ),
                 Stroke = (Color)Application.Current.Resources["ThemeSupColor"],
                 StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(5) },
                 Padding = 5,
@@ -135,8 +150,11 @@ namespace PythoPlus.PopScreens
 
         private void OnItemTapped(Material material)
         {
+            string matFsn = fieldsTask.FirstOrDefault(f => f.Name == "MaterialFirstNaming")?.Value;
+            string matCtn = fieldsTask.FirstOrDefault(f => f.Name == "MaterialContentNaming")?.Value;
             // Условный обработчик нажатия, например, навигация к детальной информации о материале
             Console.WriteLine($"Tapped on material number: {material.MaterialNumber}");
+            Navigation.PushAsync(new MatView($"{matFsn}{material.MaterialNumber}/{matCtn}"));
         }
     }
 }

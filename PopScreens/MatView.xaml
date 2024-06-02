@@ -2,11 +2,36 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PythoPlus.PopScreens.MatView"
+             BackgroundColor="{DynamicResource BackColor}"
              Title="MatView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}" />
+            <Setter Property="Stroke" Value="{DynamicResource ThemeSupColor}" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 5" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="StrokeThickness" Value="2" />
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout x:Name="mainLayout">
+            <!-- Элементы будут добавлены динамически -->
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

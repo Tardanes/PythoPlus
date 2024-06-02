@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PythoPlus.PopScreens.MatCatalog"
+             BackgroundColor="{DynamicResource BackColor}"
              Title="MatCatalog">
     <ContentPage.Resources>
         <Style TargetType="Label">
@@ -29,7 +30,7 @@
         </Style>
     </ContentPage.Resources>
     <ScrollView x:Name="scrollView">
-        <VerticalStackLayout x:Name="mainLayout">
+        <VerticalStackLayout x:Name="mainLayout" Margin="20" Spacing="20">
             <!-- Элементы будут добавлены динамически -->
         </VerticalStackLayout>
     </ScrollView>
