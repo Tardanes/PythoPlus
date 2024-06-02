@@ -11,6 +11,10 @@ using Microsoft.Maui.Controls;
 
 namespace PythoPlus.PopScreens
 {
+    //
+    //                  УСТАРЕВШАЯ ВЕРСИЯ!
+    //              Более не используется никак, кроме как бекап.
+    //
     public class MatCatalogViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<Material> materials;

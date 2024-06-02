@@ -26,7 +26,6 @@ namespace PythoPlus
             Application.Current.Resources["TextColorTitled"] = AppSettings.TextColorTitled;
             Application.Current.Resources["ThemeSupColor"] = AppSettings.ThemeSupColor;
 
-            MatCatalogViewModel matViewModel = new MatCatalogViewModel();
 
         }
     }
