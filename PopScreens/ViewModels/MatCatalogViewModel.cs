@@ -29,8 +29,13 @@ namespace PythoPlus.PopScreens
         public MatCatalogViewModel()
         {
             Materials = new ObservableCollection<Material>();
-            LoadMaterialsAsync();
+            LoadMedium();
             ItemTappedCommand = new Command<Material>(OnItemTapped);
+        }
+
+        public void LoadMedium()
+        {
+            LoadMaterialsAsync();
         }
 
         private async void LoadMaterialsAsync()
@@ -90,10 +95,4 @@ namespace PythoPlus.PopScreens
         }
     }
 
-    public class Material
-    {
-        public int MaterialNumber { get; set; }
-        public string MaterialName { get; set; }
-        public string MaterialDescription { get; set; }
-    }
 }

@@ -1,4 +1,6 @@
-﻿namespace PythoPlus
+﻿using PythoPlus.PopScreens;
+
+namespace PythoPlus
 {
     public partial class App : Application
     {
@@ -23,6 +25,8 @@
             Application.Current.Resources["ButtonColorTitled"] = AppSettings.ButtonColorTitled;
             Application.Current.Resources["TextColorTitled"] = AppSettings.TextColorTitled;
             Application.Current.Resources["ThemeSupColor"] = AppSettings.ThemeSupColor;
+
+            MatCatalogViewModel matViewModel = new MatCatalogViewModel();
 
         }
     }
