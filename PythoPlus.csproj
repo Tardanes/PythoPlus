@@ -59,6 +59,10 @@
 	<ItemGroup>
 	  <None Remove="Resources\Raw\PythonMaterial1\Context.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial1\FullContent.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial2\Context.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial2\FullContent.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial3\Context.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial3\FullContent.xml" />
 	  <None Remove="Resources\Raw\SuperContext\SuperContext.xml" />
 	</ItemGroup>
 
@@ -93,6 +97,18 @@
 	  <MauiXaml Update="PopScreens\StatisticsUsr.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial2\FullContent.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial3\Context.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial3\FullContent.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
 	</ItemGroup>
 
 </Project>

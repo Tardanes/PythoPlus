@@ -1,12 +1,62 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PythoPlus.PopScreens"
              x:Class="PythoPlus.PopScreens.MatCatalog"
              Title="MatCatalog">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <local:MatCatalogViewModel></local:MatCatalogViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <!-- <Setter Property="" Value="" /> -->
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}" />
+            <Setter Property="Stroke" Value="{DynamicResource ThemeSupColor}" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 5" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="StrokeThickness" Value="2" />
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout>
+            <!-- МЕСТО ПОД СПИСОК -->
+
+            <!-- ПРИМЕР ЭЛЕМЕНТА -->
+            <Border>
+                <VerticalStackLayout>
+                    <HorizontalStackLayout>
+                        <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                            <Label TextColor="{DynamicResource BackColor}">
+                                НАЗВАНИЕ МАТЕРИАЛА ДОЛЖНО БЫТЬ ТУТ
+                            </Label>
+                            <Label>
+                                ОПИСАНИЕ МАТЕРИАЛА ДОЛЖНО БЫТЬ ТУТ
+                            </Label>
+                        </VerticalStackLayout>
+                        <!-- Процент освоения материала, пока неактивен -->
+                        <Label HorizontalOptions="End" FlowDirection="RightToLeft">--%</Label>
+                    </HorizontalStackLayout>
+                    <Line BackgroundColor="{DynamicResource ThemeSupColor}" StrokeThickness="2" />
+                    <!-- Прогресс освоения материала, пока тоже неактивен -->
+                    <ProgressBar />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

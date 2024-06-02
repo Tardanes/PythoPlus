@@ -38,7 +38,6 @@
     </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
-            <Frame  />
             <Border >
                 <VerticalStackLayout>
                     <Label Text="Колір теми (допоміжні елементи, компоненти керування, тощо)" />
@@ -83,7 +82,7 @@
                 <VerticalStackLayout>
                     <Label Text="Розмір шрифту у додатку" />
                     <Slider Minimum="10" Maximum="30" Value="{Binding FontSize, Mode=TwoWay}" />
-                    <Frame BackgroundColor="{DynamicResource BackColor}" />
+                    <Line BackgroundColor="{DynamicResource BackColor}" StrokeThickness="2" />
                     <Label Text="{Binding FontSize}" />
                 </VerticalStackLayout>
             </Border>

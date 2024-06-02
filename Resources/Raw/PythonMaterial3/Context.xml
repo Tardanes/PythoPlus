@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>3</MaterialNumber>
+  <MaterialType>theory</MaterialType>
+  <MaterialName>3-rd abstract Material</MaterialName>
+  <MaterialDescription>This is description for mat 3. Okey.</MaterialDescription>
+  <ParagraphCount>3</ParagraphCount>
+</Context>
