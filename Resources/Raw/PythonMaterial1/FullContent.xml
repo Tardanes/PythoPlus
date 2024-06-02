@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <Paragraph ID="0">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+
+    </Content>
+  </Paragraph>
+  <Paragraph ID="1">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+
+    </Content>
+  </Paragraph>
+  <Paragraph ID="2">
+    <ParagraphType>Test</ParagraphType>
+    <Content>
+
+    </Content>
+  </Paragraph>
+</FullContent>
