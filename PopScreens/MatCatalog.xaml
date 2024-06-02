@@ -8,7 +8,6 @@
         <local:MatCatalogViewModel></local:MatCatalogViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Resources>
-        <!-- <Setter Property="" Value="" /> -->
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
             <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
@@ -35,28 +34,31 @@
     </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout>
-            <!-- МЕСТО ПОД СПИСОК -->
-
-            <!-- ПРИМЕР ЭЛЕМЕНТА -->
-            <Border>
-                <VerticalStackLayout>
-                    <HorizontalStackLayout>
-                        <VerticalStackLayout HorizontalOptions="FillAndExpand">
-                            <Label TextColor="{DynamicResource BackColor}">
-                                НАЗВАНИЕ МАТЕРИАЛА ДОЛЖНО БЫТЬ ТУТ
-                            </Label>
-                            <Label>
-                                ОПИСАНИЕ МАТЕРИАЛА ДОЛЖНО БЫТЬ ТУТ
-                            </Label>
+            <CollectionView ItemsSource="{Binding Materials}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Border>
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                                            <Label Text="{Binding MaterialName}" TextColor="{DynamicResource BackColor}" />
+                                            <Label Text="{Binding MaterialDescription}" />
+                                        </VerticalStackLayout>
+                                        <Label HorizontalOptions="End" FlowDirection="RightToLeft">--%</Label>
+                                    </HorizontalStackLayout>
+                                    <Line BackgroundColor="{DynamicResource ThemeSupColor}" StrokeThickness="2" />
+                                    <ProgressBar />
+                                </VerticalStackLayout>
+                            </Border>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.ItemTappedCommand, Source={RelativeSource AncestorType={x:Type local:MatCatalog}}}"
+                                                      CommandParameter="{Binding .}" />
+                            </VerticalStackLayout.GestureRecognizers>
                         </VerticalStackLayout>
-                        <!-- Процент освоения материала, пока неактивен -->
-                        <Label HorizontalOptions="End" FlowDirection="RightToLeft">--%</Label>
-                    </HorizontalStackLayout>
-                    <Line BackgroundColor="{DynamicResource ThemeSupColor}" StrokeThickness="2" />
-                    <!-- Прогресс освоения материала, пока тоже неактивен -->
-                    <ProgressBar />
-                </VerticalStackLayout>
-            </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

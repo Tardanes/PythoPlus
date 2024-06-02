@@ -27,7 +27,7 @@ namespace PythoPlus
         {
             List<XmlFields> result = new List<XmlFields>();
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = $"PythoPlus.Resources.Raw.{_folderName}.{_fileName}";
+            var resourceName = $"PythoPlus.{_folderName}.{_fileName}";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
