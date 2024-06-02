@@ -6,6 +6,7 @@ using System.Linq;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Graphics.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace PythoPlus.PopScreens
 {
@@ -34,6 +35,7 @@ namespace PythoPlus.PopScreens
         public string buttonTextColorTitled = AppSettings.ButtonTextColorTitled;
         // ------------ MASSIVES -----------
         public ObservableCollection<Color> AvailableColors { get; }
+        public ObservableCollection<string> AvailableFonts { get; set; }
         public ObservableCollection<String> TitleColors { get; }
         Dictionary<string, Color> colorTitleMap;
         // ------------ COMMANDS ------------
@@ -94,6 +96,18 @@ namespace PythoPlus.PopScreens
             {
                 colorTitleMap.Add(TitleColors[i], AvailableColors[i]);
             }
+
+            // Загрузка зарегистрированных шрифтов
+            //var mauiApp = Application.Current as MauiApp;
+            //var fontService = mauiApp?.Services.GetService<IFontService>();
+            //if (fontService != null)
+            //{
+            //    AvailableFonts = new ObservableCollection<string>(fontService.GetRegisteredFonts());
+            //}
+            //else
+            //{
+            //    AvailableFonts = new ObservableCollection<string>();
+            //}
         }
         private void SaveSettings()
         {

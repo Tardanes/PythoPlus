@@ -26,7 +26,15 @@ namespace PythoPlus
             Application.Current.Resources["TextColorTitled"] = AppSettings.TextColorTitled;
             Application.Current.Resources["ThemeSupColor"] = AppSettings.ThemeSupColor;
 
-
         }
+
+        //public static T GetService<T>() where T : class
+        //{
+        //    public static T GetService<T>() where T : class
+        //    {
+        //        return Current.Services.GetService(typeof(T)) as T;
+        //    }
+        //}
+
     }
 }

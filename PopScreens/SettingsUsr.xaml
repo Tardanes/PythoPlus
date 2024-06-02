@@ -88,7 +88,6 @@
             </Border>
             <Border>
                 <VerticalStackLayout>
-                    <!-- Поменять энтри на пикер -->
                     <Label Text="Типи шрифту" />
                     <Entry Text="{Binding FontFamily, Mode=TwoWay}" Placeholder="Уведіть шрифт..." />
                 </VerticalStackLayout>
