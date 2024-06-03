@@ -1,0 +1,3 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConnectionString>
+  mongodb+srv://superAccess:a1tpTEPw9yj2AahZ@pythopluseduclaster.uzcy1a7.mongodb.net/?retryWrites=true&w=majority&appName=PythoPlusEduClaster </ConnectionString>

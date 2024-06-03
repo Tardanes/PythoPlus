@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using System.Reflection;
 
 namespace PythoPlus
 {
@@ -22,6 +24,13 @@ namespace PythoPlus
                 });
 
             builder.Services.AddSingleton<IFontService, FontService>();
+
+
+            var a = Assembly.GetExecutingAssembly();
+            using var stream = a.GetManifestResourceStream("PythoPlus.appConnSettings.json");
+
+
+            builder.Services.AddSingleton<MongoDbService>();
 
 #if DEBUG
             builder.Logging.AddDebug();
