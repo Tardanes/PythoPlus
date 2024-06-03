@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PythoPlus.PopScreens.MatView"
              BackgroundColor="{DynamicResource BackColor}"
-             Title="MatView">
+             Title="Перегляд матеріалу:">
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
@@ -29,6 +29,11 @@
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         </Style>
         <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="RadioButton">
             <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
             <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />

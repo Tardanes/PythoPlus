@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:PythoPlus.PopScreens"
              x:Class="PythoPlus.PopScreens.SettingsUsr"
              BackgroundColor="{DynamicResource BackColor}"
-             Title="SettingsUsr">
+             Title="Налаштування користувача">
     <ContentPage.BindingContext>
         <local:SettingsViewModel>
             

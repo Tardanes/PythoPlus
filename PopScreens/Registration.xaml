@@ -4,6 +4,37 @@
              x:Class="PythoPlus.PopScreens.Registration"
              BackgroundColor="{DynamicResource BackColor}"
              Title="Registration">
+    <ContentPage.Resources>
+        <!-- <Setter Property="" Value="" /> -->
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}" />
+            <Setter Property="Stroke" Value="{DynamicResource ThemeSupColor}" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 5" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="StrokeThickness" Value="2" />
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+    </ContentPage.Resources>
     <VerticalStackLayout VerticalOptions="Center" Margin="100" Spacing="20">
         <Entry x:Name="EmailEntry"
            Placeholder="Email"

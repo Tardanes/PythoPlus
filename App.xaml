@@ -5,6 +5,10 @@
              x:Class="PythoPlus.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource BackColor}" />
+                <Setter Property="BarTextColor" Value="{DynamicResource TextColor}" />
+            </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

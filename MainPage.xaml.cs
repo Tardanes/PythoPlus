@@ -4,13 +4,12 @@ namespace PythoPlus
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
 
             Navigation.PushModalAsync(new Login());
+
         }
 
         public void OnUserLoggedIn()

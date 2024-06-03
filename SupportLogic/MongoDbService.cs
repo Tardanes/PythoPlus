@@ -11,7 +11,7 @@ namespace PythoPlus
         private readonly IMongoClient _client;
         private readonly IMongoDatabase _database;
 
-        public MongoDbService(IConfiguration configuration)
+        public MongoDbService()
         {
             var connectionString = "mongodb://superAccess:a1tpTEPw9yj2AahZ@ac-m3dwvk5-shard-00-00.uzcy1a7.mongodb.net:27017,ac-m3dwvk5-shard-00-01.uzcy1a7.mongodb.net:27017,ac-m3dwvk5-shard-00-02.uzcy1a7.mongodb.net:27017/?ssl=true&replicaSet=atlas-nwxpnh-shard-0&authSource=admin&retryWrites=true&w=majority&appName=PythoPlusEduClaster";
             var databaseName = "PythoPlus";

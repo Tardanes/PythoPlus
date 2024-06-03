@@ -6,7 +6,14 @@
     xmlns:local="clr-namespace:PythoPlus"
     xmlns:popscr="clr-namespace:PythoPlus.PopScreens"
     Shell.FlyoutBehavior="Flyout"
-    Title="PythoPlus">
+    Title="PythoPlus"
+    Shell.BackgroundColor="{DynamicResource BackColor}"
+    Shell.TitleColor="{DynamicResource ButtonColor}"
+    Shell.NavBarHasShadow="False"
+    Shell.TabBarBackgroundColor="{DynamicResource BackColor}"
+    Shell.TabBarTitleColor="{DynamicResource TextColor}"
+    >
+    
     <Shell.FlyoutHeader>
         <StackLayout>
             <Label Text="Pytho Plus" FontSize="24" HorizontalOptions="Center" />

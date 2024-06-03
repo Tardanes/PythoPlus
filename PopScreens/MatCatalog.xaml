@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PythoPlus.PopScreens.MatCatalog"
              BackgroundColor="{DynamicResource BackColor}"
-             Title="MatCatalog">
+             Title="Каталог матеріалів">
     <ContentPage.Resources>
+        <!-- <Setter Property="" Value="" /> -->
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
             <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
@@ -24,6 +25,11 @@
             <Setter Property="StrokeThickness" Value="2" />
         </Style>
         <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Entry">
             <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
             <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
