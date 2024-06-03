@@ -61,10 +61,14 @@ namespace PythoPlus.PopScreens
 
         private async Task OnLogin()
         {
+
+            // принудительное решение от падений приложения
             try
             {
                 _mongoDbService = new MongoDbService();
-
+#if ANDROID
+                await Task.Delay(20000);
+#endif
                 // Проверка, что подключение установлено
                 var accountsCollection = _mongoDbService.GetCollection("accounts");
                 if (accountsCollection == null)
@@ -78,7 +82,6 @@ namespace PythoPlus.PopScreens
 
                 // Логирование фильтра для отладки
                 Console.WriteLine($"Ищем учетную запись с фильтром: {filter.ToJson()}");
-
                 var account = await accountsCollection.Find(filter).FirstOrDefaultAsync();
 
                 bool loginSuccessful = account != null;
@@ -116,5 +119,6 @@ namespace PythoPlus.PopScreens
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }

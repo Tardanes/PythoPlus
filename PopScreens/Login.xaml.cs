@@ -26,4 +26,14 @@ public partial class Login : ContentPage
             }
         }
     }
+
+
+    private void OnRegLabelTapped(object sender, EventArgs e)
+    {
+        Navigation.PushModalAsync(new Registration());
+    }
+    private void OnForLabelTapped(object sender, EventArgs e)
+    {
+        Navigation.PushModalAsync(new PassRestore());
+    }
 }

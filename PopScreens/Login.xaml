@@ -52,5 +52,15 @@
         <Button Text="Увійти"
             Command="{Binding LoginCommand}"
             IsEnabled="{Binding IsLoginEnabled}"/>
+        <Label Text="Все ще не маєш акаунту? Зареєструйся зараз" TextColor="{DynamicResource ButtonColor}" TextDecorations="Underline">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnRegLabelTapped" />
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="Забули пароль?" TextColor="{DynamicResource ButtonColor}" TextDecorations="Underline">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnForLabelTapped" />
+            </Label.GestureRecognizers>
+        </Label>
     </VerticalStackLayout>
 </ContentPage>

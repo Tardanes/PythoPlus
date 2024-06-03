@@ -2,8 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PythoPlus.PopScreens.Registration"
+             xmlns:local="clr-namespace:PythoPlus.PopScreens"
+             Shell.PresentationMode="Modal"
              BackgroundColor="{DynamicResource BackColor}"
              Title="Registration">
+    <ContentPage.BindingContext>
+        <local:RegistrationViewModel></local:RegistrationViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <!-- <Setter Property="" Value="" /> -->
         <Style TargetType="Label">
@@ -48,7 +53,7 @@
            Placeholder="Підтвердження паролю..."
            IsPassword="True"
            Text="{Binding ConfirmPassword, Mode=TwoWay}"/>
-        <Label>Увага! При втраті паролю його можна відновити виключно через електронну скриню облікового запису! Змінити електронну скриню НЕМОЖЛИВО після створення запису!</Label>
+        <Label>Увага! При втраті паролю його можна відновити виключно електронною скринею облікового запису! Змінити електронну скриню НЕМОЖЛИВО після створення запису!</Label>
         <Button Text="Зареєструватися"
             Command="{Binding RegisterCommand}"
             IsEnabled="{Binding IsRegisterEnabled}"/>

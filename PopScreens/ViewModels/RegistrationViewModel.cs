@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,6 +11,8 @@ namespace PythoPlus.PopScreens
 {
     public class RegistrationViewModel : INotifyPropertyChanged
     {
+        private MongoDbService _mongoDbService;
+
         private string email;
         private string password;
         private string confirmPassword;
@@ -36,8 +37,8 @@ namespace PythoPlus.PopScreens
             set
             {
                 password = value;
-                OnPropertyChanged();
                 ValidateRegistration();
+                OnPropertyChanged();
             }
         }
 
@@ -47,8 +48,8 @@ namespace PythoPlus.PopScreens
             set
             {
                 confirmPassword = value;
-                OnPropertyChanged();
                 ValidateRegistration();
+                OnPropertyChanged();
             }
         }
 
@@ -66,12 +67,52 @@ namespace PythoPlus.PopScreens
 
         public RegistrationViewModel()
         {
-            RegisterCommand = new Command(OnRegister);
+            RegisterCommand = new Command(async () => await OnRegister());
         }
 
-        private void OnRegister()
+        private async Task OnRegister()
         {
-            // Логика выполнения регистрации
+            try
+            {
+                _mongoDbService = new MongoDbService();
+#if ANDROID
+                await Task.Delay(20000);
+#endif
+                var accountsCollection = _mongoDbService.GetCollection("accounts");
+
+                var filter = Builders<BsonDocument>.Filter.Eq("email", Email);
+                var existingAccount = await accountsCollection.Find(filter).FirstOrDefaultAsync();
+
+                if (existingAccount != null)
+                {
+                    // Учетная запись с таким email уже существует
+                    await Application.Current.MainPage.DisplayAlert("Помилка", "Користувач з такою поштою вже існує.", "OK");
+                    return;
+                }
+
+                // Создание нового документа пользователя
+                var newAccount = new BsonDocument
+                {
+                    { "email", Email },
+                    { "pass", Password }
+                };
+
+                // Вставка нового документа в коллекцию
+                await accountsCollection.InsertOneAsync(newAccount);
+
+                // Уведомление пользователя об успешной регистрации
+                await Application.Current.MainPage.DisplayAlert("Вдала реєстрація", "Тепер використайте ваші дані для входу!", "OK");
+
+                // Перенаправление на страницу входа или другую страницу
+                // Например, можно использовать Shell для навигации
+                await Shell.Current.GoToAsync("Login");
+            }
+            catch (Exception ex)
+            {
+                // Логирование ошибки и показ сообщения пользователю
+                Console.WriteLine($"Ошибка при выполнении регистрации: {ex.Message}");
+                await Application.Current.MainPage.DisplayAlert("Помилка під'єднання", "Стався збій програми. Перевірте з'єднання та спробуйте пізніше", "OK");
+            }
         }
 
         private void ValidateRegistration()
