@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -75,9 +76,11 @@ namespace PythoPlus.PopScreens
 
         private void ValidateRegistration()
         {
-            IsRegisterEnabled = !string.IsNullOrEmpty(Email) &&
-                                !string.IsNullOrEmpty(Password) &&
-                                Password == ConfirmPassword;
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            bool isEmailValid = !string.IsNullOrEmpty(Email) && Regex.IsMatch(Email, emailPattern);
+            bool isPasswordValid = !string.IsNullOrEmpty(Password) && Password.Length >= 8;
+
+            IsRegisterEnabled = isEmailValid && isPasswordValid && Password == ConfirmPassword;
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)

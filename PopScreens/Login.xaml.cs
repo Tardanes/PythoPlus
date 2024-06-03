@@ -26,14 +26,4 @@ public partial class Login : ContentPage
             }
         }
     }
-
-    private void OnEmailTextChanged(object sender, TextChangedEventArgs e)
-    {
-        // Можно добавить дополнительную логику проверки email
-    }
-
-    private void OnPasswordTextChanged(object sender, TextChangedEventArgs e)
-    {
-        // Можно добавить дополнительную логику проверки пароля
-    }
 }

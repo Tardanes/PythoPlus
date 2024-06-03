@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:lc="clr-namespace:PythoPlus.PopScreens"
              x:Class="PythoPlus.PopScreens.Login"
+             Shell.PresentationMode="Modal"
              BackgroundColor="{DynamicResource BackColor}"
              Title="Login">
     <ContentPage.BindingContext>
@@ -39,16 +40,16 @@
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         </Style>
     </ContentPage.Resources>
-    <VerticalStackLayout VerticalOptions="Center" Margin="20" Spacing="20">
+    <VerticalStackLayout VerticalOptions="Center" Margin="20" Spacing="20" MaximumWidthRequest="600">
         <Entry x:Name="EmailEntry"
-           Placeholder="Email"
+           Placeholder="Електронна скриня..."
            Keyboard="Email"
            Text="{Binding Email, Mode=TwoWay}"/>
         <Entry x:Name="PasswordEntry"
-           Placeholder="Password"
+           Placeholder="Пароль..."
            IsPassword="True"
            Text="{Binding Password, Mode=TwoWay}"/>
-        <Button Text="Login"
+        <Button Text="Увійти"
             Command="{Binding LoginCommand}"
             IsEnabled="{Binding IsLoginEnabled}"/>
     </VerticalStackLayout>
