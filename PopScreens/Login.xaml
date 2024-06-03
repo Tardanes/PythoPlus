@@ -33,6 +33,11 @@
             <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         </Style>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
     </ContentPage.Resources>
     <VerticalStackLayout VerticalOptions="Center" Margin="20" Spacing="20">
         <Entry x:Name="EmailEntry"

@@ -15,6 +15,7 @@
     <ShellContent
         Title="Домашня сторінка"
         ContentTemplate="{DataTemplate local:MainPage}"
+        Icon="home.png"
         Route="MainPage" />
     <FlyoutItem Title="Матеріали" Icon="materials.png" FlyoutDisplayOptions="AsSingleItem">
         <Tab>
@@ -33,10 +34,12 @@
             <ShellContent ContentTemplate="{DataTemplate popscr:StatisticsUsr}" />
         </Tab>
     </FlyoutItem>
+    
     <FlyoutItem Title="Налаштування" Icon="settings.png" FlyoutDisplayOptions="AsSingleItem">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate popscr:SettingsUsr}" />
         </Tab>
     </FlyoutItem>
     <MenuItem Text="Вийти з акаунту" IconImageSource="logout.png" Command="{Binding LogoutCommand}" />
+    
 </Shell>

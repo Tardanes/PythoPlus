@@ -63,6 +63,13 @@
 	  <None Remove="Resources\Fonts\Molot.otf" />
 	  <None Remove="Resources\Fonts\timesnewromanpsmt.ttf" />
 	  <None Remove="Resources\Fonts\timesnewromanps_italicmt.ttf" />
+	  <None Remove="Resources\Images\achievements.png" />
+	  <None Remove="Resources\Images\help.png" />
+	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\logout.png" />
+	  <None Remove="Resources\Images\materials.png" />
+	  <None Remove="Resources\Images\settings.png" />
+	  <None Remove="Resources\Images\statistics.png" />
 	  <None Remove="Resources\Raw\PythonMaterial1\Context.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial1\FullContent.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial2\Context.xml" />

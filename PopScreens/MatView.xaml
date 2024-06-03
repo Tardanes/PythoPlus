@@ -28,6 +28,11 @@
             <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         </Style>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
     </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout x:Name="mainLayout" Padding="20" Spacing="20">

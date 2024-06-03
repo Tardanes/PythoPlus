@@ -7,6 +7,8 @@ namespace PythoPlus.PopScreens
 {
     public partial class MatView : ContentPage
     {
+        public event Action<int> TestSolvedCorrectly;
+
         public MatView(string filePath)
         {
             InitializeComponent();
@@ -24,31 +26,31 @@ namespace PythoPlus.PopScreens
                 switch (paragraph.ParagraphType)
                 {
                     case "Text":
-                        AddTextParagraph(paragraph.Content, paragraph.IsBold);
+                        AddTextParagraph(paragraph.ID, paragraph.Content, paragraph.IsBold);
                         break;
                     case "Code":
-                        AddCodeParagraph(paragraph.Content);
+                        AddCodeParagraph(paragraph.ID, paragraph.Content);
                         break;
                     case "TestRadio":
-                        AddTestRadioParagraph(paragraph.TestAsk, paragraph.TestOptions, paragraph.CorrectAnswer);
+                        AddTestRadioParagraph(paragraph.ID, paragraph.TestAsk, paragraph.TestOptions, paragraph.CorrectAnswer);
                         break;
                     case "TestCheck":
-                        AddTestCheckParagraph(paragraph.TestAsk, paragraph.TestOptions, paragraph.CorrectAnswers);
+                        AddTestCheckParagraph(paragraph.ID, paragraph.TestAsk, paragraph.TestOptions, paragraph.CorrectAnswers);
                         break;
                     case "Image":
-                        AddImageParagraph(paragraph.Content);
+                        AddImageParagraph(paragraph.ID, paragraph.Content);
                         break;
                     case "Compliance":
-                        AddComplianceParagraph(paragraph.TestAsk, paragraph.CompliancePairs);
+                        AddComplianceParagraph(paragraph.ID, paragraph.TestAsk, paragraph.CompliancePairs);
                         break;
                     case "Entry":
-                        AddEntryParagraph(paragraph.TestAsk, paragraph.CorrectEntry);
+                        AddEntryParagraph(paragraph.ID, paragraph.TestAsk, paragraph.CorrectEntry);
                         break;
                 }
             }
         }
 
-        private void AddTextParagraph(string content, bool isBold)
+        private void AddTextParagraph(int id, string content, bool isBold)
         {
             var label = new Label
             {
@@ -61,7 +63,7 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(label);
         }
 
-        private void AddCodeParagraph(string content)
+        private void AddCodeParagraph(int id, string content)
         {
             var label = new Label
             {
@@ -82,7 +84,7 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(border);
         }
 
-        private void AddTestRadioParagraph(string ask, List<TestRadioOption> options, int correctAnswer)
+        private void AddTestRadioParagraph(int id, string ask, List<TestRadioOption> options, int correctAnswer)
         {
             var askLabel = new Label
             {
@@ -117,6 +119,7 @@ namespace PythoPlus.PopScreens
                 if (selected != null && radioButtons.IndexOf(selected) == correctAnswer)
                 {
                     DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                    TestSolvedCorrectly?.Invoke(id);
                 }
                 else
                 {
@@ -134,7 +137,7 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(checkButton);
         }
 
-        private void AddTestCheckParagraph(string ask, List<TestRadioOption> options, List<int> correctAnswers)
+        private void AddTestCheckParagraph(int id, string ask, List<TestRadioOption> options, List<int> correctAnswers)
         {
             var askLabel = new Label
             {
@@ -175,6 +178,7 @@ namespace PythoPlus.PopScreens
                 if (selectedIndexes.SequenceEqual(correctAnswers))
                 {
                     DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                    TestSolvedCorrectly?.Invoke(id);
                 }
                 else
                 {
@@ -192,7 +196,7 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(checkButton);
         }
 
-        private void AddImageParagraph(string content)
+        private void AddImageParagraph(int id, string content)
         {
             var image = new Image
             {
@@ -202,7 +206,7 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(image);
         }
 
-        private void AddEntryParagraph(string ask, string correctEntry)
+        private void AddEntryParagraph(int id, string ask, string correctEntry)
         {
             var askLabel = new Label
             {
@@ -225,6 +229,7 @@ namespace PythoPlus.PopScreens
                 if (entry.Text == correctEntry)
                 {
                     DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                    TestSolvedCorrectly?.Invoke(id);
                 }
                 else
                 {
@@ -235,7 +240,7 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(checkButton);
         }
 
-        private void AddComplianceParagraph(string ask, List<CompliancePair> pairs)
+        private void AddComplianceParagraph(int id, string ask, List<CompliancePair> pairs)
         {
             var askLabel = new Label
             {
@@ -278,6 +283,7 @@ namespace PythoPlus.PopScreens
                 if (isCorrect)
                 {
                     DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                    TestSolvedCorrectly?.Invoke(id);
                 }
             };
 

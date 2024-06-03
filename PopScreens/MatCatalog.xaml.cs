@@ -154,7 +154,8 @@ namespace PythoPlus.PopScreens
             string matCtn = fieldsTask.FirstOrDefault(f => f.Name == "MaterialContentNaming")?.Value;
             // Условный обработчик нажатия, например, навигация к детальной информации о материале
             Console.WriteLine($"Tapped on material number: {material.MaterialNumber}");
-            Navigation.PushAsync(new MatView($"{matFsn}{material.MaterialNumber}/{matCtn}"));
+            var matView = new MatView($"{matFsn}{material.MaterialNumber}/{matCtn}");
+            Navigation.PushAsync(matView);
         }
     }
 }
