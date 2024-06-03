@@ -29,7 +29,8 @@ namespace PythoPlus
                     {
                         ID = int.Parse(element.Attribute("ID").Value),
                         ParagraphType = element.Element("ParagraphType").Value,
-                        Content = element.Element("Content").Value
+                        Content = element.Element("Content").Value,
+                        IsBold = element.Element("Content").Attribute("Bold")?.Value == "true"
                     };
 
                     if (paragraph.ParagraphType == "TestRadio" || paragraph.ParagraphType == "TestCheck")
@@ -57,6 +58,32 @@ namespace PythoPlus
                                                               .ToList();
                         }
                     }
+                    else if (paragraph.ParagraphType == "Compliance")
+                    {
+                        paragraph.TestAsk = element.Element("Content").Element("TestAsk").Value;
+                        paragraph.CompliancePairs = element.Element("Content")
+                                                           .Elements("ComplLabel")
+                                                           .Select(e => new CompliancePair
+                                                           {
+                                                               ID = int.Parse(e.Attribute("ID").Value),
+                                                               Label = e.Value
+                                                           }).ToList();
+
+                        var elements = element.Element("Content").Elements("ComplElem").ToList();
+                        for (int i = 0; i < elements.Count; i++)
+                        {
+                            var elem = elements[i];
+                            var pair = paragraph.CompliancePairs.First(p => p.ID == int.Parse(elem.Attribute("Correct_ID").Value));
+                            pair.Element = elem.Value;
+                            pair.CorrectID = int.Parse(elem.Attribute("Correct_ID").Value);
+                        }
+                    }
+                    else if (paragraph.ParagraphType == "Entry")
+                    {
+                        paragraph.TestAsk = element.Element("Content").Element("TestAsk").Value;
+                        paragraph.CorrectEntry = element.Element("Content").Element("CorrectEntry").Value;
+                    }
+
                     paragraphs.Add(paragraph);
                 }
             }

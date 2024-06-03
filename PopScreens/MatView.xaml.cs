@@ -1,6 +1,7 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Shapes;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PythoPlus.PopScreens
 {
@@ -23,7 +24,7 @@ namespace PythoPlus.PopScreens
                 switch (paragraph.ParagraphType)
                 {
                     case "Text":
-                        AddTextParagraph(paragraph.Content);
+                        AddTextParagraph(paragraph.Content, paragraph.IsBold);
                         break;
                     case "Code":
                         AddCodeParagraph(paragraph.Content);
@@ -38,23 +39,24 @@ namespace PythoPlus.PopScreens
                         AddImageParagraph(paragraph.Content);
                         break;
                     case "Compliance":
-                        AddComplianceParagraph(paragraph.Content);
+                        AddComplianceParagraph(paragraph.TestAsk, paragraph.CompliancePairs);
                         break;
                     case "Entry":
-                        AddEntryParagraph(paragraph.Content);
+                        AddEntryParagraph(paragraph.TestAsk, paragraph.CorrectEntry);
                         break;
                 }
             }
         }
 
-        private void AddTextParagraph(string content)
+        private void AddTextParagraph(string content, bool isBold)
         {
             var label = new Label
             {
                 Text = content,
                 TextColor = (Color)Application.Current.Resources["TextColor"],
                 FontSize = (double)Application.Current.Resources["FontSize"],
-                FontFamily = (string)Application.Current.Resources["FontFamily"]
+                FontFamily = (string)Application.Current.Resources["FontFamily"],
+                FontAttributes = isBold ? FontAttributes.Bold : FontAttributes.None
             };
             mainLayout.Children.Add(label);
         }
@@ -92,6 +94,7 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(askLabel);
 
             var stackLayout = new VerticalStackLayout();
+            var radioButtons = new List<RadioButton>();
 
             foreach (var option in options)
             {
@@ -100,10 +103,35 @@ namespace PythoPlus.PopScreens
                     Content = option.Text,
                     GroupName = "TestRadioGroup"
                 };
+                radioButtons.Add(radioButton);
                 stackLayout.Children.Add(radioButton);
             }
 
+            var checkButton = new Button
+            {
+                Text = "Проверить"
+            };
+            checkButton.Clicked += (sender, e) =>
+            {
+                var selected = radioButtons.FirstOrDefault(rb => rb.IsChecked);
+                if (selected != null && radioButtons.IndexOf(selected) == correctAnswer)
+                {
+                    DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                }
+                else
+                {
+                    foreach (var rb in radioButtons)
+                    {
+                        if (rb.IsChecked)
+                        {
+                            rb.TextColor = Colors.Red;
+                        }
+                    }
+                }
+            };
+
             mainLayout.Children.Add(stackLayout);
+            mainLayout.Children.Add(checkButton);
         }
 
         private void AddTestCheckParagraph(string ask, List<TestRadioOption> options, List<int> correctAnswers)
@@ -118,6 +146,7 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(askLabel);
 
             var stackLayout = new VerticalStackLayout();
+            var checkBoxes = new List<CheckBox>();
 
             foreach (var option in options)
             {
@@ -132,10 +161,35 @@ namespace PythoPlus.PopScreens
                 horizontalLayout.Children.Add(checkBox);
                 horizontalLayout.Children.Add(checkBoxLabel);
 
+                checkBoxes.Add(checkBox);
                 stackLayout.Children.Add(horizontalLayout);
             }
 
+            var checkButton = new Button
+            {
+                Text = "Проверить"
+            };
+            checkButton.Clicked += (sender, e) =>
+            {
+                var selectedIndexes = checkBoxes.Select((cb, index) => cb.IsChecked ? index : -1).Where(index => index != -1).ToList();
+                if (selectedIndexes.SequenceEqual(correctAnswers))
+                {
+                    DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                }
+                else
+                {
+                    foreach (var cb in checkBoxes)
+                    {
+                        if (cb.IsChecked)
+                        {
+                            cb.Color = Colors.Red;
+                        }
+                    }
+                }
+            };
+
             mainLayout.Children.Add(stackLayout);
+            mainLayout.Children.Add(checkButton);
         }
 
         private void AddImageParagraph(string content)
@@ -148,14 +202,87 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(image);
         }
 
-        private void AddEntryParagraph(string content)
+        private void AddEntryParagraph(string ask, string correctEntry)
         {
+            var askLabel = new Label
+            {
+                Text = ask,
+                TextColor = (Color)Application.Current.Resources["TextColor"],
+                FontSize = (double)Application.Current.Resources["FontSize"],
+                FontFamily = (string)Application.Current.Resources["FontFamily"]
+            };
+            mainLayout.Children.Add(askLabel);
 
+            var entry = new Entry();
+            mainLayout.Children.Add(entry);
+
+            var checkButton = new Button
+            {
+                Text = "Проверить"
+            };
+            checkButton.Clicked += (sender, e) =>
+            {
+                if (entry.Text == correctEntry)
+                {
+                    DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                }
+                else
+                {
+                    entry.TextColor = Colors.Red;
+                }
+            };
+
+            mainLayout.Children.Add(checkButton);
         }
 
-        private void AddComplianceParagraph(string content)
+        private void AddComplianceParagraph(string ask, List<CompliancePair> pairs)
         {
+            var askLabel = new Label
+            {
+                Text = ask,
+                TextColor = (Color)Application.Current.Resources["TextColor"],
+                FontSize = (double)Application.Current.Resources["FontSize"],
+                FontFamily = (string)Application.Current.Resources["FontFamily"]
+            };
+            mainLayout.Children.Add(askLabel);
 
+            var labels = pairs.Select(p => new Label { Text = p.Label }).ToList();
+            var entries = pairs.Select(p => new Entry { Placeholder = "Введите соответствие" }).ToList();
+
+            var stackLayout = new VerticalStackLayout();
+            for (int i = 0; i < pairs.Count; i++)
+            {
+                var horizontalLayout = new HorizontalStackLayout();
+                horizontalLayout.Children.Add(labels[i]);
+                horizontalLayout.Children.Add(entries[i]);
+                stackLayout.Children.Add(horizontalLayout);
+            }
+
+            var checkButton = new Button
+            {
+                Text = "Проверить"
+            };
+            checkButton.Clicked += (sender, e) =>
+            {
+                bool isCorrect = true;
+                for (int i = 0; i < pairs.Count; i++)
+                {
+                    var pair = pairs[i];
+                    if (entries[i].Text != pair.Element)
+                    {
+                        entries[i].TextColor = Colors.Red;
+                        isCorrect = false;
+                    }
+                }
+
+                if (isCorrect)
+                {
+                    DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                }
+            };
+
+            mainLayout.Children.Add(stackLayout);
+            mainLayout.Children.Add(checkButton);
         }
     }
 }
