@@ -65,9 +65,20 @@ namespace PythoPlus.PopScreens
             {
                 _mongoDbService = new MongoDbService();
 
+                // Проверка, что подключение установлено
                 var accountsCollection = _mongoDbService.GetCollection("accounts");
+                if (accountsCollection == null)
+                {
+                    Console.WriteLine("Не удалось получить коллекцию 'accounts'");
+                    await Application.Current.MainPage.DisplayAlert("Помилка", "База даних наразі недоступна. Спробуйте пізніше.", "OK");
+                    return;
+                }
 
                 var filter = Builders<BsonDocument>.Filter.Eq("email", Email) & Builders<BsonDocument>.Filter.Eq("pass", Password);
+
+                // Логирование фильтра для отладки
+                Console.WriteLine($"Ищем учетную запись с фильтром: {filter.ToJson()}");
+
                 var account = await accountsCollection.Find(filter).FirstOrDefaultAsync();
 
                 bool loginSuccessful = account != null;
@@ -81,15 +92,14 @@ namespace PythoPlus.PopScreens
                 else
                 {
                     // Обработка неудачного входа
-                    // Например, можно показать сообщение об ошибке пользователю
-                    await Application.Current.MainPage.DisplayAlert("Ошибка входа", "Неверный email или пароль.", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Помилка входу", "Невірний email чи пароль.", "OK");
                 }
             }
             catch (Exception ex)
             {
                 // Логирование ошибки и показ сообщения пользователю
                 Console.WriteLine($"Ошибка при выполнении входа: {ex.Message}");
-                await Application.Current.MainPage.DisplayAlert("Ошибка", "Произошла ошибка при выполнении входа. Попробуйте еще раз позже.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Помилка", "Виникла помилка при з'єднанні. Перевірте ваш Інтернет та спробуйте пізніше.", "OK");
             }
         }
 
