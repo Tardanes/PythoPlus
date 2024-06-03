@@ -57,6 +57,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\arialmt.ttf" />
+	  <None Remove="Resources\Fonts\arial_bolditalicmt.ttf" />
+	  <None Remove="Resources\Fonts\consolas.ttf" />
+	  <None Remove="Resources\Fonts\Molot.otf" />
+	  <None Remove="Resources\Fonts\timesnewromanpsmt.ttf" />
+	  <None Remove="Resources\Fonts\timesnewromanps_italicmt.ttf" />
 	  <None Remove="Resources\Raw\PythonMaterial1\Context.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial1\FullContent.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial2\Context.xml" />

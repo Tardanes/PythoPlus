@@ -2,13 +2,19 @@
 <FullContent>
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
-    <Content>
+    <Content Bold="true">
       Lorem ipsum for the king. This is true theory for my kingdom...
     </Content>
   </Paragraph>
   <Paragraph ID="1">
     <ParagraphType>Code</ParagraphType>
     <Content>
+      print("Hello world!");
+      print("Hello world!");
+      print("Hello world!");
+      print("Hello world!");
+      print("Hello world!");
+
       print("Hello world!");
     </Content>
   </Paragraph>
@@ -48,6 +54,27 @@
     <ParagraphType>Text</ParagraphType>
     <Content>
       Lorem ipsum for the king. This is true theory for my kingdom... No, it`s better.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведите соответствие:</TestAsk>
+      <ComplLabel ID="0">Варёное...</ComplLabel>
+      <ComplLabel ID="1">Сладкий...</ComplLabel>
+      <ComplLabel ID="2">Крепкий...</ComplLabel>
+      <ComplLabel ID="3">Зелёный...</ComplLabel>
+      <ComplElem ID="0" Correct_ID="2">чай</ComplElem>
+      <ComplElem ID="1" Correct_ID="0">яйцо</ComplElem>
+      <ComplElem ID="2" Correct_ID="3">огурец</ComplElem>
+      <ComplElem ID="3" Correct_ID="1">пряник</ComplElem>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="8">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишите слово "print" на английском языке:</TestAsk>
+      <CorrectEntry>print</CorrectEntry>
     </Content>
   </Paragraph>
 </FullContent>

@@ -30,7 +30,7 @@
         </Style>
     </ContentPage.Resources>
     <ScrollView>
-        <VerticalStackLayout x:Name="mainLayout">
+        <VerticalStackLayout x:Name="mainLayout" Padding="20" Spacing="20">
             <!-- Элементы будут добавлены динамически -->
         </VerticalStackLayout>
     </ScrollView>

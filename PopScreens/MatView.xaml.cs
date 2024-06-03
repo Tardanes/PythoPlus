@@ -37,6 +37,12 @@ namespace PythoPlus.PopScreens
                     case "Image":
                         AddImageParagraph(paragraph.Content);
                         break;
+                    case "Compliance":
+                        AddComplianceParagraph(paragraph.Content);
+                        break;
+                    case "Entry":
+                        AddEntryParagraph(paragraph.Content);
+                        break;
                 }
             }
         }
@@ -60,13 +66,12 @@ namespace PythoPlus.PopScreens
                 Text = content,
                 TextColor = Color.FromArgb("#FFFFFF"),
                 FontSize = (double)Application.Current.Resources["FontSize"],
-                FontFamily = (string)Application.Current.Resources["FontFamily"]
+                FontFamily = "Consolas"
             };
             var border = new Border
             {
                 BackgroundColor = Color.FromArgb("#1F1F1F"),
                 StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(5) },
-                Padding = 5,
                 StrokeThickness = 2
             };
             var innerLayout = new VerticalStackLayout();
@@ -141,6 +146,16 @@ namespace PythoPlus.PopScreens
                 Aspect = Aspect.AspectFit
             };
             mainLayout.Children.Add(image);
+        }
+
+        private void AddEntryParagraph(string content)
+        {
+
+        }
+
+        private void AddComplianceParagraph(string content)
+        {
+
         }
     }
 }
