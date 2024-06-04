@@ -88,7 +88,7 @@ namespace PythoPlus
 
         public static Color ButtonTextColor
         {
-            get => Color.FromArgb(Preferences.Get(BackColorKey, Colors.White.ToArgbHex()));
+            get => Color.FromArgb(Preferences.Get(ButtonTextColorKey, Colors.White.ToArgbHex()));
             set => Preferences.Set(ButtonTextColorKey, value.ToArgbHex());
         }
 

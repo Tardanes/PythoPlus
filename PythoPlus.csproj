@@ -21,13 +21,13 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>PythoPlus</ApplicationTitle>
+		<ApplicationTitle>Pytho Plus</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.pythoplus</ApplicationId>
+		<ApplicationId>com.khamovivan.pythoplus</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationDisplayVersion>1.1.26</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
@@ -36,6 +36,54 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+	  <ApplicationTitle>Python Plus</ApplicationTitle>
+	  <ApplicationId>com.khamovivan.pythoplus</ApplicationId>
+	  <ApplicationDisplayVersion>1.1.26</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <ApplicationTitle>Python Plus</ApplicationTitle>
+	  <ApplicationId>com.khamovivan.pythoplus</ApplicationId>
+	  <ApplicationDisplayVersion>1.1.26</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationTitle>Python Plus</ApplicationTitle>
+	  <ApplicationId>com.khamovivan.pythoplus</ApplicationId>
+	  <ApplicationDisplayVersion>1.1.26</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationTitle>Python Plus</ApplicationTitle>
+	  <ApplicationId>com.khamovivan.pythoplus</ApplicationId>
+	  <ApplicationDisplayVersion>1.1.26</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <ApplicationTitle>Python Plus</ApplicationTitle>
+	  <ApplicationId>com.khamovivan.pythoplus</ApplicationId>
+	  <ApplicationDisplayVersion>1.1.26</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+	  <ApplicationTitle>Python Plus</ApplicationTitle>
+	  <ApplicationId>com.khamovivan.pythoplus</ApplicationId>
+	  <ApplicationDisplayVersion>1.1.26</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationTitle>Python Plus</ApplicationTitle>
+	  <ApplicationId>com.khamovivan.pythoplus</ApplicationId>
+	  <ApplicationDisplayVersion>1.1.26</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationTitle>Python Plus</ApplicationTitle>
+	  <ApplicationId>com.khamovivan.pythoplus</ApplicationId>
+	  <ApplicationDisplayVersion>1.1.26</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

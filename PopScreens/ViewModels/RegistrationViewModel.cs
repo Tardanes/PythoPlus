@@ -76,9 +76,6 @@ namespace PythoPlus.PopScreens
             try
             {
                 _mongoDbService = new MongoDbService();
-#if ANDROID
-                await Task.Delay(20000);
-#endif
                 var accountsCollection = _mongoDbService.GetCollection("accounts");
 
                 var filter = Builders<BsonDocument>.Filter.Eq("email", Email);

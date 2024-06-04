@@ -65,11 +65,14 @@ namespace PythoPlus.PopScreens
             // принудительное решение от падений приложения
             try
             {
-                _mongoDbService = new MongoDbService();
 #if ANDROID
-                await Task.Delay(20000);
+                Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
+                Shell.SetNavBarIsVisible(Shell.Current.CurrentItem, true);
+                LoginSuccessful?.Invoke(this, EventArgs.Empty);
+                return;
 #endif
                 // Проверка, что подключение установлено
+                _mongoDbService = new MongoDbService();
                 var accountsCollection = _mongoDbService.GetCollection("accounts");
                 if (accountsCollection == null)
                 {
