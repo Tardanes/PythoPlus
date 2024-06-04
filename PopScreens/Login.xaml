@@ -40,8 +40,11 @@
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         </Style>
     </ContentPage.Resources>
+    <ScrollView>
     <VerticalStackLayout VerticalOptions="Center" Margin="20" Spacing="20" MaximumWidthRequest="600">
-        <Entry x:Name="EmailEntry"
+        <Image Source="logo.png" WidthRequest="500"/>
+            <Label Text="Введіть дані:" />
+            <Entry x:Name="EmailEntry"
            Placeholder="Електронна скриня..."
            Keyboard="Email"
            Text="{Binding Email, Mode=TwoWay}"/>
@@ -63,4 +66,5 @@
             </Label.GestureRecognizers>
         </Label>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

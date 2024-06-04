@@ -16,7 +16,7 @@
     
     <Shell.FlyoutHeader>
         <StackLayout>
-            <Label Text="Pytho Plus" FontSize="24" HorizontalOptions="Center" />
+            <Image Source="logo.png" Aspect="AspectFit" />
         </StackLayout>
     </Shell.FlyoutHeader>
     <ShellContent

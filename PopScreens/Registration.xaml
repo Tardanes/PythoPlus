@@ -4,6 +4,7 @@
              x:Class="PythoPlus.PopScreens.Registration"
              xmlns:local="clr-namespace:PythoPlus.PopScreens"
              Shell.PresentationMode="Modal"
+             NavigationPage.HasBackButton="True"
              BackgroundColor="{DynamicResource BackColor}"
              Title="Registration">
     <ContentPage.BindingContext>
@@ -40,8 +41,11 @@
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         </Style>
     </ContentPage.Resources>
+    <ScrollView>
     <VerticalStackLayout VerticalOptions="Center" Margin="20" Spacing="20" MaximumWidthRequest="600">
-        <Entry x:Name="EmailEntry"
+        <Image Source="logo.png" WidthRequest="500"/>
+            <Label Text="Введіть дані:" />
+            <Entry x:Name="EmailEntry"
            Placeholder="Дійсна електронна скриня..."
            Keyboard="Email"
            Text="{Binding Email, Mode=TwoWay}"/>
@@ -57,5 +61,8 @@
         <Button Text="Зареєструватися"
             Command="{Binding RegisterCommand}"
             IsEnabled="{Binding IsRegisterEnabled}"/>
-    </VerticalStackLayout>
+        <Button Text="Повернутись до входу"
+            Command="{Binding BackCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

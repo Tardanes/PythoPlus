@@ -3,19 +3,23 @@
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
     <Content>
-
+Это текст
     </Content>
   </Paragraph>
   <Paragraph ID="1">
     <ParagraphType>Code</ParagraphType>
     <Content>
-
+Это код
     </Content>
   </Paragraph>
   <Paragraph ID="2">
-    <ParagraphType>Test</ParagraphType>
-    <Content>
-
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Выберите 3-й вариант:</TestAsk>
+      <TestRadio ID="0">1-й вариант</TestRadio>
+      <TestRadio ID="1">2-й вариант</TestRadio>
+      <TestRadio ID="2">3-й вариант</TestRadio>
+      <TestRadio ID="3">4-й вариант</TestRadio>
     </Content>
   </Paragraph>
 </FullContent>

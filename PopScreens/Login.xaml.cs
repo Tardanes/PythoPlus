@@ -28,9 +28,11 @@ public partial class Login : ContentPage
     }
 
 
-    private void OnRegLabelTapped(object sender, EventArgs e)
+    private async void OnRegLabelTapped(object sender, EventArgs e)
     {
-        Navigation.PushModalAsync(new Registration());
+
+        //await Shell.Current.Navigation.PopAsync();
+        await Shell.Current.Navigation.PushAsync(new Registration());
     }
     private void OnForLabelTapped(object sender, EventArgs e)
     {

@@ -66,6 +66,7 @@
 	  <None Remove="Resources\Images\achievements.png" />
 	  <None Remove="Resources\Images\help.png" />
 	  <None Remove="Resources\Images\home.png" />
+    <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\logout.png" />
 	  <None Remove="Resources\Images\materials.png" />
 	  <None Remove="Resources\Images\settings.png" />

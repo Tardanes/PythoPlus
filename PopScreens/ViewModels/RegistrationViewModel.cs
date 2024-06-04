@@ -64,10 +64,11 @@ namespace PythoPlus.PopScreens
         }
 
         public ICommand RegisterCommand { get; }
-
+        public ICommand BackCommand { get; }
         public RegistrationViewModel()
         {
             RegisterCommand = new Command(async () => await OnRegister());
+            BackCommand = new Command(async () => await OnBackButtonClicked());
         }
 
         private async Task OnRegister()
@@ -127,6 +128,11 @@ namespace PythoPlus.PopScreens
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private async Task OnBackButtonClicked()
+        {
+            // Навигация на предыдущую страницу
+            await Shell.Current.Navigation.PopAsync();
         }
     }
 }
