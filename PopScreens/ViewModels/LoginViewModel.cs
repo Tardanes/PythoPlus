@@ -16,6 +16,7 @@ namespace PythoPlus.PopScreens
         private string email;
         private string password;
         private bool isLoginEnabled;
+        private ObjectId userId;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler LoginSuccessful;
@@ -52,6 +53,16 @@ namespace PythoPlus.PopScreens
             }
         }
 
+        public ObjectId UserId
+        {
+            get => userId;
+            private set
+            {
+                userId = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand LoginCommand { get; }
 
         public LoginViewModel()
@@ -82,22 +93,18 @@ namespace PythoPlus.PopScreens
                 }
 
                 var filter = Builders<BsonDocument>.Filter.Eq("email", Email) & Builders<BsonDocument>.Filter.Eq("pass", Password);
-
-                // Логирование фильтра для отладки
-                Console.WriteLine($"Ищем учетную запись с фильтром: {filter.ToJson()}");
                 var account = await accountsCollection.Find(filter).FirstOrDefaultAsync();
 
-                bool loginSuccessful = account != null;
-
-                if (loginSuccessful)
+                if (account != null)
                 {
+                    UserId = account["_id"].AsObjectId;
+                    Application.Current.Resources["UserId"] = UserId.ToString(); // Сохранение ID пользователя в динамических ресурсах
                     Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
                     Shell.SetNavBarIsVisible(Shell.Current.CurrentItem, true);
                     LoginSuccessful?.Invoke(this, EventArgs.Empty);
                 }
                 else
                 {
-                    // Обработка неудачного входа
                     await Application.Current.MainPage.DisplayAlert("Помилка входу", "Невірний email чи пароль.", "OK");
                 }
             }

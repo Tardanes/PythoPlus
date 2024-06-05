@@ -1,5 +1,7 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Shapes;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,13 +9,31 @@ namespace PythoPlus.PopScreens
 {
     public partial class MatView : ContentPage
     {
+        private ObjectId userId;
+        private int materialNumber;
+        private MongoDbService _mongoDbService;
+
         public event Action<int> TestSolvedCorrectly;
 
-        public MatView(string filePath)
+        public MatView(int materialNumber, string filePath)
         {
             InitializeComponent();
-            // Вызов асинхронного метода в конструкторе
+            LoadUserId();
+            this.materialNumber = materialNumber;
+            _mongoDbService = new MongoDbService();
             LoadContent(filePath);
+        }
+
+        private void LoadUserId()
+        {
+            if (Application.Current.Resources.ContainsKey("UserId"))
+            {
+                userId = new ObjectId(Application.Current.Resources["UserId"].ToString());
+            }
+            else
+            {
+                throw new Exception("UserId не знайдено у динамічних ресурсах.");
+            }
         }
 
         private async void LoadContent(string filePath)
@@ -49,6 +69,34 @@ namespace PythoPlus.PopScreens
                 }
             }
         }
+
+        private async void RecordProgress(int questionId)
+        {
+            var progressCollection = _mongoDbService.GetCollection("mat_progress");
+            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId) & Builders<BsonDocument>.Filter.Eq("material_number", materialNumber);
+
+            // Проверка, существует ли документ
+            var progressDocument = await progressCollection.Find(filter).FirstOrDefaultAsync();
+            if (progressDocument == null)
+            {
+                // Создание нового документа, если он не существует
+                var newDocument = new BsonDocument
+                {
+                    { "user_id", userId },
+                    { "material_number", materialNumber },
+                    { "correct_answers", new BsonArray { questionId } }
+                };
+                await progressCollection.InsertOneAsync(newDocument);
+            }
+            else
+            {
+                // Обновление существующего документа
+                var update = Builders<BsonDocument>.Update
+                    .AddToSet("correct_answers", questionId);
+                await progressCollection.UpdateOneAsync(filter, update);
+            }
+        }
+
 
         private void AddTextParagraph(int id, string content, bool isBold)
         {
@@ -111,15 +159,16 @@ namespace PythoPlus.PopScreens
 
             var checkButton = new Button
             {
-                Text = "Проверить"
+                Text = "Перевірити"
             };
-            checkButton.Clicked += (sender, e) =>
+            checkButton.Clicked += async (sender, e) =>
             {
                 var selected = radioButtons.FirstOrDefault(rb => rb.IsChecked);
                 if (selected != null && radioButtons.IndexOf(selected) == correctAnswer)
                 {
-                    DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                    await DisplayAlert("Вірно!", "Ваша відповідь абсолютно вірна!", "Далі");
                     TestSolvedCorrectly?.Invoke(id);
+                    RecordProgress(id);
                 }
                 else
                 {
@@ -172,12 +221,13 @@ namespace PythoPlus.PopScreens
             {
                 Text = "Проверить"
             };
-            checkButton.Clicked += (sender, e) =>
+            checkButton.Clicked += async (sender, e) =>
             {
                 var selectedIndexes = checkBoxes.Select((cb, index) => cb.IsChecked ? index : -1).Where(index => index != -1).ToList();
                 if (selectedIndexes.SequenceEqual(correctAnswers))
                 {
-                    DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                    await DisplayAlert("Вірно!", "Ваша відповідь абсолютно вірна!", "Далі");
+                    RecordProgress(id);
                     TestSolvedCorrectly?.Invoke(id);
                 }
                 else
@@ -224,11 +274,12 @@ namespace PythoPlus.PopScreens
             {
                 Text = "Проверить"
             };
-            checkButton.Clicked += (sender, e) =>
+            checkButton.Clicked += async (sender, e) =>
             {
                 if (entry.Text == correctEntry)
                 {
-                    DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                    await DisplayAlert("Вірно!", "Ваша відповідь абсолютно вірна!", "Далі");
+                    RecordProgress(id);
                     TestSolvedCorrectly?.Invoke(id);
                 }
                 else
@@ -267,7 +318,7 @@ namespace PythoPlus.PopScreens
             {
                 Text = "Проверить"
             };
-            checkButton.Clicked += (sender, e) =>
+            checkButton.Clicked += async (sender, e) =>
             {
                 bool isCorrect = true;
                 for (int i = 0; i < pairs.Count; i++)
@@ -282,7 +333,8 @@ namespace PythoPlus.PopScreens
 
                 if (isCorrect)
                 {
-                    DisplayAlert("Правильно!", "Ваш ответ правильный.", "OK");
+                    await DisplayAlert("Вірно!", "Ваша відповідь абсолютно вірна!", "Далі");
+                    RecordProgress(id);
                     TestSolvedCorrectly?.Invoke(id);
                 }
             };

@@ -1,5 +1,6 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Shapes;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,24 @@ namespace PythoPlus.PopScreens
     {
         // VERY IMPORTANT INFO
         List<XmlFields> fieldsTask;
-
+        private ObjectId userId;
         public MatCatalog()
         {
             InitializeComponent();
+            LoadUserId();
             LoadMaterialsAsync();
         }
-
+        private void LoadUserId()
+        {
+            if (Application.Current.Resources.ContainsKey("UserId"))
+            {
+                userId = new ObjectId(Application.Current.Resources["UserId"].ToString());
+            }
+            else
+            {
+                throw new Exception("UserId не знайдено у динамічних ресурсах.");
+            }
+        }
         private async void LoadMaterialsAsync()
         {
             var superStructure = new List<XmlFields>
@@ -154,7 +166,8 @@ namespace PythoPlus.PopScreens
             string matCtn = fieldsTask.FirstOrDefault(f => f.Name == "MaterialContentNaming")?.Value;
             // Условный обработчик нажатия, например, навигация к детальной информации о материале
             Console.WriteLine($"Tapped on material number: {material.MaterialNumber}");
-            var matView = new MatView($"{matFsn}{material.MaterialNumber}/{matCtn}");
+            var matView = new MatView(material.MaterialNumber, $"{matFsn}{material.MaterialNumber}/{matCtn}");
+            matView.Title = material.MaterialName;
             Navigation.PushAsync(matView);
         }
     }
