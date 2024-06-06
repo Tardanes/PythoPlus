@@ -11,5 +11,6 @@ namespace PythoPlus
         public int MaterialNumber { get; set; }
         public string MaterialName { get; set; }
         public string MaterialDescription { get; set; }
+        public string ParagraphCount { get; set; }
     }
 }

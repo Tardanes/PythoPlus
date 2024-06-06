@@ -1,6 +1,7 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Shapes;
 using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,15 @@ namespace PythoPlus.PopScreens
         // VERY IMPORTANT INFO
         List<XmlFields> fieldsTask;
         private ObjectId userId;
+        private MongoDbService _mongoDbService;
+
         public MatCatalog()
         {
             InitializeComponent();
-            LoadUserId();
-            LoadMaterialsAsync();
+            _mongoDbService = new MongoDbService();
+            Appearing += OnAppearing; // Добавляем обработчик для события Appearing
         }
+
         private void LoadUserId()
         {
             if (Application.Current.Resources.ContainsKey("UserId"))
@@ -30,8 +34,17 @@ namespace PythoPlus.PopScreens
                 throw new Exception("UserId не знайдено у динамічних ресурсах.");
             }
         }
-        private async void LoadMaterialsAsync()
+
+        private async void OnAppearing(object sender, EventArgs e)
         {
+            LoadUserId(); // Обновляем UserId каждый раз, когда страница становится активной
+            await LoadMaterialsAsync();
+        }
+
+        private async Task LoadMaterialsAsync()
+        {
+            mainLayout.Children.Clear(); // Очищаем текущие элементы перед загрузкой новых данных
+
             var superStructure = new List<XmlFields>
             {
                 new XmlFields("MaterialFirstNaming", string.Empty),
@@ -58,7 +71,8 @@ namespace PythoPlus.PopScreens
                     new XmlFields("MaterialNumber", string.Empty),
                     new XmlFields("MaterialName", string.Empty),
                     new XmlFields("MaterialType", string.Empty),
-                    new XmlFields("MaterialDescription", string.Empty)
+                    new XmlFields("MaterialDescription", string.Empty),
+                    new XmlFields("ParagraphCount", string.Empty)
                 };
                 var service = new XmlFileService(structure, $"{matFsn}{i}", $"{matCxn}");
                 var fields = await service.ReadXmlAsync();
@@ -66,33 +80,67 @@ namespace PythoPlus.PopScreens
                 string materialName = fields.FirstOrDefault(f => f.Name == "MaterialName")?.Value;
                 string materialDescription = fields.FirstOrDefault(f => f.Name == "MaterialDescription")?.Value;
                 string materialType = fields.FirstOrDefault(f => f.Name == "MaterialType")?.Value;
+                string paragraphCount = fields.FirstOrDefault(f => f.Name == "ParagraphCount")?.Value;
 
                 var material = new Material
                 {
                     MaterialNumber = i,
                     MaterialName = materialName,
-                    MaterialDescription = materialDescription
+                    MaterialDescription = materialDescription,
+                    ParagraphCount = paragraphCount
                 };
 
-                AddMaterialToLayout(material, materialType);
+                await AddMaterialToLayout(material, materialType);
             }
         }
 
-        private void AddMaterialToLayout(Material material, string isTest)
+        private async Task AddMaterialToLayout(Material material, string isTest)
         {
             var materialLayout = new VerticalStackLayout();
 
             string BorderColor = "ThemeColor";
+            Color backgroundColor = (Color)Application.Current.Resources[BorderColor];
+            string percentageText = "--%";
+            Color percentageBorderColor = Colors.DarkGray;
 
             switch (isTest)
             {
-                case "practice": BorderColor = "ButtonColor"; break;
-                default: break;
+                case "practice":
+                    BorderColor = "ButtonColor";
+                    break;
+                default:
+                    break;
+            }
+
+            // Fetch user progress
+            var progressCollection = _mongoDbService.GetCollection("mat_progress");
+            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId) & Builders<BsonDocument>.Filter.Eq("material_number", material.MaterialNumber);
+            var progressDocument = await progressCollection.Find(filter).FirstOrDefaultAsync();
+
+            int correctAnswers = 0;
+            int totalQuestions = int.Parse(material.ParagraphCount);
+
+            if (progressDocument != null)
+            {
+                var correctAnswersArray = progressDocument["correct_answers"].AsBsonArray;
+                correctAnswers = correctAnswersArray.Count;
+
+                double percentage = ((double)correctAnswers / totalQuestions) * 100;
+                percentageText = $"{percentage:F2}%";
+
+                if (correctAnswers == totalQuestions)
+                {
+                    percentageBorderColor = Colors.Green;
+                }
+                else
+                {
+                    percentageBorderColor = backgroundColor;
+                }
             }
 
             var border = new Border
             {
-                BackgroundColor = ((isTest == "summary") ? Colors.OrangeRed : (Color)Application.Current.Resources[BorderColor] ),
+                BackgroundColor = ((isTest == "summary") ? Colors.OrangeRed : (Color)Application.Current.Resources[BorderColor]),
                 Stroke = (Color)Application.Current.Resources["ThemeSupColor"],
                 StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(5) },
                 Padding = 5,
@@ -124,17 +172,26 @@ namespace PythoPlus.PopScreens
 
             var percentageLabel = new Label
             {
-                Text = "--%", // Example static value
+                Text = percentageText,
                 HorizontalOptions = LayoutOptions.End,
                 VerticalOptions = LayoutOptions.Center,
                 Margin = new Thickness(0, 0, 5, 0) // Adjust margin to align it with the border's padding
             };
 
+            var percentageBorder = new Border
+            {
+                BackgroundColor = percentageBorderColor,
+                Stroke = Colors.Transparent,
+                StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(5) },
+                Padding = 5,
+                Content = percentageLabel
+            };
+
             grid.Children.Add(verticalLayout);
             Grid.SetColumn(verticalLayout, 0);
 
-            grid.Children.Add(percentageLabel);
-            Grid.SetColumn(percentageLabel, 1);
+            grid.Children.Add(percentageBorder);
+            Grid.SetColumn(percentageBorder, 1);
 
             var line = new Line
             {
@@ -142,7 +199,10 @@ namespace PythoPlus.PopScreens
                 StrokeThickness = 2
             };
 
-            var progressBar = new ProgressBar();
+            var progressBar = new ProgressBar
+            {
+                Progress = (double)correctAnswers / totalQuestions
+            };
 
             var innerLayout = new VerticalStackLayout();
             innerLayout.Children.Add(grid);
