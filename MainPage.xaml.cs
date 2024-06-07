@@ -15,7 +15,7 @@ namespace PythoPlus
         public void OnUserLoggedIn()
         {
             // Логика, которая должна выполняться после успешного входа пользователя
-            DisplayAlert("Welcome", "You have successfully logged in!", "OK");
+            DisplayAlert("Вітаємо", "Вхід виконано успішно!", "OK");            
         }
     }
 

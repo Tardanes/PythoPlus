@@ -18,6 +18,7 @@
             Routing.RegisterRoute(nameof(PopScreens.Achievments), typeof(PopScreens.Achievments));
             Routing.RegisterRoute(nameof(PopScreens.StatisticsUsr), typeof(PopScreens.StatisticsUsr));
             Routing.RegisterRoute(nameof(PopScreens.PassRestore), typeof(PopScreens.PassRestore));
+            Routing.RegisterRoute(nameof(PopScreens.Help), typeof(PopScreens.Help));
         }
     }
 }

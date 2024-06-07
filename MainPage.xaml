@@ -37,15 +37,79 @@
         </Style>
     </ContentPage.Resources>
     <ScrollView>
-        <VerticalStackLayout
-    Padding="30,0"
-    Spacing="25">
-            <Button
-        x:Name="CounterBtn"
-        Text="Click me" 
-        SemanticProperties.Hint="Counts the number of times you click"
-        HorizontalOptions="Fill" />
+        <VerticalStackLayout x:Name="mainLayout" Padding="20" Spacing="20">
+            
+            <!-- ПРИМЕР ЭЛЕМЕНТА "Вы впервые здесь?", генерируется только если у пользователя нет никаких файлов прогресса, представляет собой ссылку во вкладку MatCatalog.xaml -->
+            <Border>
+                <VerticalStackLayout Padding="10" Spacing="10">
+                    <Label Text="Ви тут вперше?" FontAttributes="Bold"/>
+                    <Label Text="Перейдіть до вкладинки 'Матеріали', щоб розпочати навчання! Рекомендуємо обрати перший матеріал." />
+                    <Border BackgroundColor="{DynamicResource ButtonColor}">
+                        <VerticalStackLayout Padding="3" Spacing="5" HorizontalOptions="Center">
+                            <Label Text="Перейти" TextColor="{DynamicResource ButtonTextColor}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+            
+            <!-- ПРИМЕР ЭЛЕМЕНТА "Вы не закончили этот материал", генерируется только если у пользователя есть хотя бы один файл прогресса, но кол-во отвеченных вопросов в нём меньше, чем общее кол-во вопросов в материале, если таких файлов несколько, выбирается самый первый по ID, представляет собой ссылку на этот незавершённый материал -->
+            <Border>
+                <VerticalStackLayout Padding="10" Spacing="10">
+                    <Label Text="Недопройдений матеріал! Ви зупинились на ньому:" FontAttributes="Bold"/>
+                    <Grid>
+                        <!-- Назва матеріалу та його опис з файлу Context.xml -->
+                    </Grid>
+                    <Border BackgroundColor="{DynamicResource ButtonColor}">
+                        <VerticalStackLayout Padding="3" Spacing="5" HorizontalOptions="Center">
+                            <Label Text="Перейти" TextColor="{DynamicResource ButtonTextColor}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+            
+            <!-- ПРИМЕР ЭЛЕМЕНТА "Следующий материал", генерируется только если у пользователя есть хотя бы один файл прогресса, представляет собой ссылку на следующий после последнего пройденного пользователем материала. Не генерируется, если следующий материал отсутствует (например, если пользователь прошёл последний материал) -->
+            <Border>
+                <VerticalStackLayout Padding="10" Spacing="10">
+                    <Label Text="Наступний матеріал для опрацювання:" FontAttributes="Bold"/>
+                    <Grid>
+                        <!-- Назва матеріалу та його опис з файлу Context.xml -->
+                    </Grid>
+                    <Border BackgroundColor="{DynamicResource ButtonColor}">
+                        <VerticalStackLayout Padding="3" Spacing="5" HorizontalOptions="Center">
+                            <Label Text="Перейти" TextColor="{DynamicResource ButtonTextColor}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+                
+            <!-- ПРИМЕР ЭЛЕМЕНТА "Освежите память", генерируется только один элемент на страницу, генерируется только если у пользователя есть хотя бы один файл прогресса, при этом полностью завершённый (кол-во отвеченных вопросов равняется общему кол-ву вопросов), если таких файлов несколько - выбирается один случайный, представляет собой ссылку на этот материал -->
+            <Border>
+                <VerticalStackLayout Padding="10" Spacing="10">
+                    <Label Text="Повторення - основа навчання! Освіжіть пам'ять, згадавши: " FontAttributes="Bold"/>
+                    <Grid>
+                        <!-- Назва матеріалу та його опис з файлу Context.xml -->
+                    </Grid>
+                    <Border BackgroundColor="{DynamicResource ButtonColor}">
+                        <VerticalStackLayout Padding="3" Spacing="5" HorizontalOptions="Center">
+                            <Label Text="Перейти" TextColor="{DynamicResource ButtonTextColor}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+             
+            <!-- ПРИМЕР ЭЛЕМЕНТА "Не знаете, что делать?", генерируется всегда, представляет собой ссылку на Help -->
+            <Border>
+                <VerticalStackLayout Padding="10" Spacing="10">
+                    <Label Text="Не знаєте, що робити?" FontAttributes="Bold"/>
+                    <Label Text="Перегляньте інструкцію, щоб дізнатись, як користуватись додатком!"/>
+                    <Border BackgroundColor="{DynamicResource ButtonColor}">
+                        <VerticalStackLayout Padding="3" Spacing="5" HorizontalOptions="Center">
+                            <Label Text="Перейти" TextColor="{DynamicResource ButtonTextColor}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

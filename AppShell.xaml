@@ -47,6 +47,13 @@
             <ShellContent ContentTemplate="{DataTemplate popscr:SettingsUsr}" />
         </Tab>
     </FlyoutItem>
+
+    <FlyoutItem Title="Допомога" Icon="help.png" FlyoutDisplayOptions="AsSingleItem">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate popscr:Help}" />
+        </Tab>
+    </FlyoutItem>
+
     <MenuItem Text="Вийти з акаунту" IconImageSource="logout.png" Command="{Binding LogoutCommand}" />
     
 </Shell>

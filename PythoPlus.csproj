@@ -145,6 +145,9 @@
 	  <MauiXaml Update="PopScreens\Achievments.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="PopScreens\Help.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="PopScreens\Login.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

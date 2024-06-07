@@ -4,6 +4,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -43,54 +44,62 @@ namespace PythoPlus.PopScreens
 
         private async Task LoadMaterialsAsync()
         {
-            mainLayout.Children.Clear(); // Очищаем текущие элементы перед загрузкой новых данных
-
-            var superStructure = new List<XmlFields>
+            try
             {
-                new XmlFields("MaterialFirstNaming", string.Empty),
-                new XmlFields("MaterialContextNaming", string.Empty),
-                new XmlFields("MaterialContentNaming", string.Empty),
-                new XmlFields("MaterialCount", string.Empty),
-            };
-            var superService = new XmlFileService(superStructure);
+                mainLayout.Children.Clear(); // Очищаем текущие элементы перед загрузкой новых данных
 
-            var superInfo = await superService.ReadXmlAsync();
+                var superStructure = new List<XmlFields>
+                {
+                    new XmlFields("MaterialFirstNaming", string.Empty),
+                    new XmlFields("MaterialContextNaming", string.Empty),
+                    new XmlFields("MaterialContentNaming", string.Empty),
+                    new XmlFields("MaterialCount", string.Empty),
+                };
+                var superService = new XmlFileService(superStructure);
 
-            fieldsTask = superInfo;
+                var superInfo = await superService.ReadXmlAsync();
 
-            string matFsn = superInfo.FirstOrDefault(f => f.Name == "MaterialFirstNaming")?.Value;
-            string matCxn = superInfo.FirstOrDefault(f => f.Name == "MaterialContextNaming")?.Value;
-            string matCntForm = superInfo.FirstOrDefault(f => f.Name == "MaterialCount")?.Value;
+                fieldsTask = superInfo;
 
-            int matCnt = int.Parse(matCntForm);
+                string matFsn = superInfo.FirstOrDefault(f => f.Name == "MaterialFirstNaming")?.Value;
+                string matCxn = superInfo.FirstOrDefault(f => f.Name == "MaterialContextNaming")?.Value;
+                string matCntForm = superInfo.FirstOrDefault(f => f.Name == "MaterialCount")?.Value;
 
-            for (int i = 1; i <= matCnt; i++)
+                int matCnt = int.Parse(matCntForm);
+
+                for (int i = 1; i <= matCnt; i++)
+                {
+                    var structure = new List<XmlFields>
+                    {
+                        new XmlFields("MaterialNumber", string.Empty),
+                        new XmlFields("MaterialName", string.Empty),
+                        new XmlFields("MaterialType", string.Empty),
+                        new XmlFields("MaterialDescription", string.Empty),
+                        new XmlFields("ParagraphCount", string.Empty)
+                    };
+                    var service = new XmlFileService(structure, $"{matFsn}{i}", $"{matCxn}");
+                    var fields = await service.ReadXmlAsync();
+
+                    string materialName = fields.FirstOrDefault(f => f.Name == "MaterialName")?.Value;
+                    string materialDescription = fields.FirstOrDefault(f => f.Name == "MaterialDescription")?.Value;
+                    string materialType = fields.FirstOrDefault(f => f.Name == "MaterialType")?.Value;
+                    string paragraphCount = fields.FirstOrDefault(f => f.Name == "ParagraphCount")?.Value;
+
+                    var material = new Material
+                    {
+                        MaterialNumber = i,
+                        MaterialName = materialName,
+                        MaterialDescription = materialDescription,
+                        ParagraphCount = paragraphCount
+                    };
+
+                    await AddMaterialToLayout(material, materialType);
+                }
+            }
+            catch (Exception ex)
             {
-                var structure = new List<XmlFields>
-                {
-                    new XmlFields("MaterialNumber", string.Empty),
-                    new XmlFields("MaterialName", string.Empty),
-                    new XmlFields("MaterialType", string.Empty),
-                    new XmlFields("MaterialDescription", string.Empty),
-                    new XmlFields("ParagraphCount", string.Empty)
-                };
-                var service = new XmlFileService(structure, $"{matFsn}{i}", $"{matCxn}");
-                var fields = await service.ReadXmlAsync();
-
-                string materialName = fields.FirstOrDefault(f => f.Name == "MaterialName")?.Value;
-                string materialDescription = fields.FirstOrDefault(f => f.Name == "MaterialDescription")?.Value;
-                string materialType = fields.FirstOrDefault(f => f.Name == "MaterialType")?.Value;
-                string paragraphCount = fields.FirstOrDefault(f => f.Name == "ParagraphCount")?.Value;
-
-                var material = new Material
-                {
-                    MaterialNumber = i,
-                    MaterialName = materialName,
-                    MaterialDescription = materialDescription,
-                    ParagraphCount = paragraphCount
-                };
-
-                await AddMaterialToLayout(material, materialType);
+                Console.WriteLine($"Ошибка при загрузке материалов: {ex.Message}");
+                await DisplayAlert("Помилка", "Не вдалося завантажити матеріали. Зверніться до підтримки.", "OK");
             }
         }
 
@@ -112,30 +121,38 @@ namespace PythoPlus.PopScreens
                     break;
             }
 
-            // Fetch user progress
-            var progressCollection = _mongoDbService.GetCollection("mat_progress");
-            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId) & Builders<BsonDocument>.Filter.Eq("material_number", material.MaterialNumber);
-            var progressDocument = await progressCollection.Find(filter).FirstOrDefaultAsync();
-
-            int correctAnswers = 0;
-            int totalQuestions = int.Parse(material.ParagraphCount);
-
-            if (progressDocument != null)
+            try
             {
-                var correctAnswersArray = progressDocument["correct_answers"].AsBsonArray;
-                correctAnswers = correctAnswersArray.Count;
+                // Fetch user progress
+                var progressCollection = _mongoDbService.GetCollection("mat_progress");
+                var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId) & Builders<BsonDocument>.Filter.Eq("material_number", material.MaterialNumber);
+                var progressDocument = await progressCollection.Find(filter).FirstOrDefaultAsync();
 
-                double percentage = ((double)correctAnswers / totalQuestions) * 100;
-                percentageText = $"{percentage:F2}%";
+                int correctAnswers = 0;
+                int totalQuestions = int.Parse(material.ParagraphCount);
 
-                if (correctAnswers == totalQuestions)
+                if (progressDocument != null)
                 {
-                    percentageBorderColor = Colors.Green;
+                    var correctAnswersArray = progressDocument["correct_answers"].AsBsonArray;
+                    correctAnswers = correctAnswersArray.Count;
+
+                    double percentage = ((double)correctAnswers / totalQuestions) * 100;
+                    percentageText = $"{percentage:F2}%";
+
+                    if (correctAnswers == totalQuestions)
+                    {
+                        percentageBorderColor = Colors.Green;
+                    }
+                    else
+                    {
+                        percentageBorderColor = backgroundColor;
+                    }
                 }
-                else
-                {
-                    percentageBorderColor = backgroundColor;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при получении прогресса пользователя: {ex.Message}");
+                await DisplayAlert("Помилка", "Не вдалося під'єднатись до бази даних. Спробуйте пізніше", "OK");
             }
 
             var border = new Border
@@ -181,7 +198,8 @@ namespace PythoPlus.PopScreens
             var percentageBorder = new Border
             {
                 BackgroundColor = percentageBorderColor,
-                Stroke = Colors.Transparent,
+                Stroke = (Color)Application.Current.Resources["BackColor"],
+                StrokeThickness = 2,                
                 StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(5) },
                 Padding = 5,
                 Content = percentageLabel
@@ -199,9 +217,20 @@ namespace PythoPlus.PopScreens
                 StrokeThickness = 2
             };
 
+            bool isEmpty = percentageText == "--%";
+
+            double progressValue = 0;
+            if (!isEmpty)
+            {
+                if (double.TryParse(percentageText.TrimEnd('%'), NumberStyles.Any, CultureInfo.InvariantCulture, out double percentage))
+                {
+                    progressValue = percentage / 10000;
+                }
+            }
+
             var progressBar = new ProgressBar
             {
-                Progress = (double)correctAnswers / totalQuestions
+                Progress = progressValue
             };
 
             var innerLayout = new VerticalStackLayout();
