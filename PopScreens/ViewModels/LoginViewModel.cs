@@ -72,7 +72,6 @@ namespace PythoPlus.PopScreens
 
         private async Task OnLogin()
         {
-
             // принудительное решение от падений приложения
             try
             {
@@ -116,6 +115,19 @@ namespace PythoPlus.PopScreens
             }
         }
 
+        public async Task UpdateUserStats()
+        {
+            var statsCollection = _mongoDbService.GetCollection("mat_stat");
+            var filter = Builders<BsonDocument>.Filter.Eq("user_id", UserId);
+
+            var update = Builders<BsonDocument>.Update.Inc("logins_count", 1)
+                                                     .SetOnInsert("total_time_spent", 0)
+                                                     .SetOnInsert("total_answers", 0)
+                                                     .SetOnInsert("correct_answers", 0);
+
+            await statsCollection.UpdateOneAsync(filter, update, new UpdateOptions { IsUpsert = true });
+        }
+
         private void ValidateLogin()
         {
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
@@ -129,6 +141,5 @@ namespace PythoPlus.PopScreens
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

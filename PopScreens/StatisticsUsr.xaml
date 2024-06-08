@@ -1,43 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PythoPlus.PopScreens"
              x:Class="PythoPlus.PopScreens.StatisticsUsr"
+             BackgroundColor="{DynamicResource BackColor}"
              Title="Статистика користувача">
-    <ContentPage.Resources>
-        <!-- <Setter Property="" Value="" /> -->
-        <Style TargetType="Label">
-            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
-            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}" />
-            <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}" />
-            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        </Style>
-        <Style TargetType="Border">
-            <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}" />
-            <Setter Property="Stroke" Value="{DynamicResource ThemeSupColor}" />
-            <Setter Property="StrokeShape" Value="RoundRectangle 5" />
-            <Setter Property="Padding" Value="5" />
-            <Setter Property="StrokeThickness" Value="2" />
-        </Style>
-        <Style TargetType="Picker">
-            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
-            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        </Style>
-        <Style TargetType="Entry">
-            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
-            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        </Style>
-    </ContentPage.Resources>
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="Статистика користувача" FontSize="24" HorizontalOptions="Center" />
+            <Label x:Name="LoginsCountLabel" FontSize="18" />
+            <Label x:Name="TotalTimeSpentLabel" FontSize="18" />
+            <Label x:Name="TotalAnswersLabel" FontSize="18" />
+            <Label x:Name="CorrectAnswersLabel" FontSize="18" />
+            <Label x:Name="CorrectAnswersPercentageLabel" FontSize="18" />
+
+            <Label Text="Статистика по матеріалам" FontSize="20" />
+            <CollectionView x:Name="MaterialsStatsCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding MaterialName}" FontSize="18" />
+                                <StackLayout x:Name="DetailsLayout" IsVisible="False">
+                                    <Label Text="{Binding MaterialDetails}" FontSize="16" />
+                                </StackLayout>
+                                <Button Text="Показати/Сховати" Clicked="OnToggleDetails"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

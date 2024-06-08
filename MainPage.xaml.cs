@@ -71,6 +71,7 @@ namespace PythoPlus
                     {
                         await Shell.Current.GoToAsync("MatCatalog");
                         var matView = new MatView(firstUnfinished.MaterialNumber, materialPaths[firstUnfinished.MaterialNumber]);
+                        matView.Title = $"{firstUnfinished.MaterialName}";
                         await Shell.Current.Navigation.PushAsync(matView);
                     });
                 }
@@ -87,7 +88,9 @@ namespace PythoPlus
                         AddLink("Наступний матеріал для опрацювання:", $"Матеріал: {nextMaterial.MaterialName}", async () =>
                         {
                             await Shell.Current.GoToAsync("MatCatalog");
-                            await Shell.Current.Navigation.PushAsync(new MatView(nextMaterialNumber, materialPaths[nextMaterialNumber]));
+                            var matView = new MatView(nextMaterialNumber, materialPaths[nextMaterialNumber]);
+                            matView.Title = $"{nextMaterial.MaterialName}";
+                            await Shell.Current.Navigation.PushAsync(matView);
                         });
                     }
                 }
@@ -103,6 +106,7 @@ namespace PythoPlus
                     {
                         await Shell.Current.GoToAsync("MatCatalog");
                         var matView = new MatView(randomCompleted.MaterialNumber, materialPaths[randomCompleted.MaterialNumber]);
+                        matView.Title = $"{randomCompleted.MaterialName}";
                         await Shell.Current.Navigation.PushAsync(matView);
                     });
                 }

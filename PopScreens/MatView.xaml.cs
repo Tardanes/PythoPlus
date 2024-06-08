@@ -2,8 +2,10 @@ using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Shapes;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PythoPlus.PopScreens
 {
@@ -12,6 +14,7 @@ namespace PythoPlus.PopScreens
         private ObjectId userId;
         private int materialNumber;
         private MongoDbService _mongoDbService;
+        private DateTime startTime;
 
         public event Action<int> TestSolvedCorrectly;
 
@@ -21,6 +24,8 @@ namespace PythoPlus.PopScreens
             LoadUserId();
             this.materialNumber = materialNumber;
             _mongoDbService = new MongoDbService();
+            Appearing += OnAppearing;
+            Disappearing += OnDisappearing;
             LoadContent(filePath);
         }
 
@@ -70,9 +75,24 @@ namespace PythoPlus.PopScreens
             }
         }
 
+        private void OnAppearing(object sender, EventArgs e)
+        {
+            startTime = DateTime.Now;
+        }
+
+        private async void OnDisappearing(object sender, EventArgs e)
+        {
+            var timeSpent = DateTime.Now - startTime;
+            var statsCollection = _mongoDbService.GetCollection("mat_stat");
+            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId);
+            var update = Builders<BsonDocument>.Update.Inc("total_time_spent", timeSpent.TotalSeconds);
+            await statsCollection.UpdateOneAsync(filter, update, new UpdateOptions { IsUpsert = true });
+        }
+
         private async void RecordProgress(int questionId)
         {
             var progressCollection = _mongoDbService.GetCollection("mat_progress");
+            var statsCollection = _mongoDbService.GetCollection("mat_stat");
             var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId) & Builders<BsonDocument>.Filter.Eq("material_number", materialNumber);
 
             // Проверка, существует ли документ
@@ -95,8 +115,13 @@ namespace PythoPlus.PopScreens
                     .AddToSet("correct_answers", questionId);
                 await progressCollection.UpdateOneAsync(filter, update);
             }
-        }
 
+            // Обновление статистики
+            var statsUpdate = Builders<BsonDocument>.Update
+                .Inc("total_answers", 1)
+                .Inc("correct_answers", 1);
+            await statsCollection.UpdateOneAsync(Builders<BsonDocument>.Filter.Eq("user_id", userId), statsUpdate, new UpdateOptions { IsUpsert = true });
+        }
 
         private void AddTextParagraph(int id, string content, bool isBold)
         {
