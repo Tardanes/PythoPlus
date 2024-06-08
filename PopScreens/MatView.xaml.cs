@@ -89,7 +89,7 @@ namespace PythoPlus.PopScreens
             await statsCollection.UpdateOneAsync(filter, update, new UpdateOptions { IsUpsert = true });
         }
 
-        private async void RecordProgress(int questionId)
+        private async void RecordProgress(int questionId, bool isCorrect)
         {
             var progressCollection = _mongoDbService.GetCollection("mat_progress");
             var statsCollection = _mongoDbService.GetCollection("mat_stat");
@@ -104,22 +104,29 @@ namespace PythoPlus.PopScreens
                 {
                     { "user_id", userId },
                     { "material_number", materialNumber },
-                    { "correct_answers", new BsonArray { questionId } }
+                    { "correct_answers", new BsonArray() }
                 };
+                if (isCorrect)
+                {
+                    newDocument["correct_answers"].AsBsonArray.Add(questionId);
+                }
                 await progressCollection.InsertOneAsync(newDocument);
             }
             else
             {
                 // Обновление существующего документа
-                var update = Builders<BsonDocument>.Update
-                    .AddToSet("correct_answers", questionId);
-                await progressCollection.UpdateOneAsync(filter, update);
+                if (isCorrect)
+                {
+                    var update = Builders<BsonDocument>.Update
+                        .AddToSet("correct_answers", questionId);
+                    await progressCollection.UpdateOneAsync(filter, update);
+                }
             }
 
             // Обновление статистики
             var statsUpdate = Builders<BsonDocument>.Update
                 .Inc("total_answers", 1)
-                .Inc("correct_answers", 1);
+                .Inc("correct_answers", isCorrect ? 1 : 0);
             await statsCollection.UpdateOneAsync(Builders<BsonDocument>.Filter.Eq("user_id", userId), statsUpdate, new UpdateOptions { IsUpsert = true });
         }
 
@@ -189,11 +196,12 @@ namespace PythoPlus.PopScreens
             checkButton.Clicked += async (sender, e) =>
             {
                 var selected = radioButtons.FirstOrDefault(rb => rb.IsChecked);
-                if (selected != null && radioButtons.IndexOf(selected) == correctAnswer)
+                bool isCorrect = selected != null && radioButtons.IndexOf(selected) == correctAnswer;
+                RecordProgress(id, isCorrect);
+                if (isCorrect)
                 {
                     await DisplayAlert("Вірно!", "Ваша відповідь абсолютно вірна!", "Далі");
                     TestSolvedCorrectly?.Invoke(id);
-                    RecordProgress(id);
                 }
                 else
                 {
@@ -249,10 +257,11 @@ namespace PythoPlus.PopScreens
             checkButton.Clicked += async (sender, e) =>
             {
                 var selectedIndexes = checkBoxes.Select((cb, index) => cb.IsChecked ? index : -1).Where(index => index != -1).ToList();
-                if (selectedIndexes.SequenceEqual(correctAnswers))
+                bool isCorrect = selectedIndexes.SequenceEqual(correctAnswers);
+                RecordProgress(id, isCorrect);
+                if (isCorrect)
                 {
                     await DisplayAlert("Вірно!", "Ваша відповідь абсолютно вірна!", "Далі");
-                    RecordProgress(id);
                     TestSolvedCorrectly?.Invoke(id);
                 }
                 else
@@ -301,10 +310,11 @@ namespace PythoPlus.PopScreens
             };
             checkButton.Clicked += async (sender, e) =>
             {
-                if (entry.Text == correctEntry)
+                bool isCorrect = entry.Text == correctEntry;
+                RecordProgress(id, isCorrect);
+                if (isCorrect)
                 {
                     await DisplayAlert("Вірно!", "Ваша відповідь абсолютно вірна!", "Далі");
-                    RecordProgress(id);
                     TestSolvedCorrectly?.Invoke(id);
                 }
                 else
@@ -356,10 +366,10 @@ namespace PythoPlus.PopScreens
                     }
                 }
 
+                RecordProgress(id, isCorrect);
                 if (isCorrect)
                 {
                     await DisplayAlert("Вірно!", "Ваша відповідь абсолютно вірна!", "Далі");
-                    RecordProgress(id);
                     TestSolvedCorrectly?.Invoke(id);
                 }
             };

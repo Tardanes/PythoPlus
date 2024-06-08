@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Shapes;
 
 namespace PythoPlus.PopScreens
 {
@@ -65,8 +67,8 @@ namespace PythoPlus.PopScreens
             CorrectAnswersLabel.Text = $"Кількість правильних відповідей: {correctAnswers}";
             CorrectAnswersPercentageLabel.Text = $"Процент правильних відповідей: {correctAnswersPercentage:F2}%";
 
-            var materialsStats = new List<MaterialStats>();
-
+            var mainLayout = this.FindByName<VerticalStackLayout>("MainLayout");
+            mainLayout.Clear();
             foreach (var doc in progressDocuments)
             {
                 var materialNumber = doc["material_number"].AsInt32;
@@ -79,15 +81,64 @@ namespace PythoPlus.PopScreens
                     int totalQuestions = int.Parse(material.ParagraphCount);
                     int remainingQuestions = totalQuestions - correctAnswersCount;
 
-                    materialsStats.Add(new MaterialStats
+                    var materialStats = new MaterialStats
                     {
                         MaterialName = material.MaterialName,
                         MaterialDetails = $"Всього питань: {totalQuestions}, Правильних відповідей: {correctAnswersCount}, Залишилось відповісти: {remainingQuestions}"
-                    });
+                    };
+
+                    // Создание Border для каждого материала
+                    var border = new Border
+                    {
+                        BackgroundColor = (Color)Application.Current.Resources["ThemeColor"],
+                        Stroke = (Color)Application.Current.Resources["ThemeSupColor"],
+                        StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(5) },
+                        Padding = 5,
+                        StrokeThickness = 2
+                    };
+
+                    var stackLayout = new VerticalStackLayout();
+
+                    var materialNameLabel = new Label
+                    {
+                        Text = materialStats.MaterialName,
+                        FontSize = 18,
+                        TextColor = (Color)Application.Current.Resources["TextColor"],
+                        FontFamily = (string)Application.Current.Resources["FontFamily"]
+                    };
+
+                    var materialDetailsLabel = new Label
+                    {
+                        Text = materialStats.MaterialDetails,
+                        FontSize = 16,
+                        TextColor = (Color)Application.Current.Resources["TextColor"],
+                        FontFamily = (string)Application.Current.Resources["FontFamily"],
+                        IsVisible = false
+                    };
+
+                    var toggleButton = new Button
+                    {
+                        Text = "Показати/Сховати",
+                        BackgroundColor = (Color)Application.Current.Resources["ButtonColor"],
+                        TextColor = (Color)Application.Current.Resources["ButtonTextColor"],
+                        FontSize = (double)Application.Current.Resources["FontSize"],
+                        FontFamily = (string)Application.Current.Resources["FontFamily"]
+                    };
+
+                    toggleButton.Clicked += (s, e) =>
+                    {
+                        materialDetailsLabel.IsVisible = !materialDetailsLabel.IsVisible;
+                    };
+
+                    stackLayout.Children.Add(materialNameLabel);
+                    stackLayout.Children.Add(materialDetailsLabel);
+                    stackLayout.Children.Add(toggleButton);
+
+                    border.Content = stackLayout;
+
+                    mainLayout.Children.Add(border);
                 }
             }
-
-            MaterialsStatsCollectionView.ItemsSource = materialsStats;
         }
 
         private async Task<Material> GetMaterialByNumberAsync(int materialNumber)
@@ -135,14 +186,6 @@ namespace PythoPlus.PopScreens
                 MaterialDescription = materialDescription,
                 ParagraphCount = paragraphCount,
             };
-        }
-
-        private void OnToggleDetails(object sender, EventArgs e)
-        {
-            var button = sender as Button;
-            var stackLayout = button.Parent as StackLayout;
-            var detailsLayout = stackLayout.FindByName<StackLayout>("DetailsLayout");
-            detailsLayout.IsVisible = !detailsLayout.IsVisible;
         }
 
         private class MaterialStats
