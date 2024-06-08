@@ -38,6 +38,7 @@ namespace PythoPlus.PopScreens
 
         private async void OnAppearing(object sender, EventArgs e)
         {
+            NavigationPage.SetHasBackButton(this, false);
             LoadUserId(); // Обновляем UserId каждый раз, когда страница становится активной
             await LoadMaterialsAsync();
         }

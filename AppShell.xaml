@@ -30,11 +30,11 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Досягнення" Icon="achievements.png" FlyoutDisplayOptions="AsSingleItem">
+    <!--<FlyoutItem Title="Досягнення" Icon="achievements.png" FlyoutDisplayOptions="AsSingleItem">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate popscr:Achievments}" />
         </Tab>
-    </FlyoutItem>
+    </FlyoutItem>-->
 
     <FlyoutItem Title="Статистика" Icon="statistics.png" FlyoutDisplayOptions="AsSingleItem">
         <Tab>
