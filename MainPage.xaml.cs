@@ -39,17 +39,83 @@ namespace PythoPlus
         private async void OnAppearing(object sender, EventArgs e)
         {
             LoadUserId();
+            mainLayout.Clear();
             if (userId != null)
             {
                 await GenerateLinksAsync();
             }
-
         }
 
         private async Task GenerateLinksAsync()
         {
             mainLayout.Children.Clear();
 
+            // Заголовок
+            var titleLabel = new Label
+            {
+                Text = "Вітаємо! Учбової Вам наснаги!",
+                FontSize = (double)Application.Current.Resources["FontSize"] * 1.40,
+                TextColor = (Color)Application.Current.Resources["TextColor"],
+                FontFamily = (string)Application.Current.Resources["FontFamily"],
+                HorizontalOptions = LayoutOptions.Center
+            };
+            mainLayout.Children.Add(titleLabel);
+
+            // Подзаголовок
+            var subtitleLayout = new Grid
+            {
+                ColumnDefinitions = new ColumnDefinitionCollection
+                {
+                    new ColumnDefinition { Width = GridLength.Star },
+                    new ColumnDefinition { Width = GridLength.Auto }
+                },
+                VerticalOptions = LayoutOptions.Center
+            };
+
+            var subtitleLabel = new Label
+            {
+                Text = "Ваш учбовий прогрес складає:",
+                FontSize = (double)Application.Current.Resources["FontSize"] * 1.20,
+                TextColor = (Color)Application.Current.Resources["TextColor"],
+                FontFamily = (string)Application.Current.Resources["FontFamily"]
+            };
+            Grid.SetColumn(subtitleLabel, 0);
+
+            var progressLabel = new Label
+            {
+                FontSize = (double)Application.Current.Resources["FontSize"] * 1.20,
+                TextColor = (Color)Application.Current.Resources["TextColor"],
+                FontFamily = (string)Application.Current.Resources["FontFamily"],
+                FontAttributes = FontAttributes.Bold
+            };
+            Grid.SetColumn(progressLabel, 1);
+
+            subtitleLayout.Children.Add(subtitleLabel);
+            subtitleLayout.Children.Add(progressLabel);
+
+            mainLayout.Children.Add(subtitleLayout);
+
+            // Получение данных для прогресса
+            int totalMaterials = await GetTotalMaterialsAsync();
+            int completedMaterials = await GetCompletedMaterialsCountAsync();
+
+            double progressPercentage = totalMaterials > 0 ? ((double)completedMaterials / totalMaterials) : 0;
+            progressLabel.Text = $"{progressPercentage * 100:F2}%";
+
+            // ProgressBar с прогрессом
+            var progressBar = new ProgressBar
+            {
+                Progress = progressPercentage,
+                BackgroundColor = (Color)Application.Current.Resources["BackColor"],
+                ProgressColor = (Color)Application.Current.Resources["ThemeColor"],
+                VerticalOptions = LayoutOptions.Center,
+                HeightRequest = 20,
+                Margin = new Thickness(0, 10, 0, 10)
+            };
+
+            mainLayout.Children.Add(progressBar);
+
+            // Заголовок и подзаголовок добавлены, теперь добавляем генерируемые элементы
             var progressCollection = _mongoDbService.GetCollection("mat_progress");
             var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId);
             var progressDocuments = await progressCollection.Find(filter).ToListAsync();
@@ -95,12 +161,12 @@ namespace PythoPlus
                     }
                 }
 
-                var completedMaterials = await GetCompletedMaterialsAsync(progressDocuments);
+                var completedMaterialsList = await GetCompletedMaterialsAsync(progressDocuments);
 
-                if (completedMaterials.Count > 0)
+                if (completedMaterialsList.Count > 0)
                 {
                     var random = new Random();
-                    var randomCompleted = completedMaterials[random.Next(completedMaterials.Count)];
+                    var randomCompleted = completedMaterialsList[random.Next(completedMaterialsList.Count)];
 
                     AddLink("Повторення - основа навчання! Освіжіть пам'ять, згадавши:", $"Матеріал: {randomCompleted.MaterialName}", async () =>
                     {
@@ -116,6 +182,48 @@ namespace PythoPlus
             {
                 await Shell.Current.GoToAsync("Help");
             });
+        }
+
+        private async Task<int> GetTotalMaterialsAsync()
+        {
+            var superStructure = new List<XmlFields>
+            {
+                new XmlFields("MaterialCount", string.Empty)
+            };
+            var superService = new XmlFileService(superStructure);
+
+            var superInfo = await superService.ReadXmlAsync();
+            string materialCountString = superInfo.FirstOrDefault(f => f.Name == "MaterialCount")?.Value;
+
+            return int.TryParse(materialCountString, out int materialCount) ? materialCount : 0;
+        }
+
+        private async Task<int> GetCompletedMaterialsCountAsync()
+        {
+            var progressCollection = _mongoDbService.GetCollection("mat_progress");
+            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId);
+            var progressDocuments = await progressCollection.Find(filter).ToListAsync();
+
+            int completedCount = 0;
+
+            foreach (var doc in progressDocuments)
+            {
+                var materialNumber = doc["material_number"].AsInt32;
+                var material = await GetMaterialByNumberAsync(materialNumber);
+
+                if (material != null)
+                {
+                    int correctAnswers = doc["correct_answers"].AsBsonArray.Count;
+                    int totalQuestions = int.Parse(material.ParagraphCount);
+
+                    if (correctAnswers == totalQuestions)
+                    {
+                        completedCount++;
+                    }
+                }
+            }
+
+            return completedCount;
         }
 
         private void AddLink(string title, string description, Func<Task> onClick)
