@@ -24,17 +24,17 @@ namespace PythoPlus
 
         public static Color ThemeColor
         {
-            get => Color.FromArgb(Preferences.Get(ThemeColorKey, Colors.Yellow.ToArgbHex()));
+            get => Color.FromArgb(Preferences.Get(ThemeColorKey, Colors.Green.ToArgbHex()));
             set => Preferences.Set(ThemeColorKey, value.ToArgbHex());
         }
 
         public static Color ThemeSupColor
         {
             get => Color.FromArgb(Preferences.Get(ThemeSupColorKey, new Color(
-                    (float)ClampEx.Clamp(Colors.Yellow.Red * 1.4),
-                    (float)ClampEx.Clamp(Colors.Yellow.Green * 1.4),
-                    (float)ClampEx.Clamp(Colors.Yellow.Blue * 1.4),
-                    Colors.Yellow.Alpha).ToArgbHex()));
+                    (float)ClampEx.Clamp(Colors.Green.Red * 1.4),
+                    (float)ClampEx.Clamp(Colors.Green.Green * 1.4),
+                    (float)ClampEx.Clamp(Colors.Green.Blue * 1.4),
+                    Colors.Green.Alpha).ToArgbHex()));
             set => Preferences.Set(ThemeSupColorKey, value.ToArgbHex());
         }
 
@@ -46,7 +46,7 @@ namespace PythoPlus
 
         public static Color TextColor
         {
-            get => Color.FromArgb(Preferences.Get(TextColorKey, Colors.Black.ToArgbHex()));
+            get => Color.FromArgb(Preferences.Get(TextColorKey, Colors.White.ToArgbHex()));
             set => Preferences.Set(TextColorKey, value.ToArgbHex());
         }
 
@@ -64,7 +64,7 @@ namespace PythoPlus
 
         public static string ThemeColorTitled
         {
-            get => Preferences.Get(ThemeColorTitledKey, "Сірий");
+            get => Preferences.Get(ThemeColorTitledKey, "Темно-зелений");
             set => Preferences.Set(ThemeColorTitledKey, value);
         }
 
@@ -76,13 +76,13 @@ namespace PythoPlus
 
         public static string TextColorTitled
         {
-            get => Preferences.Get(TextColorTitledKey, "Чорний");
+            get => Preferences.Get(TextColorTitledKey, "Білий");
             set => Preferences.Set(TextColorTitledKey, value);
         }
 
         public static Color BackColor
         {
-            get => Color.FromArgb(Preferences.Get(BackColorKey, Colors.White.ToArgbHex()));
+            get => Color.FromArgb(Preferences.Get(BackColorKey, Colors.Black.ToArgbHex()));
             set => Preferences.Set(BackColorKey, value.ToArgbHex());
         }
 
@@ -94,7 +94,7 @@ namespace PythoPlus
 
         public static string BackColorTitled
         {
-            get => Preferences.Get(BackColorTitledKey, "Білий");
+            get => Preferences.Get(BackColorTitledKey, "Чорний");
             set => Preferences.Set(BackColorTitledKey, value);
         }
 
