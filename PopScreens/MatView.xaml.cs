@@ -338,14 +338,19 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(askLabel);
 
             var labels = pairs.Select(p => new Label { Text = p.Label }).ToList();
-            var entries = pairs.Select(p => new Entry { Placeholder = "Введите соответствие" }).ToList();
+            var pickers = pairs.Select(p =>
+            {
+                var picker = new Picker();
+                picker.ItemsSource = pairs.Select(pair => pair.Element).ToList(); // Добавить все возможные элементы в Picker
+                return picker;
+            }).ToList();
 
             var stackLayout = new VerticalStackLayout();
             for (int i = 0; i < pairs.Count; i++)
             {
                 var horizontalLayout = new HorizontalStackLayout();
                 horizontalLayout.Children.Add(labels[i]);
-                horizontalLayout.Children.Add(entries[i]);
+                horizontalLayout.Children.Add(pickers[i]);
                 stackLayout.Children.Add(horizontalLayout);
             }
 
@@ -359,9 +364,10 @@ namespace PythoPlus.PopScreens
                 for (int i = 0; i < pairs.Count; i++)
                 {
                     var pair = pairs[i];
-                    if (entries[i].Text != pair.Element)
+                    var selectedElement = pickers[i].SelectedItem?.ToString();
+                    if (selectedElement != pair.Element)
                     {
-                        entries[i].TextColor = Colors.Red;
+                        pickers[i].BackgroundColor = Colors.Red;
                         isCorrect = false;
                     }
                 }
