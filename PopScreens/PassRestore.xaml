@@ -2,8 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PythoPlus.PopScreens.PassRestore"
+             xmlns:local="clr-namespace:PythoPlus.PopScreens"
+             BackgroundColor="{DynamicResource BackColor}"
              Shell.PresentationMode="Modal"
              Title="PassRestore">
+    <ContentPage.BindingContext>
+        <local:RestoreViewModel></local:RestoreViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <!-- <Setter Property="" Value="" /> -->
         <Style TargetType="Label">
@@ -35,10 +40,19 @@
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         </Style>
     </ContentPage.Resources>
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" Margin="20" Spacing="20" MaximumWidthRequest="600">
+            <Image Source="logo.png" WidthRequest="500"/>
+            <Label Text="Введіть дані для відновлення:" />
+            <Entry x:Name="EmailEntry"
+       Placeholder="Електронна скриня з акаунту..."
+       Keyboard="Email"
+       Text="{Binding Email, Mode=TwoWay}"/>            
+            <Button Text="Відновити"
+        Command="{Binding RestoreCommand}"
+        IsEnabled="{Binding IsRestoreEnabled}"/>
+            <Button Text="Повернутись до входу"
+        Command="{Binding BackCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
