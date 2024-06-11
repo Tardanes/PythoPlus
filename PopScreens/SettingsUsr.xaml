@@ -7,7 +7,6 @@
              Title="Налаштування користувача">
     <ContentPage.BindingContext>
         <local:SettingsViewModel>
-            
         </local:SettingsViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Resources>
@@ -86,7 +85,7 @@
             <Border>
                 <VerticalStackLayout>
                     <Label Text="Розмір шрифту у додатку" />
-                    <Slider Minimum="10" Maximum="30" Value="{Binding FontSize, Mode=TwoWay}" />
+                    <Slider Minimum="10" Maximum="30" Value="{Binding FontSize, Mode=TwoWay}" ValueChanged="OnSliderValueChanged" />
                     <Line BackgroundColor="{DynamicResource BackColor}" StrokeThickness="2" />
                     <Label Text="{Binding FontSize}" />
                 </VerticalStackLayout>

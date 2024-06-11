@@ -6,4 +6,9 @@ public partial class SettingsUsr : ContentPage
 	{
 		InitializeComponent();
 	}
+    private void OnSliderValueChanged(object sender, ValueChangedEventArgs e)
+    {
+        var newStep = Math.Round(e.NewValue);
+        ((Slider)sender).Value = newStep;
+    }
 }
