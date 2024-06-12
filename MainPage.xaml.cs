@@ -397,11 +397,4 @@ namespace PythoPlus
             DisplayAlert("Вітаємо", "Вхід виконано успішно!", "OK");
         }
     }
-
-    public class ProgressDocument
-    {
-        public string UserId { get; set; }
-        public int MaterialNumber { get; set; }
-        public List<string> CorrectAnswers { get; set; }
-    }
 }

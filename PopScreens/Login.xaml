@@ -42,7 +42,7 @@
     </ContentPage.Resources>
     <ScrollView>
     <VerticalStackLayout VerticalOptions="Center" Margin="20" Spacing="20" MaximumWidthRequest="600">
-        <Image Source="logo.png" WidthRequest="500"/>
+            <Image Source="logo.png" Aspect="AspectFill" />
             <Label Text="Введіть дані:" />
             <Entry x:Name="EmailEntry"
            Placeholder="Електронна скриня..."

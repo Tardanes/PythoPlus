@@ -4,11 +4,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Maui.Controls;
-using MongoDB.Driver;
-using MongoDB.Bson;
 using MimeKit;
 using MailKit.Net.Smtp;
 using MvvmHelpers;
+using System.Linq;
 
 namespace PythoPlus.PopScreens
 {
@@ -16,11 +15,11 @@ namespace PythoPlus.PopScreens
     {
         private string _email;
         private bool _isRestoreEnabled;
-        private readonly MongoDbService _mongoDbService;
+        private readonly LocalDbService _localDbService;
 
         public RestoreViewModel()
         {
-            _mongoDbService = new MongoDbService();
+            _localDbService = new LocalDbService(FileSystem.AppDataDirectory);
             RestoreCommand = new Command(async () => await RestorePasswordAsync(), () => IsRestoreEnabled);
             BackCommand = new Command(async () => await BackToLoginAsync());
             PropertyChanged += (s, e) =>
@@ -52,15 +51,14 @@ namespace PythoPlus.PopScreens
         {
             try
             {
-                var accountsCollection = _mongoDbService.GetCollection("accounts");
-                var filter = Builders<BsonDocument>.Filter.Eq("email", Email);
-                var account = await accountsCollection.Find(filter).FirstOrDefaultAsync();
+                var accounts = await _localDbService.GetCollectionAsync<Account>("accounts");
+                var account = accounts.FirstOrDefault(a => a.Email == Email);
 
                 if (account != null)
                 {
                     var newPassword = GenerateRandomPassword(8);
-                    var update = Builders<BsonDocument>.Update.Set("pass", newPassword);
-                    await accountsCollection.UpdateOneAsync(filter, update);
+                    account.Password = newPassword;
+                    await _localDbService.UpdateRecordAsync("accounts", a => a.Email == Email, account);
 
                     await SendEmailAsync(Email, newPassword);
 

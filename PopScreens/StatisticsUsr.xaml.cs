@@ -1,5 +1,3 @@
-using MongoDB.Bson;
-using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +9,13 @@ namespace PythoPlus.PopScreens
 {
     public partial class StatisticsUsr : ContentPage
     {
-        private ObjectId userId;
-        private MongoDbService _mongoDbService;
+        private string userId;
+        private LocalDbService _localDbService;
 
         public StatisticsUsr()
         {
             InitializeComponent();
-            _mongoDbService = new MongoDbService();
+            _localDbService = new LocalDbService(FileSystem.AppDataDirectory);
             Appearing += OnAppearing;
         }
 
@@ -25,7 +23,7 @@ namespace PythoPlus.PopScreens
         {
             if (Application.Current.Resources.ContainsKey("UserId"))
             {
-                userId = new ObjectId(Application.Current.Resources["UserId"].ToString());
+                userId = Application.Current.Resources["UserId"].ToString();
             }
             else
             {
@@ -41,24 +39,18 @@ namespace PythoPlus.PopScreens
 
         private async Task LoadStatisticsAsync()
         {
-            var statsCollection = _mongoDbService.GetCollection("mat_stat");
-            var progressCollection = _mongoDbService.GetCollection("mat_progress");
+            var statsCollection = await _localDbService.GetCollectionAsync<UserStats>("mat_stat");
+            var progressCollection = await _localDbService.GetCollectionAsync<ProgressDocument>("mat_progress");
 
-            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId);
+            var statsDocument = statsCollection.FirstOrDefault(stat => stat.UserId == userId);
+            var progressDocuments = progressCollection.Where(doc => doc.UserId == userId).ToList();
 
-            var statsDocument = await statsCollection.Find(filter).FirstOrDefaultAsync();
-            var progressDocuments = await progressCollection.Find(filter).ToListAsync();
-
-            int loginsCount = statsDocument != null ? statsDocument["logins_count"].AsInt32 : 0;
-
-            double totalTimeSpentSeconds = statsDocument != null
-                ? statsDocument["total_time_spent"].IsInt32 ? statsDocument["total_time_spent"].AsInt32 : statsDocument["total_time_spent"].AsDouble
-                : 0.0;
-
+            int loginsCount = statsDocument != null ? statsDocument.LoginsCount : 0;
+            double totalTimeSpentSeconds = statsDocument != null ? statsDocument.TotalTimeSpent : 0.0;
             TimeSpan totalTimeSpent = TimeSpan.FromSeconds(totalTimeSpentSeconds);
 
-            int totalAnswers = statsDocument != null ? statsDocument["total_answers"].AsInt32 : 0;
-            int correctAnswers = statsDocument != null ? statsDocument["correct_answers"].AsInt32 : 0;
+            int totalAnswers = statsDocument != null ? statsDocument.TotalAnswers : 0;
+            int correctAnswers = statsDocument != null ? statsDocument.CorrectAnswers : 0;
             double correctAnswersPercentage = totalAnswers > 0 ? ((double)correctAnswers / totalAnswers) * 100 : 0;
 
             LoginsCountLabel.Text = $"Кількість входів: {loginsCount}";
@@ -71,9 +63,8 @@ namespace PythoPlus.PopScreens
             mainLayout.Clear();
             foreach (var doc in progressDocuments)
             {
-                var materialNumber = doc["material_number"].AsInt32;
-                var correctAnswersArray = doc["correct_answers"].AsBsonArray;
-                int correctAnswersCount = correctAnswersArray.Count;
+                var materialNumber = doc.MaterialNumber;
+                int correctAnswersCount = doc.CorrectAnswers.Count;
 
                 var material = await GetMaterialByNumberAsync(materialNumber);
                 if (material != null)

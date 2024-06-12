@@ -1,7 +1,5 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Shapes;
-using MongoDB.Bson;
-using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -14,13 +12,13 @@ namespace PythoPlus.PopScreens
     {
         // VERY IMPORTANT INFO
         List<XmlFields> fieldsTask;
-        private ObjectId userId;
-        private MongoDbService _mongoDbService;
+        private string userId;
+        private LocalDbService _localDbService;
 
         public MatCatalog()
         {
             InitializeComponent();
-            _mongoDbService = new MongoDbService();
+            _localDbService = new LocalDbService(FileSystem.AppDataDirectory);
             Appearing += OnAppearing; // Добавляем обработчик для события Appearing
         }
 
@@ -28,7 +26,7 @@ namespace PythoPlus.PopScreens
         {
             if (Application.Current.Resources.ContainsKey("UserId"))
             {
-                userId = new ObjectId(Application.Current.Resources["UserId"].ToString());
+                userId = Application.Current.Resources["UserId"].ToString();
             }
             else
             {
@@ -125,17 +123,15 @@ namespace PythoPlus.PopScreens
             try
             {
                 // Fetch user progress
-                var progressCollection = _mongoDbService.GetCollection("mat_progress");
-                var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId) & Builders<BsonDocument>.Filter.Eq("material_number", material.MaterialNumber);
-                var progressDocument = await progressCollection.Find(filter).FirstOrDefaultAsync();
+                var progressDocuments = await _localDbService.GetCollectionAsync<ProgressDocument>("mat_progress");
+                var progressDocument = progressDocuments.FirstOrDefault(p => p.UserId == userId && p.MaterialNumber == material.MaterialNumber);
 
                 int correctAnswers = 0;
                 int totalQuestions = int.Parse(material.ParagraphCount);
 
                 if (progressDocument != null)
                 {
-                    var correctAnswersArray = progressDocument["correct_answers"].AsBsonArray;
-                    correctAnswers = correctAnswersArray.Count;
+                    correctAnswers = progressDocument.CorrectAnswers.Count;
 
                     double percentage = ((double)correctAnswers / totalQuestions) * 100;
                     percentageText = $"{percentage:F2}%";
@@ -200,7 +196,7 @@ namespace PythoPlus.PopScreens
             {
                 BackgroundColor = percentageBorderColor,
                 Stroke = (Color)Application.Current.Resources["BackColor"],
-                StrokeThickness = 2,                
+                StrokeThickness = 2,
                 StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(5) },
                 Padding = 5,
                 Content = percentageLabel

@@ -1,7 +1,5 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Shapes;
-using MongoDB.Bson;
-using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +9,9 @@ namespace PythoPlus.PopScreens
 {
     public partial class MatView : ContentPage
     {
-        private ObjectId userId;
+        private string userId;
         private int materialNumber;
-        private MongoDbService _mongoDbService;
+        private LocalDbService _localDbService;
         private DateTime startTime;
 
         public event Action<int> TestSolvedCorrectly;
@@ -23,7 +21,7 @@ namespace PythoPlus.PopScreens
             InitializeComponent();
             LoadUserId();
             this.materialNumber = materialNumber;
-            _mongoDbService = new MongoDbService();
+            _localDbService = new LocalDbService(FileSystem.AppDataDirectory);
             Appearing += OnAppearing;
             Disappearing += OnDisappearing;
             LoadContent(filePath);
@@ -33,7 +31,7 @@ namespace PythoPlus.PopScreens
         {
             if (Application.Current.Resources.ContainsKey("UserId"))
             {
-                userId = new ObjectId(Application.Current.Resources["UserId"].ToString());
+                userId = Application.Current.Resources["UserId"].ToString();
             }
             else
             {
@@ -83,51 +81,74 @@ namespace PythoPlus.PopScreens
         private async void OnDisappearing(object sender, EventArgs e)
         {
             var timeSpent = DateTime.Now - startTime;
-            var statsCollection = _mongoDbService.GetCollection("mat_stat");
-            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId);
-            var update = Builders<BsonDocument>.Update.Inc("total_time_spent", timeSpent.TotalSeconds);
-            await statsCollection.UpdateOneAsync(filter, update, new UpdateOptions { IsUpsert = true });
+            var stats = await _localDbService.GetCollectionAsync<UserStats>("mat_stat");
+            var userStats = stats.FirstOrDefault(stat => stat.UserId == userId);
+
+            if (userStats == null)
+            {
+                userStats = new UserStats
+                {
+                    UserId = userId,
+                    TotalTimeSpent = timeSpent.TotalSeconds,
+                    TotalAnswers = 0,
+                    CorrectAnswers = 0
+                };
+                await _localDbService.AddRecordAsync("mat_stat", userStats);
+            }
+            else
+            {
+                userStats.TotalTimeSpent += timeSpent.TotalSeconds;
+                await _localDbService.UpdateRecordAsync("mat_stat", stat => stat.UserId == userId, userStats);
+            }
         }
 
         private async void RecordProgress(int questionId, bool isCorrect)
         {
-            var progressCollection = _mongoDbService.GetCollection("mat_progress");
-            var statsCollection = _mongoDbService.GetCollection("mat_stat");
-            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId) & Builders<BsonDocument>.Filter.Eq("material_number", materialNumber);
+            var progressDocuments = await _localDbService.GetCollectionAsync<ProgressDocument>("mat_progress");
+            var progressDocument = progressDocuments.FirstOrDefault(p => p.UserId == userId && p.MaterialNumber == materialNumber);
 
-            // ѕроверка, существует ли документ
-            var progressDocument = await progressCollection.Find(filter).FirstOrDefaultAsync();
             if (progressDocument == null)
             {
-                // —оздание нового документа, если он не существует
-                var newDocument = new BsonDocument
+                progressDocument = new ProgressDocument
                 {
-                    { "user_id", userId },
-                    { "material_number", materialNumber },
-                    { "correct_answers", new BsonArray() }
+                    UserId = userId,
+                    MaterialNumber = materialNumber,
+                    CorrectAnswers = isCorrect ? new List<int> { questionId } : new List<int>()
                 };
-                if (isCorrect)
-                {
-                    newDocument["correct_answers"].AsBsonArray.Add(questionId);
-                }
-                await progressCollection.InsertOneAsync(newDocument);
+                await _localDbService.AddRecordAsync("mat_progress", progressDocument);
             }
             else
             {
-                // ќбновление существующего документа
-                if (isCorrect)
+                if (isCorrect && !progressDocument.CorrectAnswers.Contains(questionId))
                 {
-                    var update = Builders<BsonDocument>.Update
-                        .AddToSet("correct_answers", questionId);
-                    await progressCollection.UpdateOneAsync(filter, update);
+                    progressDocument.CorrectAnswers.Add(questionId);
+                    await _localDbService.UpdateRecordAsync("mat_progress", p => p.UserId == userId && p.MaterialNumber == materialNumber, progressDocument);
                 }
             }
 
-            // ќбновление статистики
-            var statsUpdate = Builders<BsonDocument>.Update
-                .Inc("total_answers", 1)
-                .Inc("correct_answers", isCorrect ? 1 : 0);
-            await statsCollection.UpdateOneAsync(Builders<BsonDocument>.Filter.Eq("user_id", userId), statsUpdate, new UpdateOptions { IsUpsert = true });
+            var stats = await _localDbService.GetCollectionAsync<UserStats>("mat_stat");
+            var userStats = stats.FirstOrDefault(stat => stat.UserId == userId);
+
+            if (userStats == null)
+            {
+                userStats = new UserStats
+                {
+                    UserId = userId,
+                    TotalTimeSpent = 0,
+                    TotalAnswers = 1,
+                    CorrectAnswers = isCorrect ? 1 : 0
+                };
+                await _localDbService.AddRecordAsync("mat_stat", userStats);
+            }
+            else
+            {
+                userStats.TotalAnswers++;
+                if (isCorrect)
+                {
+                    userStats.CorrectAnswers++;
+                }
+                await _localDbService.UpdateRecordAsync("mat_stat", stat => stat.UserId == userId, userStats);
+            }
         }
 
         private void AddTextParagraph(int id, string content, bool isBold)
@@ -383,5 +404,13 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(stackLayout);
             mainLayout.Children.Add(checkButton);
         }
+    }
+    public class UserStats
+    {
+        public string UserId { get; set; }
+        public double TotalTimeSpent { get; set; }
+        public int LoginsCount { get; set; }
+        public int TotalAnswers { get; set; }
+        public int CorrectAnswers { get; set; }
     }
 }
