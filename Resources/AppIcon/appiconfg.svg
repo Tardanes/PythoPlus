@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" rx="70" fill="url(#paint0_linear_208_150)"/>
-  <g filter="url(#filter0_i_208_150)">
-    <rect x="102" y="82" width="65.156" height="260" fill="#4F19E9"/>
-    <path d="M229.246 171.5C229.246 206.294 201.04 234.5 166.246 234.5C150.28 234.5 143.519 228.91 139.024 221.304C133.113 211.302 129.746 194.743 129.746 171.5C129.746 148.257 133.113 131.698 139.024 121.696C143.519 114.09 150.28 108.5 166.246 108.5C201.04 108.5 229.246 136.706 229.246 171.5Z" stroke="#4F19E9" stroke-width="53"/>
-    <rect x="409.246" y="430.5" width="64.156" height="259" transform="rotate(180 409.246 430.5)" fill="#EEE629" stroke="#EEE629"/>
-    <path d="M282.5 341.5C282.5 306.706 310.706 278.5 345.5 278.5C361.466 278.5 368.227 284.09 372.722 291.696C378.633 301.698 382 318.257 382 341.5C382 364.743 378.633 381.302 372.722 391.304C368.227 398.91 361.466 404.5 345.5 404.5C310.706 404.5 282.5 376.294 282.5 341.5Z" stroke="#EEE629" stroke-width="53"/>
+<svg width="423" height="423" viewBox="0 0 423 423" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#filter0_i_250_7)">
+    <rect x="58" y="37" width="65.156" height="260" fill="#4F19E9"/>
+    <path d="M185.246 126.5C185.246 161.294 157.04 189.5 122.246 189.5C106.28 189.5 99.5185 183.91 95.0236 176.304C89.1128 166.302 85.7456 149.743 85.7456 126.5C85.7456 103.257 89.1128 86.6982 95.0236 76.6961C99.5185 69.0899 106.28 63.5 122.246 63.5C157.04 63.5 185.246 91.7061 185.246 126.5Z" stroke="#4F19E9" stroke-width="53"/>
+    <rect x="365.246" y="385.5" width="64.156" height="259" transform="rotate(180 365.246 385.5)" fill="#EEE629" stroke="#EEE629"/>
+    <path d="M238.5 296.5C238.5 261.706 266.706 233.5 301.5 233.5C317.466 233.5 324.227 239.09 328.722 246.696C334.633 256.698 338 273.257 338 296.5C338 319.743 334.633 336.302 328.722 346.304C324.227 353.91 317.466 359.5 301.5 359.5C266.706 359.5 238.5 331.294 238.5 296.5Z" stroke="#EEE629" stroke-width="53"/>
   </g>
   <defs>
-    <filter id="filter0_i_208_150" x="102" y="82" width="311.746" height="353" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="filter0_i_250_7" x="58" y="37" width="311.746" height="353" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-opacity="0" result="BackgroundImageFix"/>
       <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
       <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -17,11 +16,7 @@
       <feGaussianBlur stdDeviation="2"/>
       <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
       <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-      <feBlend mode="normal" in2="shape" result="effect1_innerShadow_208_150"/>
+      <feBlend mode="normal" in2="shape" result="effect1_innerShadow_250_7"/>
     </filter>
-    <linearGradient id="paint0_linear_208_150" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#EEE629"/>
-      <stop offset="0.978432" stop-color="#4F19E9"/>
-    </linearGradient>
   </defs>
 </svg>
