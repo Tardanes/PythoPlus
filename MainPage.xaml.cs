@@ -1,6 +1,4 @@
 ﻿using Microsoft.Maui.Controls;
-using MongoDB.Bson;
-using MongoDB.Driver;
 using PythoPlus.PopScreens;
 using System;
 using System.Collections.Generic;
@@ -11,15 +9,15 @@ namespace PythoPlus
 {
     public partial class MainPage : ContentPage
     {
-        private ObjectId? userId;
-        private MongoDbService _mongoDbService;
+        private string userId;
+        private LocalDbService _localDbService;
         private Dictionary<int, string> materialPaths;
 
         public MainPage()
         {
             InitializeComponent();
             Navigation.PushModalAsync(new Login());
-            _mongoDbService = new MongoDbService();
+            _localDbService = new LocalDbService(FileSystem.AppDataDirectory);
             materialPaths = new Dictionary<int, string>();
             Appearing += OnAppearing;
         }
@@ -28,7 +26,7 @@ namespace PythoPlus
         {
             if (Application.Current.Resources.ContainsKey("UserId"))
             {
-                userId = new ObjectId(Application.Current.Resources["UserId"].ToString());
+                userId = Application.Current.Resources["UserId"].ToString();
             }
             else
             {
@@ -39,7 +37,7 @@ namespace PythoPlus
         private async void OnAppearing(object sender, EventArgs e)
         {
             LoadUserId();
-            mainLayout.Clear();
+            mainLayout.Children.Clear();
             if (userId != null)
             {
                 await GenerateLinksAsync();
@@ -116,9 +114,7 @@ namespace PythoPlus
             mainLayout.Children.Add(progressBar);
 
             // Заголовок и подзаголовок добавлены, теперь добавляем генерируемые элементы
-            var progressCollection = _mongoDbService.GetCollection("mat_progress");
-            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId);
-            var progressDocuments = await progressCollection.Find(filter).ToListAsync();
+            var progressDocuments = await _localDbService.GetCollectionAsync<ProgressDocument>("mat_progress");
 
             if (progressDocuments.Count == 0)
             {
@@ -200,20 +196,18 @@ namespace PythoPlus
 
         private async Task<int> GetCompletedMaterialsCountAsync()
         {
-            var progressCollection = _mongoDbService.GetCollection("mat_progress");
-            var filter = Builders<BsonDocument>.Filter.Eq("user_id", userId);
-            var progressDocuments = await progressCollection.Find(filter).ToListAsync();
+            var progressDocuments = await _localDbService.GetCollectionAsync<ProgressDocument>("mat_progress");
 
             int completedCount = 0;
 
             foreach (var doc in progressDocuments)
             {
-                var materialNumber = doc["material_number"].AsInt32;
+                var materialNumber = doc.MaterialNumber;
                 var material = await GetMaterialByNumberAsync(materialNumber);
 
                 if (material != null)
                 {
-                    int correctAnswers = doc["correct_answers"].AsBsonArray.Count;
+                    int correctAnswers = doc.CorrectAnswers.Count;
                     int totalQuestions = int.Parse(material.ParagraphCount);
 
                     if (correctAnswers == totalQuestions)
@@ -329,16 +323,16 @@ namespace PythoPlus
             };
         }
 
-        private async Task<Material> GetFirstUnfinishedMaterialAsync(List<BsonDocument> progressDocuments)
+        private async Task<Material> GetFirstUnfinishedMaterialAsync(List<ProgressDocument> progressDocuments)
         {
             foreach (var doc in progressDocuments)
             {
-                var materialNumber = doc["material_number"].AsInt32;
+                var materialNumber = doc.MaterialNumber;
                 var material = await GetMaterialByNumberAsync(materialNumber);
 
                 if (material != null)
                 {
-                    int correctAnswers = doc["correct_answers"].AsBsonArray.Count;
+                    int correctAnswers = doc.CorrectAnswers.Count;
                     int totalQuestions = int.Parse(material.ParagraphCount);
 
                     if (correctAnswers < totalQuestions)
@@ -351,16 +345,16 @@ namespace PythoPlus
             return null;
         }
 
-        private async Task<Material> GetLastCompletedMaterialAsync(List<BsonDocument> progressDocuments)
+        private async Task<Material> GetLastCompletedMaterialAsync(List<ProgressDocument> progressDocuments)
         {
-            foreach (var doc in progressDocuments.OrderByDescending(d => d["material_number"].AsInt32))
+            foreach (var doc in progressDocuments.OrderByDescending(d => d.MaterialNumber))
             {
-                var materialNumber = doc["material_number"].AsInt32;
+                var materialNumber = doc.MaterialNumber;
                 var material = await GetMaterialByNumberAsync(materialNumber);
 
                 if (material != null)
                 {
-                    int correctAnswers = doc["correct_answers"].AsBsonArray.Count;
+                    int correctAnswers = doc.CorrectAnswers.Count;
                     int totalQuestions = int.Parse(material.ParagraphCount);
 
                     if (correctAnswers == totalQuestions)
@@ -373,18 +367,18 @@ namespace PythoPlus
             return null;
         }
 
-        private async Task<List<Material>> GetCompletedMaterialsAsync(List<BsonDocument> progressDocuments)
+        private async Task<List<Material>> GetCompletedMaterialsAsync(List<ProgressDocument> progressDocuments)
         {
             var completedMaterials = new List<Material>();
 
             foreach (var doc in progressDocuments)
             {
-                var materialNumber = doc["material_number"].AsInt32;
+                var materialNumber = doc.MaterialNumber;
                 var material = await GetMaterialByNumberAsync(materialNumber);
 
                 if (material != null)
                 {
-                    int correctAnswers = doc["correct_answers"].AsBsonArray.Count;
+                    int correctAnswers = doc.CorrectAnswers.Count;
                     int totalQuestions = int.Parse(material.ParagraphCount);
 
                     if (correctAnswers == totalQuestions)
@@ -402,5 +396,12 @@ namespace PythoPlus
             OnAppearing(new object(), new EventArgs());
             DisplayAlert("Вітаємо", "Вхід виконано успішно!", "OK");
         }
+    }
+
+    public class ProgressDocument
+    {
+        public string UserId { get; set; }
+        public int MaterialNumber { get; set; }
+        public List<string> CorrectAnswers { get; set; }
     }
 }

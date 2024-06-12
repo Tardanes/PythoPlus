@@ -1,22 +1,23 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.Maui.Controls;
 
 namespace PythoPlus.PopScreens
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        private MongoDbService _mongoDbService;
+        private LocalDbService _localDbService;
 
         private string email;
         private string password;
         private bool isLoginEnabled;
-        private ObjectId userId;
+        private string userId;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler LoginSuccessful;
@@ -53,7 +54,7 @@ namespace PythoPlus.PopScreens
             }
         }
 
-        public ObjectId UserId
+        public string UserId
         {
             get => userId;
             private set
@@ -68,6 +69,7 @@ namespace PythoPlus.PopScreens
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await OnLogin());
+            _localDbService = new LocalDbService(FileSystem.AppDataDirectory);
         }
 
         private async Task OnLogin()
@@ -76,28 +78,17 @@ namespace PythoPlus.PopScreens
             try
             {
 #if ANDROID
-                Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
-                Shell.SetNavBarIsVisible(Shell.Current.CurrentItem, true);
-                LoginSuccessful?.Invoke(this, EventArgs.Empty);
-                return;
+                Console.WriteLine("Login starting...");
 #endif
                 // Проверка, что подключение установлено
-                _mongoDbService = new MongoDbService();
-                var accountsCollection = _mongoDbService.GetCollection("accounts");
-                if (accountsCollection == null)
-                {
-                    Console.WriteLine("Не удалось получить коллекцию 'accounts'");
-                    await Application.Current.MainPage.DisplayAlert("Помилка", "База даних наразі недоступна. Спробуйте пізніше.", "OK");
-                    return;
-                }
+                var accounts = await _localDbService.GetCollectionAsync<Account>("accounts");
 
-                var filter = Builders<BsonDocument>.Filter.Eq("email", Email) & Builders<BsonDocument>.Filter.Eq("pass", Password);
-                var account = await accountsCollection.Find(filter).FirstOrDefaultAsync();
+                var account = accounts.FirstOrDefault(acc => acc.Email == Email && acc.Password == Password);
 
                 if (account != null)
                 {
-                    UserId = account["_id"].AsObjectId;
-                    Application.Current.Resources["UserId"] = UserId.ToString(); // Сохранение ID пользователя в динамических ресурсах
+                    UserId = account.Id;
+                    Application.Current.Resources["UserId"] = UserId; // Сохранение ID пользователя в динамических ресурсах
                     Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
                     Shell.SetNavBarIsVisible(Shell.Current.CurrentItem, true);
                     LoginSuccessful?.Invoke(this, EventArgs.Empty);
@@ -117,15 +108,26 @@ namespace PythoPlus.PopScreens
 
         public async Task UpdateUserStats()
         {
-            var statsCollection = _mongoDbService.GetCollection("mat_stat");
-            var filter = Builders<BsonDocument>.Filter.Eq("user_id", UserId);
+            var stats = await _localDbService.GetCollectionAsync<UserStats>("mat_stat");
+            var userStats = stats.FirstOrDefault(stat => stat.UserId == UserId);
 
-            var update = Builders<BsonDocument>.Update.Inc("logins_count", 1)
-                                                     .SetOnInsert("total_time_spent", 0)
-                                                     .SetOnInsert("total_answers", 0)
-                                                     .SetOnInsert("correct_answers", 0);
-
-            await statsCollection.UpdateOneAsync(filter, update, new UpdateOptions { IsUpsert = true });
+            if (userStats == null)
+            {
+                userStats = new UserStats
+                {
+                    UserId = UserId,
+                    LoginsCount = 1,
+                    TotalTimeSpent = 0,
+                    TotalAnswers = 0,
+                    CorrectAnswers = 0
+                };
+                await _localDbService.AddRecordAsync("mat_stat", userStats);
+            }
+            else
+            {
+                userStats.LoginsCount++;
+                await _localDbService.UpdateRecordAsync("mat_stat", stat => stat.UserId == UserId, userStats);
+            }
         }
 
         private void ValidateLogin()

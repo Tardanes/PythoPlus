@@ -1,17 +1,18 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.Maui.Controls;
 
 namespace PythoPlus.PopScreens
 {
     public class RegistrationViewModel : INotifyPropertyChanged
     {
-        private MongoDbService _mongoDbService;
+        private LocalDbService _localDbService;
 
         private string email;
         private string password;
@@ -65,21 +66,21 @@ namespace PythoPlus.PopScreens
 
         public ICommand RegisterCommand { get; }
         public ICommand BackCommand { get; }
+
         public RegistrationViewModel()
         {
             RegisterCommand = new Command(async () => await OnRegister());
             BackCommand = new Command(async () => await OnBackButtonClicked());
+            _localDbService = new LocalDbService(FileSystem.AppDataDirectory);
         }
 
         private async Task OnRegister()
         {
             try
             {
-                _mongoDbService = new MongoDbService();
-                var accountsCollection = _mongoDbService.GetCollection("accounts");
+                var accounts = await _localDbService.GetCollectionAsync<Account>("accounts");
 
-                var filter = Builders<BsonDocument>.Filter.Eq("email", Email);
-                var existingAccount = await accountsCollection.Find(filter).FirstOrDefaultAsync();
+                var existingAccount = accounts.FirstOrDefault(acc => acc.Email == Email);
 
                 if (existingAccount != null)
                 {
@@ -88,15 +89,16 @@ namespace PythoPlus.PopScreens
                     return;
                 }
 
-                // Создание нового документа пользователя
-                var newAccount = new BsonDocument
+                // Создание нового аккаунта
+                var newAccount = new Account
                 {
-                    { "email", Email },
-                    { "pass", Password }
+                    Id = Guid.NewGuid().ToString(),
+                    Email = Email,
+                    Password = Password
                 };
 
-                // Вставка нового документа в коллекцию
-                await accountsCollection.InsertOneAsync(newAccount);
+                // Добавление нового аккаунта в коллекцию
+                await _localDbService.AddRecordAsync("accounts", newAccount);
 
                 // Уведомление пользователя об успешной регистрации
                 await Application.Current.MainPage.DisplayAlert("Вдала реєстрація", "Тепер використайте ваші дані для входу!", "OK");
@@ -126,6 +128,7 @@ namespace PythoPlus.PopScreens
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
         private async Task OnBackButtonClicked()
         {
             // Навигация на предыдущую страницу
