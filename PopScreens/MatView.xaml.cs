@@ -323,6 +323,7 @@ namespace PythoPlus.PopScreens
             mainLayout.Children.Add(askLabel);
 
             var entry = new Entry();
+            entry.BackgroundColor = Colors.Gray;
             mainLayout.Children.Add(entry);
 
             var checkButton = new Button
