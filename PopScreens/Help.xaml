@@ -2,11 +2,145 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PythoPlus.PopScreens.Help"
-             Title="Help">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             BackgroundColor="{DynamicResource BackColor}"
+             Title="Допомога">
+    <ContentPage.Resources>
+        <!-- <Setter Property="" Value="" /> -->
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}" />
+            <Setter Property="Stroke" Value="{DynamicResource ThemeSupColor}" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 5" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="StrokeThickness" Value="2" />
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+                <Border>
+                    <VerticalStackLayout>
+                        <Label Text="Як увійти в додаток" 
+                       FontSize="Large" 
+                       FontAttributes="Bold" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="1. Відкрийте додаток PythoPlus на вашому пристрої."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="2. Введіть вашу електронну пошту та пароль у відповідні поля."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="3. Натисніть кнопку 'Увійти'. Якщо ви ще не зареєстровані, натисніть кнопку 'Реєстрація' для створення нового акаунту."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border>
+                    <VerticalStackLayout>
+                        <Label Text="Як вийти з додатку" 
+                       FontSize="Large" 
+                       FontAttributes="Bold" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="1. Відкрийте головне меню, натиснувши на іконку меню у верхньому лівому куті екрану."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="2. У меню, що відкрилося, виберіть пункт 'Вийти'."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border>
+                    <VerticalStackLayout>
+                        <Label Text="Як відкрити меню" 
+                       FontSize="Large" 
+                       FontAttributes="Bold" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="1. Натисніть на іконку меню (три горизонтальні лінії) у верхньому лівому куті екрану."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="2. У меню, що відкрилося, ви побачите наступні пункти:"
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border>
+                    <VerticalStackLayout>
+                        <Label Text="Пункти меню" 
+                       FontSize="Large" 
+                       FontAttributes="Bold" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="1. Головна: Повернення на головну сторінку."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="2. Матеріали: Перегляд та вибір доступних матеріалів."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="3. Статистика: Перегляд вашої навчальної статистики."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="4. Налаштування: Налаштування додатку відповідно до ваших потреб."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="5. Допомога: Відкриття цієї сторінки з інструкціями."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="6. Вийти: Вихід з вашого акаунту."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border>
+                    <VerticalStackLayout>
+                        <Label Text="Як користуватися додатком" 
+                       FontSize="Large" 
+                       FontAttributes="Bold" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="1. Після входу ви побачите головну сторінку з доступними матеріалами."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="2. Виберіть матеріал, який вас цікавить, для перегляду та навчання."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="3. Виконуйте тести та завдання, щоб покращити свої навички."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="4. Переглядайте свою статистику в розділі 'Статистика', щоб відстежувати свій прогрес."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border>
+                    <VerticalStackLayout>
+                        <Label Text="Контактна інформація" 
+                       FontSize="Large" 
+                       FontAttributes="Bold" 
+                       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="Якщо у вас виникли питання або проблеми, зверніться до нашої підтримки за електронною адресою support@pythoplus.com."
+                       FontSize="Medium" 
+                       TextColor="{DynamicResource TextColor}" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
