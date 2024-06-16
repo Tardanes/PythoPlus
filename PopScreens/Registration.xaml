@@ -39,6 +39,7 @@
             <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
             <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+            <Setter Property="BackgroundColor" Value="Gray" />
         </Style>
     </ContentPage.Resources>
     <ScrollView>
