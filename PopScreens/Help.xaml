@@ -40,37 +40,6 @@
             <VerticalStackLayout Padding="20" Spacing="20">
                 <Border>
                     <VerticalStackLayout>
-                        <Label Text="Як увійти в додаток" 
-                       FontSize="Large" 
-                       FontAttributes="Bold" 
-                       TextColor="{DynamicResource TextColor}" />
-                        <Label Text="1. Відкрийте додаток PythoPlus на вашому пристрої."
-                       FontSize="Medium" 
-                       TextColor="{DynamicResource TextColor}" />
-                        <Label Text="2. Введіть вашу електронну пошту та пароль у відповідні поля."
-                       FontSize="Medium" 
-                       TextColor="{DynamicResource TextColor}" />
-                        <Label Text="3. Натисніть кнопку 'Увійти'. Якщо ви ще не зареєстровані, натисніть кнопку 'Реєстрація' для створення нового акаунту."
-                       FontSize="Medium" 
-                       TextColor="{DynamicResource TextColor}" />
-                    </VerticalStackLayout>
-                </Border>
-                <Border>
-                    <VerticalStackLayout>
-                        <Label Text="Як вийти з додатку" 
-                       FontSize="Large" 
-                       FontAttributes="Bold" 
-                       TextColor="{DynamicResource TextColor}" />
-                        <Label Text="1. Відкрийте головне меню, натиснувши на іконку меню у верхньому лівому куті екрану."
-                       FontSize="Medium" 
-                       TextColor="{DynamicResource TextColor}" />
-                        <Label Text="2. У меню, що відкрилося, виберіть пункт 'Вийти'."
-                       FontSize="Medium" 
-                       TextColor="{DynamicResource TextColor}" />
-                    </VerticalStackLayout>
-                </Border>
-                <Border>
-                    <VerticalStackLayout>
                         <Label Text="Як відкрити меню" 
                        FontSize="Large" 
                        FontAttributes="Bold" 
@@ -78,6 +47,7 @@
                         <Label Text="1. Натисніть на іконку меню (три горизонтальні лінії) у верхньому лівому куті екрану."
                        FontSize="Medium" 
                        TextColor="{DynamicResource TextColor}" />
+                        <Image Source="opnmenu.png" MaximumHeightRequest="300" />
                         <Label Text="2. У меню, що відкрилося, ви побачите наступні пункти:"
                        FontSize="Medium" 
                        TextColor="{DynamicResource TextColor}" />
@@ -89,6 +59,7 @@
                        FontSize="Large" 
                        FontAttributes="Bold" 
                        TextColor="{DynamicResource TextColor}" />
+                        <Image Source="fullmenu.png" MaximumHeightRequest="300" />
                         <Label Text="1. Головна: Повернення на головну сторінку."
                        FontSize="Medium" 
                        TextColor="{DynamicResource TextColor}" />
@@ -124,9 +95,25 @@
                         <Label Text="3. Виконуйте тести та завдання, щоб покращити свої навички."
                        FontSize="Medium" 
                        TextColor="{DynamicResource TextColor}" />
+                        <Image Source="askqst.png" MaximumHeightRequest="300" />
                         <Label Text="4. Переглядайте свою статистику в розділі 'Статистика', щоб відстежувати свій прогрес."
                        FontSize="Medium" 
                        TextColor="{DynamicResource TextColor}" />
+                        <Image Source="progressproc.png" MaximumHeightRequest="300" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border>
+                    <VerticalStackLayout>
+                        <Label Text="Як вийти з додатку" 
+       FontSize="Large" 
+       FontAttributes="Bold" 
+       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="1. Відкрийте головне меню, натиснувши на іконку меню у верхньому лівому куті екрану."
+       FontSize="Medium" 
+       TextColor="{DynamicResource TextColor}" />
+                        <Label Text="2. У меню, що відкрилося, виберіть пункт 'Вийти'."
+       FontSize="Medium" 
+       TextColor="{DynamicResource TextColor}" />
                     </VerticalStackLayout>
                 </Border>
                 <Border>

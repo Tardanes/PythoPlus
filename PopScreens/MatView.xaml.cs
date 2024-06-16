@@ -252,7 +252,7 @@ namespace PythoPlus.PopScreens
 
             var checkButton = new Button
             {
-                Text = "Проверить"
+                Text = "Перевірити"
             };
             checkButton.Clicked += async (sender, e) =>
             {
@@ -306,7 +306,7 @@ namespace PythoPlus.PopScreens
 
             var checkButton = new Button
             {
-                Text = "Проверить"
+                Text = "Перевірити"
             };
             checkButton.Clicked += async (sender, e) =>
             {
@@ -356,7 +356,7 @@ namespace PythoPlus.PopScreens
 
             var checkButton = new Button
             {
-                Text = "Проверить"
+                Text = "Перевірити"
             };
             checkButton.Clicked += async (sender, e) =>
             {
