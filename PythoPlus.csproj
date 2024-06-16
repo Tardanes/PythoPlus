@@ -112,7 +112,7 @@
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#260C39" BaseSize="128,128" />
     <MauiSplashScreen Update="Resources\Splash\splash.svg" />
 		<!-- Images -->
-		<MauiImage Include="Resources\Images\**\*" />
+		<MauiImage Include="Resources\Images\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
@@ -130,11 +130,15 @@
 	  <None Remove="Resources\Fonts\timesnewromanpsmt.ttf" />
 	  <None Remove="Resources\Fonts\timesnewromanps_italicmt.ttf" />
 	  <None Remove="Resources\Images\achievements.png" />
+	  <None Remove="Resources\Images\askqst.png" />
+	  <None Remove="Resources\Images\fullmenu.png" />
 	  <None Remove="Resources\Images\help.png" />
 	  <None Remove="Resources\Images\home.png" />
     <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\logout.png" />
 	  <None Remove="Resources\Images\materials.png" />
+	  <None Remove="Resources\Images\opnmenu.png" />
+	  <None Remove="Resources\Images\progressproc.png" />
 	  <None Remove="Resources\Images\settings.png" />
 	  <None Remove="Resources\Images\statistics.png" />
 	  <None Remove="Resources\Raw\Connection\conn.xml" />

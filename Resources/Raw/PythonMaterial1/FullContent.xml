@@ -3,23 +3,23 @@
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
     <Content>
-Это текст
+Текст до консолі можна виводити таким чином:
     </Content>
   </Paragraph>
   <Paragraph ID="1">
     <ParagraphType>Code</ParagraphType>
     <Content>
-Это код
+print("hello world")
     </Content>
   </Paragraph>
   <Paragraph ID="2">
     <ParagraphType>TestCheck</ParagraphType>
     <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+      <TestAsk>Що виведе цей код при запуску інтерпритатора:</TestAsk>
+      <TestRadio ID="0">"hello world"</TestRadio>
+      <TestRadio ID="1">print("hello world")</TestRadio>
+      <TestRadio ID="2">hello world</TestRadio>
+      <TestRadio ID="3">print(hello world)</TestRadio>
     </Content>
   </Paragraph>
 </FullContent>
