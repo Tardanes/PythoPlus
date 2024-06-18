@@ -2,24 +2,185 @@
 <FullContent>
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
-    <Content>
-Это текст
+    <Content Bold="true">
+      Модулі та пакети. Імпорт модулів та використання стандартних бібліотек. Створення власних модулів.
     </Content>
   </Paragraph>
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
+    <ParagraphType>Text</ParagraphType>
     <Content>
-Это код
+      У цій темі ми розглянемо, як використовувати модулі та пакети у Python, як імпортувати модулі та використовувати стандартні бібліотеки, а також як створювати власні модулі.
     </Content>
   </Paragraph>
+
   <Paragraph ID="2">
-    <ParagraphType>TestCheck</ParagraphType>
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Імпорт модулів та використання стандартних бібліотек
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Python має багату стандартну бібліотеку, яку можна використовувати для виконання різних завдань. Ви можете імпортувати модулі за допомогою ключового слова import.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Приклад імпорту стандартного модуля math
+      import math
+
+      # Використання функції sqrt з модуля math
+      print(math.sqrt(16))  # Виведе: 4.0
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення власних модулів
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Ви можете створювати власні модулі, зберігаючи функції та змінні у файлі з розширенням .py. Потім цей файл можна імпортувати як модуль у вашому основному скрипті.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення власного модуля mymodule.py
+      def greet(name):
+      return f"Hello, {name}!"
+
+      # Імпорт власного модуля у основному скрипті
+      import mymodule
+
+      # Виклик функції з власного модуля
+      print(mymodule.greet("Alice"))  # Виведе: Hello, Alice!
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Пакети у Python
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Пакет у Python - це директорія, яка містить модулі та файл __init__.py. Пакети дозволяють організувати модулі у структуру директорій.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Структура пакету
+      mypackage/
+      __init__.py
+      module1.py
+      module2.py
+
+      # Імпорт модуля з пакету
+      from mypackage import module1
+
+      # Виклик функції з модуля
+      print(module1.some_function())
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для імпорту модуля у Python?</TestAsk>
+      <TestRadio ID="0">import</TestRadio>
+      <TestRadio ID="1">include</TestRadio>
+      <TestRadio ID="2">require</TestRadio>
+      <TestRadio ID="3">load</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
     <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+      <TestAsk>Яке розширення мають файли модулів у Python?</TestAsk>
+      <TestRadio ID="0">.mod</TestRadio>
+      <TestRadio ID="1">.module</TestRadio>
+      <TestRadio ID="2">.py</TestRadio>
+      <TestRadio ID="3">.python</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи імпорту модуля у Python:</TestAsk>
+      <TestRadio ID="0">import module_name</TestRadio>
+      <TestRadio ID="1">from module_name import function_name</TestRadio>
+      <TestRadio ID="2">include module_name</TestRadio>
+      <TestRadio ID="3">load module_name</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для імпорту модулів у Python:</TestAsk>
+      <CorrectEntry>import</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="15">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: import math; print(math.sqrt(25))?</TestAsk>
+      <TestRadio ID="0">5</TestRadio>
+      <TestRadio ID="1">5.0</TestRadio>
+      <TestRadio ID="2">25</TestRadio>
+      <TestRadio ID="3">Error</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: import random; print(random.randint(1, 10))?</TestAsk>
+      <TestRadio ID="0">1</TestRadio>
+      <TestRadio ID="1">10</TestRadio>
+      <TestRadio ID="2">Випадкове число від 1 до 10</TestRadio>
+      <TestRadio ID="3">Error</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="17">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: from math import pi; print(pi)?</TestAsk>
+      <TestRadio ID="0">3</TestRadio>
+      <TestRadio ID="1">3.1</TestRadio>
+      <TestRadio ID="2">3.14</TestRadio>
+      <TestRadio ID="3">3.141592653589793</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="18">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення власного модуля у Python:</TestAsk>
+      <TestRadio ID="0">Створення файлу з розширенням .py</TestRadio>
+      <TestRadio ID="1">Збереження функцій та змінних у файлі</TestRadio>
+      <TestRadio ID="2">Створення файлу з розширенням .module</TestRadio>
+      <TestRadio ID="3">Збереження класів у файлі</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="19">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між ключовими словами та їх функціями:</TestAsk>
+      <ComplLabel ID="0">import</ComplLabel>
+      <ComplLabel ID="1">from ... import ...</ComplLabel>
+      <ComplLabel ID="2">math.sqrt()</ComplLabel>
+      <ComplLabel ID="3">random.randint()</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">Імпортує модуль</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">Імпортує конкретну функцію з модуля</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">Обчислює квадратний корінь</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">Генерує випадкове ціле число</ComplElem>
     </Content>
   </Paragraph>
 </FullContent>

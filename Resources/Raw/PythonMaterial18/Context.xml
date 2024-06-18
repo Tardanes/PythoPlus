@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>18</MaterialNumber>
+  <MaterialType>theory</MaterialType>
+  <MaterialName>Lambda-функції</MaterialName>
+  <MaterialDescription>Створення та використання lambda-функцій. Відмінності між lambda-функціями та звичайними функціями.</MaterialDescription>
+  <ParagraphCount>9</ParagraphCount>
+</Context>

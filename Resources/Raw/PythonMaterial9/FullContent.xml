@@ -2,24 +2,135 @@
 <FullContent>
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
-    <Content>
-Это текст
+    <Content Bold="true">
+      Умовні конструкції. Використання if, elif, else. Вкладені умовні конструкції.
     </Content>
   </Paragraph>
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
+    <ParagraphType>Text</ParagraphType>
     <Content>
-Это код
+      У цій темі ми розглянемо, як використовувати умовні конструкції у Python, зокрема if, elif та else, а також як створювати вкладені умовні конструкції.
     </Content>
   </Paragraph>
+
   <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання if, elif, else
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Умовні конструкції дозволяють виконувати певний блок коду лише тоді, коли виконується певна умова. Основні ключові слова, які використовуються для умовних конструкцій у Python, це if, elif та else.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Приклад використання if, elif та else
+      x = 10
+
+      if x &gt; 0:
+      print("x є додатним числом")
+      elif x == 0:
+      print("x дорівнює нулю")
+      else:
+      print("x є від'ємним числом")
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Вкладені умовні конструкції
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Вкладені умовні конструкції дозволяють вам використовувати одну умовну конструкцію всередині іншої. Це може бути корисним, коли потрібно перевірити кілька умов у різних рівнях.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Приклад вкладених умовних конструкцій
+      x = 10
+      y = 5
+
+      if x &gt; 0:
+      if y &gt; 0:
+      print("x і y є додатними числами")
+      else:
+      print("x є додатним числом, але y є від'ємним або нулем")
+      else:
+      print("x є від'ємним числом або нулем")
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для перевірки додаткової умови, якщо перша умова не виконалася?</TestAsk>
+      <TestRadio ID="0">elif</TestRadio>
+      <TestRadio ID="1">else</TestRadio>
+      <TestRadio ID="2">if</TestRadio>
+      <TestRadio ID="3">elseif</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
     <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 2" CorrectVars="3">
+      <TestAsk>Виберіть правильні ключові слова для умовних конструкцій у Python:</TestAsk>
+      <TestRadio ID="0">if</TestRadio>
+      <TestRadio ID="1">elif</TestRadio>
+      <TestRadio ID="2">else</TestRadio>
+      <TestRadio ID="3">elseif</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для перевірки умови у Python:</TestAsk>
+      <CorrectEntry>if</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="11">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: if 5 &gt; 3: print("True") else: print("False")?</TestAsk>
+      <TestRadio ID="0">False</TestRadio>
+      <TestRadio ID="1">True</TestRadio>
+      <TestRadio ID="2">Error</TestRadio>
+      <TestRadio ID="3">Нічого</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
     <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+      <TestAsk>Яке ключове слово використовується для виконання блоку коду, якщо жодна з умов не виконалася?</TestAsk>
+      <TestRadio ID="0">elif</TestRadio>
+      <TestRadio ID="1">if</TestRadio>
+      <TestRadio ID="2">else</TestRadio>
+      <TestRadio ID="3">elseif</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні варіанти для завершення умовної конструкції:</TestAsk>
+      <TestRadio ID="0">else:</TestRadio>
+      <TestRadio ID="1">elif condition:</TestRadio>
+      <TestRadio ID="2">endif</TestRadio>
+      <TestRadio ID="3">next</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для перевірки додаткової умови, якщо перша умова не виконалася:</TestAsk>
+      <CorrectEntry>elif</CorrectEntry>
     </Content>
   </Paragraph>
 </FullContent>

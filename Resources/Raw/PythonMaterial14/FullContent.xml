@@ -2,24 +2,179 @@
 <FullContent>
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
-    <Content>
-Это текст
+    <Content Bold="true">
+      Обробка помилок та виключень. Використання конструкцій try, except, finally. Створення власних виключень.
     </Content>
   </Paragraph>
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
+    <ParagraphType>Text</ParagraphType>
     <Content>
-Это код
+      У цій темі ми розглянемо, як обробляти помилки та виключення у Python, як використовувати конструкції try, except та finally, а також як створювати власні виключення.
     </Content>
   </Paragraph>
+
   <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання конструкцій try та except
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Конструкції try та except дозволяють вам обробляти помилки, які можуть виникнути під час виконання коду. Код, який може викликати помилку, розміщується в блоці try, а обробка помилки - в блоці except.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Приклад використання try та except
+      try:
+      x = 1 / 0
+      except ZeroDivisionError:
+      print("Ділення на нуль!")
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання конструкції finally
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Блок finally виконується завжди, незалежно від того, чи виникла помилка в блоці try чи ні. Він зазвичай використовується для виконання завершальних дій, таких як закриття файлів або звільнення ресурсів.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Приклад використання try, except та finally
+      try:
+      file = open("example.txt", "r")
+      content = file.read()
+      except FileNotFoundError:
+      print("Файл не знайдено!")
+      finally:
+      file.close()
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення власних виключень
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Ви можете створювати власні виключення, наслідуючи клас Exception. Це дозволяє вам визначити власні типи помилок для специфічних ситуацій.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення власного виключення
+      class MyCustomError(Exception):
+      pass
+
+      # Використання власного виключення
+      try:
+      raise MyCustomError("Це моє власне виключення")
+      except MyCustomError as e:
+      print(e)
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для обробки виключень у Python?</TestAsk>
+      <TestRadio ID="0">except</TestRadio>
+      <TestRadio ID="1">catch</TestRadio>
+      <TestRadio ID="2">handle</TestRadio>
+      <TestRadio ID="3">try</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: try: x = 1 / 0 except ZeroDivisionError: print("Error")?</TestAsk>
+      <TestRadio ID="0">1</TestRadio>
+      <TestRadio ID="1">Error</TestRadio>
+      <TestRadio ID="2">0</TestRadio>
+      <TestRadio ID="3">Нічого</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
     <ParagraphType>TestCheck</ParagraphType>
-    <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні конструкції для обробки помилок у Python:</TestAsk>
+      <TestRadio ID="0">try</TestRadio>
+      <TestRadio ID="1">except</TestRadio>
+      <TestRadio ID="2">catch</TestRadio>
+      <TestRadio ID="3">handle</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для обробки виключень у Python:</TestAsk>
+      <CorrectEntry>except</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="15">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який блок коду виконується завжди, незалежно від того, чи виникла помилка в блоці try чи ні?</TestAsk>
+      <TestRadio ID="0">finally</TestRadio>
+      <TestRadio ID="1">except</TestRadio>
+      <TestRadio ID="2">try</TestRadio>
+      <TestRadio ID="3">else</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: try: raise ValueError("Помилка") except ValueError as e: print(e)?</TestAsk>
+      <TestRadio ID="0">try</TestRadio>
+      <TestRadio ID="1">except</TestRadio>
+      <TestRadio ID="2">Нічого</TestRadio>
+      <TestRadio ID="3">Помилка</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="17">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 2" CorrectVars="3">
+      <TestAsk>Виберіть правильні ключові слова для обробки помилок у Python:</TestAsk>
+      <TestRadio ID="0">try</TestRadio>
+      <TestRadio ID="1">except</TestRadio>
+      <TestRadio ID="2">finally</TestRadio>
+      <TestRadio ID="3">handle</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="18">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для виконання завершальних дій, незалежно від того, чи виникла помилка:</TestAsk>
+      <CorrectEntry>finally</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="19">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між ключовими словами та їх функціями:</TestAsk>
+      <ComplLabel ID="0">try</ComplLabel>
+      <ComplLabel ID="1">except</ComplLabel>
+      <ComplLabel ID="2">finally</ComplLabel>
+      <ComplLabel ID="3">raise</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">Блок коду, який може викликати помилку</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">Блок коду для обробки помилки</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">Блок коду, який виконується завжди</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">Викликає виключення</ComplElem>
     </Content>
   </Paragraph>
 </FullContent>

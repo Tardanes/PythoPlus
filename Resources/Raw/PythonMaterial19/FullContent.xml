@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <Paragraph ID="0">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Основи об'єктно-орієнтованого програмування (ООП). Поняття класів та об'єктів. Створення класів та методів.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="1">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      У цій темі ми розглянемо основи об'єктно-орієнтованого програмування (ООП), поняття класів та об'єктів, а також як створювати класи та методи у Python.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Поняття класів та об'єктів
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Клас - це шаблон або план, який визначає властивості та поведінку об'єктів. Об'єкт - це конкретний екземпляр класу, який має значення властивостей та може виконувати методи класу.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Приклад класу та об'єкта у Python
+      class Dog:
+      def __init__(self, name, age):
+      self.name = name
+      self.age = age
+
+      def bark(self):
+      print("Woof!")
+
+      my_dog = Dog("Buddy", 3)
+      print(my_dog.name)  # Виведе: Buddy
+      my_dog.bark()       # Виведе: Woof!
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення класів
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Клас створюється за допомогою ключового слова class, за яким слідує ім'я класу. Всі методи та властивості класу визначаються всередині блоку класу.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення класу Car
+      class Car:
+      def __init__(self, make, model, year):
+      self.make = make
+      self.model = model
+      self.year = year
+
+      def start(self):
+      print(f"The {self.year} {self.make} {self.model} is starting.")
+
+      my_car = Car("Toyota", "Corolla", 2020)
+      my_car.start()  # Виведе: The 2020 Toyota Corolla is starting.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення методів
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Методи - це функції, які визначаються всередині класу і можуть виконувати дії з об'єктами цього класу. Методи можуть мати доступ до властивостей об'єкта через ключове слово self.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення класу Person з методами
+      class Person:
+      def __init__(self, name, age):
+      self.name = name
+      self.age = age
+
+      def greet(self):
+      print(f"Hello, my name is {self.name}.")
+
+      def have_birthday(self):
+      self.age += 1
+      print(f"Happy birthday! I am now {self.age} years old.")
+
+      person = Person("Alice", 30)
+      person.greet()            # Виведе: Hello, my name is Alice.
+      person.have_birthday()    # Виведе: Happy birthday! I am now 31 years old.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення класу у Python?</TestAsk>
+      <TestRadio ID="0">def</TestRadio>
+      <TestRadio ID="1">class</TestRadio>
+      <TestRadio ID="2">object</TestRadio>
+      <TestRadio ID="3">self</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Який метод викликається автоматично при створенні нового об'єкта класу?</TestAsk>
+      <TestRadio ID="0">__start__</TestRadio>
+      <TestRadio ID="1">__new__</TestRadio>
+      <TestRadio ID="2">__init__</TestRadio>
+      <TestRadio ID="3">__create__</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення класів у Python:</TestAsk>
+      <TestRadio ID="0">class Car:</TestRadio>
+      <TestRadio ID="1">class Dog:</TestRadio>
+      <TestRadio ID="2">def Car:</TestRadio>
+      <TestRadio ID="3">def Dog:</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення класу у Python:</TestAsk>
+      <CorrectEntry>class</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="15">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який з наступних методів є методом класу у Python?</TestAsk>
+      <TestRadio ID="0">def __init__(self):</TestRadio>
+      <TestRadio ID="1">def start():</TestRadio>
+      <TestRadio ID="2">def make(self):</TestRadio>
+      <TestRadio ID="3">def model():</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: class Animal: def __init__(self, name): self.name = name def speak(self): print("Hello") my_animal = Animal("Leo") my_animal.speak()?</TestAsk>
+      <TestRadio ID="0">Leo</TestRadio>
+      <TestRadio ID="1">Animal</TestRadio>
+      <TestRadio ID="2">self</TestRadio>
+      <TestRadio ID="3">Hello</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="17">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи визначення методів у класі у Python:</TestAsk>
+      <TestRadio ID="0">def __init__(self):</TestRadio>
+      <TestRadio ID="1">def __init__():</TestRadio>
+      <TestRadio ID="2">def start(self):</TestRadio>
+      <TestRadio ID="3">def start():</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="18">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який викликається автоматично при створенні нового об'єкта класу у Python:</TestAsk>
+      <CorrectEntry>__init__</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="19">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між описами та методами:</TestAsk>
+      <ComplLabel ID="0">Метод, який викликається при створенні об'єкта</ComplLabel>
+      <ComplLabel ID="1">Метод для виведення привітання</ComplLabel>
+      <ComplLabel ID="2">Метод для збільшення віку</ComplLabel>
+      <ComplLabel ID="3">Метод для виведення звуку тварини</ComplLabel>
+        <ComplElem ID="0" Correct_ID="0">__init__</ComplElem>
+        <ComplElem ID="1" Correct_ID="1">greet</ComplElem>
+        <ComplElem ID="2" Correct_ID="2">have_birthday</ComplElem>
+        <ComplElem ID="3" Correct_ID="3">speak</ComplElem>
+      </Content>
+  </Paragraph>
+</FullContent>

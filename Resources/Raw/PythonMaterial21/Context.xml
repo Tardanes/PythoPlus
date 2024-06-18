@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>21</MaterialNumber>
+  <MaterialType>summary</MaterialType>
+  <MaterialName>Підсумковий тест з мови програмування Python</MaterialName>
+  <MaterialDescription>Цей тест містить у собі питання з усіх попередніх тем. Для проходження використайте усі знання та навички, які ви набули під час навчання!</MaterialDescription>
+  <ParagraphCount>50</ParagraphCount>
+</Context>

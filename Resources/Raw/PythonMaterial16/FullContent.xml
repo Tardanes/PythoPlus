@@ -1,25 +1,238 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FullContent>
+  <!-- Питання 1 -->
   <Paragraph ID="0">
-    <ParagraphType>Text</ParagraphType>
-    <Content>
-Это текст
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення функції у Python?</TestAsk>
+      <TestRadio ID="0">def</TestRadio>
+      <TestRadio ID="1">function</TestRadio>
+      <TestRadio ID="2">func</TestRadio>
+      <TestRadio ID="3">create</TestRadio>
     </Content>
   </Paragraph>
+
+  <!-- Питання 2 -->
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
-    <Content>
-Это код
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для повернення значення з функції?</TestAsk>
+      <TestRadio ID="0">return_value</TestRadio>
+      <TestRadio ID="1">give_back</TestRadio>
+      <TestRadio ID="2">return</TestRadio>
+      <TestRadio ID="3">output</TestRadio>
     </Content>
   </Paragraph>
+
+  <!-- Питання 3 -->
   <Paragraph ID="2">
     <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи передачі аргументів функції у Python:</TestAsk>
+      <TestRadio ID="0">позиційні аргументи</TestRadio>
+      <TestRadio ID="1">іменовані аргументи</TestRadio>
+      <TestRadio ID="2">складені аргументи</TestRadio>
+      <TestRadio ID="3">змішані аргументи</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 4 -->
+  <Paragraph ID="3">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для імпорту модуля у Python?</TestAsk>
+      <TestRadio ID="0">import</TestRadio>
+      <TestRadio ID="1">include</TestRadio>
+      <TestRadio ID="2">require</TestRadio>
+      <TestRadio ID="3">load</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 5 -->
+  <Paragraph ID="4">
+    <ParagraphType>TestRadio</ParagraphType>
     <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+      <TestAsk>Яке розширення мають файли модулів у Python?</TestAsk>
+      <TestRadio ID="0">.mod</TestRadio>
+      <TestRadio ID="1">.module</TestRadio>
+      <TestRadio ID="2">.py</TestRadio>
+      <TestRadio ID="3">.python</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 6 -->
+  <Paragraph ID="5">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для обробки виключень у Python?</TestAsk>
+      <TestRadio ID="0">except</TestRadio>
+      <TestRadio ID="1">catch</TestRadio>
+      <TestRadio ID="2">handle</TestRadio>
+      <TestRadio ID="3">try</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 7 -->
+  <Paragraph ID="6">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який блок коду виконується завжди, незалежно від того, чи виникла помилка в блоці try чи ні?</TestAsk>
+      <TestRadio ID="0">finally</TestRadio>
+      <TestRadio ID="1">except</TestRadio>
+      <TestRadio ID="2">try</TestRadio>
+      <TestRadio ID="3">else</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 8 -->
+  <Paragraph ID="7">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який метод використовується для читання вмісту файлу у Python?</TestAsk>
+      <TestRadio ID="0">open</TestRadio>
+      <TestRadio ID="1">read</TestRadio>
+      <TestRadio ID="2">write</TestRadio>
+      <TestRadio ID="3">file</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 9 -->
+  <Paragraph ID="8">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який метод використовується для запису даних у файл у Python?</TestAsk>
+      <TestRadio ID="0">write</TestRadio>
+      <TestRadio ID="1">open</TestRadio>
+      <TestRadio ID="2">read</TestRadio>
+      <TestRadio ID="3">file</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 10 -->
+  <Paragraph ID="9">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні методи для роботи з файлами у Python:</TestAsk>
+      <TestRadio ID="0">open</TestRadio>
+      <TestRadio ID="1">close</TestRadio>
+      <TestRadio ID="2">read</TestRadio>
+      <TestRadio ID="3">clear</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 11 -->
+  <Paragraph ID="10">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 2" CorrectVars="3">
+      <TestAsk>Виберіть правильні ключові слова для обробки помилок у Python:</TestAsk>
+      <TestRadio ID="0">try</TestRadio>
+      <TestRadio ID="1">except</TestRadio>
+      <TestRadio ID="2">finally</TestRadio>
+      <TestRadio ID="3">handle</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 12 -->
+  <Paragraph ID="11">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи імпорту модуля у Python:</TestAsk>
+      <TestRadio ID="0">import module_name</TestRadio>
+      <TestRadio ID="1">from module_name import function_name</TestRadio>
+      <TestRadio ID="2">include module_name</TestRadio>
+      <TestRadio ID="3">load module_name</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 13 -->
+  <Paragraph ID="12">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення власного модуля у Python:</TestAsk>
+      <TestRadio ID="0">Створення файлу з розширенням .py</TestRadio>
+      <TestRadio ID="1">Збереження функцій та змінних у файлі</TestRadio>
+      <TestRadio ID="2">Створення файлу з розширенням .module</TestRadio>
+      <TestRadio ID="3">Збереження класів у файлі</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 14 -->
+  <Paragraph ID="13">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між методами та їх функціями:</TestAsk>
+      <ComplLabel ID="0">open</ComplLabel>
+      <ComplLabel ID="1">read</ComplLabel>
+      <ComplLabel ID="2">write</ComplLabel>
+      <ComplLabel ID="3">close</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">Відкриває файл</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">Читає вміст файлу</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">Записує дані у файл</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">Закриває файл</ComplElem>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 15 -->
+  <Paragraph ID="14">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між ключовими словами та їх функціями:</TestAsk>
+      <ComplLabel ID="0">try</ComplLabel>
+      <ComplLabel ID="1">except</ComplLabel>
+      <ComplLabel ID="2">finally</ComplLabel>
+      <ComplLabel ID="3">raise</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">Блок коду, який може викликати помилку</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">Блок коду для обробки помилки</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">Блок коду, який виконується завжди</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">Викликає виключення</ComplElem>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 16 -->
+  <Paragraph ID="15">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення функції у Python:</TestAsk>
+      <CorrectEntry>def</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 17 -->
+  <Paragraph ID="16">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для імпорту модулів у Python:</TestAsk>
+      <CorrectEntry>import</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 18 -->
+  <Paragraph ID="17">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який використовується для читання вмісту файлу у Python:</TestAsk>
+      <CorrectEntry>read</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 19 -->
+  <Paragraph ID="18">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для обробки виключень у Python:</TestAsk>
+      <CorrectEntry>except</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 20 -->
+  <Paragraph ID="19">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: try: x = 1 / 0 except ZeroDivisionError: print("Error")?</TestAsk>
+      <TestRadio ID="0">1</TestRadio>
+      <TestRadio ID="1">Error</TestRadio>
+      <TestRadio ID="2">0</TestRadio>
+      <TestRadio ID="3">Нічого</TestRadio>
     </Content>
   </Paragraph>
 </FullContent>

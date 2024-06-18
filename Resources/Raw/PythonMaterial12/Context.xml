@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Context>
-  <MaterialNumber>1</MaterialNumber>
+  <MaterialNumber>12</MaterialNumber>
   <MaterialType>theory</MaterialType>
-  <MaterialName>Abstract Material 1</MaterialName>
-  <MaterialDescription>This is description for mat 1. Yes, it did. Okey, what is this header desc is sooooooooooo long? We chek this right now and right there...</MaterialDescription>
-  <ParagraphCount>3</ParagraphCount>
+  <MaterialName>Функції</MaterialName>
+  <MaterialDescription>Створення та виклик функцій. Параметри та аргументи функцій, повернення значень.</MaterialDescription>
+  <ParagraphCount>9</ParagraphCount>
 </Context>

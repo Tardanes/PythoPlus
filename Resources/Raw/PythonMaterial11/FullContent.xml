@@ -1,25 +1,242 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FullContent>
+  <!-- Питання 1 -->
   <Paragraph ID="0">
-    <ParagraphType>Text</ParagraphType>
-    <Content>
-Это текст
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для перевірки умови у Python?</TestAsk>
+      <TestRadio ID="0">if</TestRadio>
+      <TestRadio ID="1">elif</TestRadio>
+      <TestRadio ID="2">else</TestRadio>
+      <TestRadio ID="3">while</TestRadio>
     </Content>
   </Paragraph>
+
+  <!-- Питання 2 -->
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
-    <Content>
-Это код
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для перевірки додаткової умови, якщо перша умова не виконалася?</TestAsk>
+      <TestRadio ID="0">else</TestRadio>
+      <TestRadio ID="1">elif</TestRadio>
+      <TestRadio ID="2">if</TestRadio>
+      <TestRadio ID="3">elseif</TestRadio>
     </Content>
   </Paragraph>
+
+  <!-- Питання 3 -->
   <Paragraph ID="2">
-    <ParagraphType>TestCheck</ParagraphType>
+    <ParagraphType>TestRadio</ParagraphType>
     <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+      <TestAsk>Яке ключове слово використовується для виконання блоку коду, якщо жодна з умов не виконалася?</TestAsk>
+      <TestRadio ID="0">elif</TestRadio>
+      <TestRadio ID="1">if</TestRadio>
+      <TestRadio ID="2">else</TestRadio>
+      <TestRadio ID="3">elseif</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 4 -->
+  <Paragraph ID="3">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 2" CorrectVars="3">
+      <TestAsk>Виберіть правильні ключові слова для умовних конструкцій у Python:</TestAsk>
+      <TestRadio ID="0">if</TestRadio>
+      <TestRadio ID="1">elif</TestRadio>
+      <TestRadio ID="2">else</TestRadio>
+      <TestRadio ID="3">elseif</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 5 -->
+  <Paragraph ID="4">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який цикл використовується для ітерації по послідовності?</TestAsk>
+      <TestRadio ID="0">while</TestRadio>
+      <TestRadio ID="1">for</TestRadio>
+      <TestRadio ID="2">do-while</TestRadio>
+      <TestRadio ID="3">repeat-until</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 6 -->
+  <Paragraph ID="5">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який цикл виконує блок коду, поки умова є істинною?</TestAsk>
+      <TestRadio ID="0">while</TestRadio>
+      <TestRadio ID="1">for</TestRadio>
+      <TestRadio ID="2">do-while</TestRadio>
+      <TestRadio ID="3">repeat-until</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 7 -->
+  <Paragraph ID="6">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні цикли для використання у Python:</TestAsk>
+      <TestRadio ID="0">for</TestRadio>
+      <TestRadio ID="1">while</TestRadio>
+      <TestRadio ID="2">do-while</TestRadio>
+      <TestRadio ID="3">repeat-until</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 8 -->
+  <Paragraph ID="7">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення циклу, що ітерує по послідовності у Python:</TestAsk>
+      <CorrectEntry>for</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 9 -->
+  <Paragraph ID="8">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: for i in range(3): print(i)?</TestAsk>
+      <TestRadio ID="0">3</TestRadio>
+      <TestRadio ID="1">0</TestRadio>
+      <TestRadio ID="2">0 1 2</TestRadio>
+      <TestRadio ID="3">1 2 3</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 10 -->
+  <Paragraph ID="9">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який оператор використовується для дострокового виходу з циклу?</TestAsk>
+      <TestRadio ID="0">continue</TestRadio>
+      <TestRadio ID="1">break</TestRadio>
+      <TestRadio ID="2">exit</TestRadio>
+      <TestRadio ID="3">stop</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 11 -->
+  <Paragraph ID="10">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні оператори для управління циклом у Python:</TestAsk>
+      <TestRadio ID="0">break</TestRadio>
+      <TestRadio ID="1">continue</TestRadio>
+      <TestRadio ID="2">exit</TestRadio>
+      <TestRadio ID="3">stop</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 12 -->
+  <Paragraph ID="11">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення циклу, що виконує блок коду, поки умова є істинною:</TestAsk>
+      <CorrectEntry>while</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 13 -->
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: if 5 > 3: print("True") else: print("False")?</TestAsk>
+      <TestRadio ID="0">False</TestRadio>
+      <TestRadio ID="1">Error</TestRadio>
+      <TestRadio ID="2">True</TestRadio>
+      <TestRadio ID="3">Нічого</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 14 -->
+  <Paragraph ID="13">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який результат виконання наступного коду: x = 10; if x > 5: x = x + 2; else: x = x - 2; print(x)?</TestAsk>
+      <TestRadio ID="0">8</TestRadio>
+      <TestRadio ID="1">12</TestRadio>
+      <TestRadio ID="2">10</TestRadio>
+      <TestRadio ID="3">6</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 15 -->
+  <Paragraph ID="14">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 2" CorrectVars="3">
+      <TestAsk>Виберіть правильні ключові слова для умовних конструкцій у Python:</TestAsk>
+      <TestRadio ID="0">if</TestRadio>
+      <TestRadio ID="1">elif</TestRadio>
+      <TestRadio ID="2">else</TestRadio>
+      <TestRadio ID="3">elseif</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 16 -->
+  <Paragraph ID="15">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>
+        Який результат виконання наступного коду: x = 3; while x &lt; 5: x += 1; print(x)?</TestAsk>
+      <TestRadio ID="0">3</TestRadio>
+      <TestRadio ID="1">5</TestRadio>
+      <TestRadio ID="2">4</TestRadio>
+      <TestRadio ID="3">6</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 17 -->
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який результат виконання наступного коду: for i in range(3): if i == 1: break; print(i)?</TestAsk>
+      <TestRadio ID="0">0 1</TestRadio>
+      <TestRadio ID="1">0</TestRadio>
+      <TestRadio ID="2">0 1 2</TestRadio>
+      <TestRadio ID="3">1 2</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 18 -->
+  <Paragraph ID="17">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Який результат виконання наступного коду: for i in range(3): if i == 1: continue; print(i)?</TestAsk>
+      <TestRadio ID="0">0 1</TestRadio>
+      <TestRadio ID="1">1 2</TestRadio>
+      <TestRadio ID="2">0 2</TestRadio>
+      <TestRadio ID="3">0 1 2</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 19 -->
+  <Paragraph ID="18">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>
+        Який результат виконання наступного коду: x = 0; while x &lt; 3: x += 1; print(x)?</TestAsk>
+      <TestRadio ID="0">3</TestRadio>
+      <TestRadio ID="1">0</TestRadio>
+      <TestRadio ID="2">1</TestRadio>
+      <TestRadio ID="3">2</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 20 -->
+  <Paragraph ID="19">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між ключовими словами та їх функціями:</TestAsk>
+      <ComplLabel ID="0">for</ComplLabel>
+      <ComplLabel ID="1">while</ComplLabel>
+      <ComplLabel ID="2">break</ComplLabel>
+      <ComplLabel ID="3">continue</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">Ітерує по послідовності</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">Виконує блок коду, поки умова є істинною</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">Достроково виходить з циклу</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">Пропускає поточну ітерацію та переходить до наступної</ComplElem>
     </Content>
   </Paragraph>
 </FullContent>

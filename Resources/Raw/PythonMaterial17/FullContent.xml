@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <Paragraph ID="0">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Спискові включення. Створення списків за допомогою спискових включень. Використання умовних виразів у спискових включеннях.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="1">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      У цій темі ми розглянемо, як створювати списки за допомогою спискових включень у Python, а також як використовувати умовні вирази у спискових включеннях.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення списків за допомогою спискових включень
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Спискові включення дозволяють створювати нові списки, перебираючи існуючі і застосовуючи до них певні операції. Вони забезпечують компактний та зрозумілий спосіб створення списків.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення нового списку з квадратами чисел від 0 до 9
+      squares = [x**2 for x in range(10)]
+      print(squares)  # Виведе: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання умовних виразів у спискових включеннях
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Ви можете використовувати умовні вирази у спискових включеннях для фільтрації елементів, які будуть включені до нового списку.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення нового списку з парних чисел від 0 до 9
+      evens = [x for x in range(10) if x % 2 == 0]
+      print(evens)  # Виведе: [0, 2, 4, 6, 8]
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання умовних виразів для зміни значень у спискових включеннях
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Умовні вирази також можуть бути використані для зміни значень елементів у новому списку.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення нового списку, де парні числа залишаються без змін, а непарні замінюються на -1
+      modified = [x if x % 2 == 0 else -1 for x in range(10)]
+      print(modified)  # Виведе: [0, -1, 2, -1, 4, -1, 6, -1, 8, -1]
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: [x**2 for x in range(5)]?</TestAsk>
+      <TestRadio ID="0">[1, 4, 9, 16, 25]</TestRadio>
+      <TestRadio ID="1">[0, 1, 4, 9, 16]</TestRadio>
+      <TestRadio ID="2">[0, 1, 2, 3, 4]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3, 4, 5]</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: [x for x in range(10) if x % 2 == 0]?</TestAsk>
+      <TestRadio ID="0">[1, 3, 5, 7, 9]</TestRadio>
+      <TestRadio ID="1">[0, 2, 4, 6, 8, 10]</TestRadio>
+      <TestRadio ID="2">[0, 2, 4, 6, 8]</TestRadio>
+      <TestRadio ID="3">[2, 4, 6, 8, 10]</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення списків за допомогою спискових включень у Python:</TestAsk>
+      <TestRadio ID="0">[x for x in range(10)]</TestRadio>
+      <TestRadio ID="1">[x**2 for x in range(10)]</TestRadio>
+      <TestRadio ID="2">list(range(10))</TestRadio>
+      <TestRadio ID="3">[x, x**2 for x in range(10)]</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть список, який містить квадрати чисел від 0 до 4 за допомогою спискового включення:</TestAsk>
+      <CorrectEntry>[x**2 for x in range(5)]</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="15">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який з наступних варіантів є правильним списковим включенням для створення списку з парних чисел від 0 до 9?</TestAsk>
+      <TestRadio ID="0">[x for x in range(10) if x % 2 == 0]</TestRadio>
+      <TestRadio ID="1">[x % 2 == 0 for x in range(10)]</TestRadio>
+      <TestRadio ID="2">[x for x in range(10) where x % 2 == 0]</TestRadio>
+      <TestRadio ID="3">[x for x in range(10) if x // 2]</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: [x if x % 2 == 0 else -1 for x in range(5)]?</TestAsk>
+      <TestRadio ID="0">[1, -1, 3, -1, 5]</TestRadio>
+      <TestRadio ID="1">[0, 1, 2, 3, 4]</TestRadio>
+      <TestRadio ID="2">[-1, -1, -1, -1, -1]</TestRadio>
+      <TestRadio ID="3">[0, -1, 2, -1, 4]</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="17">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи використання умовних виразів у спискових включеннях у Python:</TestAsk>
+      <TestRadio ID="0">[x for x in range(10) if x % 2 == 0]</TestRadio>
+      <TestRadio ID="1">[x for x in range(10) where x % 2 == 0]</TestRadio>
+      <TestRadio ID="2">[x if x % 2 == 0 else -1 for x in range(10)]</TestRadio>
+      <TestRadio ID="3">[x for x in range(10) if x // 2]</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="18">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть спискове включення, яке створює список з чисел від 0 до 9, де парні числа залишаються без змін, а непарні замінюються на -1:</TestAsk>
+      <CorrectEntry>[x if x % 2 == 0 else -1 for x in range(10)]</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="19">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між описами та списковими включеннями:</TestAsk>
+      <ComplLabel ID="0">Список квадратів чисел від 0 до 9</ComplLabel>
+      <ComplLabel ID="1">Список парних чисел від 0 до 9</ComplLabel>
+      <ComplLabel ID="2">Список з чисел від 0 до 9, де парні числа залишаються без змін, а непарні замінюються на -1</ComplLabel>
+      <ComplLabel ID="3">Список чисел від 0 до 9</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">[x**2 for x in range(10)]</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">[x for x in range(10) if x % 2 == 0]</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">[x if x % 2 == 0 else -1 for x in range(10)]</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">[x for x in range(10)]</ComplElem>
+    </Content>
+  </Paragraph>
+</FullContent>

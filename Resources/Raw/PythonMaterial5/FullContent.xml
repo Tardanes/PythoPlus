@@ -2,24 +2,134 @@
 <FullContent>
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
-    <Content>
-Это текст
+    <Content Bold="true">
+      Кортежі. Відмінності між списками та кортежами. Створення та використання кортежів.
     </Content>
   </Paragraph>
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
+    <ParagraphType>Text</ParagraphType>
     <Content>
-Это код
+      У цій темі ми розглянемо, що таке кортежі у Python, чим вони відрізняються від списків, як їх створювати та використовувати.
     </Content>
   </Paragraph>
+
   <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Що таке кортежі?
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Кортежі (tuples) - це впорядковані, незмінні колекції об'єктів. На відміну від списків, кортежі не можна змінювати після створення (додавати, видаляти або змінювати елементи). Кортежі використовуються тоді, коли ви хочете захистити дані від змін.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="4">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Відмінності між списками та кортежами
+    </Content>
+  </Paragraph>
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Основні відмінності між списками та кортежами:
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      1. Змінність: Списки є змінними (можна змінювати їх вміст), тоді як кортежі є незмінними.
+      2. Синтаксис: Списки створюються за допомогою квадратних дужок [], а кортежі - за допомогою круглих дужок ().
+      3. Продуктивність: Кортежі зазвичай працюють швидше за списки через їх незмінність.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="7">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення кортежів
+    </Content>
+  </Paragraph>
+  <Paragraph ID="8">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення кортежу з кількома елементами
+      my_tuple = (1, 2, 3, "apple", "banana")
+
+      # Створення кортежу з одним елементом (потрібна кома)
+      single_element_tuple = (5,)
+
+      # Створення кортежу без використання круглих дужок (packing)
+      another_tuple = 4, 5, 6, "orange"
+
+      print(my_tuple)
+      print(single_element_tuple)
+      print(another_tuple)
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання кортежів
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Кортежі підтримують багато тих самих операцій, що і списки, такі як індексація, зрізи, об'єднання (конкатенація) та повторення.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="11">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      my_tuple = (1, 2, 3, "apple", "banana")
+
+      # Індексація
+      print(my_tuple[0])  # Виведе: 1
+      print(my_tuple[-1]) # Виведе: banana
+
+      # Зрізи
+      print(my_tuple[1:3]) # Виведе: (2, 3)
+
+      # Об'єднання
+      new_tuple = my_tuple + ("cherry", "date")
+      print(new_tuple) # Виведе: (1, 2, 3, "apple", "banana", "cherry", "date")
+
+      # Повторення
+      repeated_tuple = my_tuple * 2
+      print(repeated_tuple) # Виведе: (1, 2, 3, "apple", "banana", 1, 2, 3, "apple", "banana")
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Який з наведених варіантів є правильним синтаксисом для створення кортежу з одним елементом?</TestAsk>
+      <TestRadio ID="0">tuple = [1]</TestRadio>
+      <TestRadio ID="1">tuple = {1}</TestRadio>
+      <TestRadio ID="2">tuple = (1)</TestRadio>
+      <TestRadio ID="3">tuple = (1,)</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
     <ParagraphType>TestCheck</ParagraphType>
-    <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+    <Content Count="4" Correct="0 1 2" CorrectVars="3">
+      <TestAsk>Виберіть правильні відмінності між списками та кортежами:</TestAsk>
+      <TestRadio ID="0">Списки є змінними, а кортежі - незмінними</TestRadio>
+      <TestRadio ID="1">Списки створюються за допомогою [], а кортежі - за допомогою ()</TestRadio>
+      <TestRadio ID="2">Кортежі зазвичай працюють швидше за списки</TestRadio>
+      <TestRadio ID="3">Списки не можуть містити різні типи даних, а кортежі можуть</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть синтаксис для створення кортежу з елементами 1, 2, 3:</TestAsk>
+      <CorrectEntry>(1, 2, 3)</CorrectEntry>
     </Content>
   </Paragraph>
 </FullContent>

@@ -2,24 +2,125 @@
 <FullContent>
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
-    <Content>
-Это текст
+    <Content Bold="true">
+      Створення списків, додавання та видалення елементів. Основні методи списків (append, remove, pop, insert).
     </Content>
   </Paragraph>
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
+    <ParagraphType>Text</ParagraphType>
     <Content>
-Это код
+      У цій темі ми розглянемо, як створювати списки у Python, додавати та видаляти елементи зі списків, а також основні методи роботи зі списками.
     </Content>
   </Paragraph>
+
   <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення списків
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Списки у Python створюються за допомогою квадратних дужок [] або функції list(). Список може містити елементи різних типів даних.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення списку за допомогою квадратних дужок
+      my_list = [1, 2, 3, "apple", "banana"]
+
+      # Створення списку за допомогою функції list()
+      my_list2 = list((4, 5, 6, "orange", "grape"))
+
+      print(my_list)
+      print(my_list2)
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Додавання елементів до списку
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Для додавання елементів до списку у Python використовуються методи append() та insert().
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Метод append() додає елемент в кінець списку
+      my_list.append("cherry")
+      print(my_list)  # Виведе: [1, 2, 3, "apple", "banana", "cherry"]
+
+      # Метод insert() додає елемент на вказану позицію
+      my_list.insert(1, "blueberry")
+      print(my_list)  # Виведе: [1, "blueberry", 2, 3, "apple", "banana", "cherry"]
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Видалення елементів зі списку
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Для видалення елементів зі списку у Python використовуються методи remove(), pop() та del.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Метод remove() видаляє перше входження вказаного елемента
+      my_list.remove("banana")
+      print(my_list)  # Виведе: [1, "blueberry", 2, 3, "apple", "cherry"]
+
+      # Метод pop() видаляє елемент за вказаним індексом (за замовчуванням останній)
+      my_list.pop()
+      print(my_list)  # Виведе: [1, "blueberry", 2, 3, "apple"]
+
+      my_list.pop(1)
+      print(my_list)  # Виведе: [1, 2, 3, "apple"]
+
+      # Оператор del видаляє елемент за вказаним індексом
+      del my_list[0]
+      print(my_list)  # Виведе: [2, 3, "apple"]
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який метод додає елемент в кінець списку?</TestAsk>
+      <TestRadio ID="0">append()</TestRadio>
+      <TestRadio ID="1">insert()</TestRadio>
+      <TestRadio ID="2">remove()</TestRadio>
+      <TestRadio ID="3">pop()</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
     <ParagraphType>TestCheck</ParagraphType>
-    <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+    <Content Count="4" Correct="0 1 3" CorrectVars="3">
+      <TestAsk>Виберіть правильні методи для видалення елементів зі списку у Python:</TestAsk>
+      <TestRadio ID="0">remove()</TestRadio>
+      <TestRadio ID="1">pop()</TestRadio>
+      <TestRadio ID="2">add()</TestRadio>
+      <TestRadio ID="3">del</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який додає елемент на вказану позицію у списку:</TestAsk>
+      <CorrectEntry>insert</CorrectEntry>
     </Content>
   </Paragraph>
 </FullContent>

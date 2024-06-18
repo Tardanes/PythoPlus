@@ -1,25 +1,246 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FullContent>
+  <!-- Питання 1 -->
   <Paragraph ID="0">
-    <ParagraphType>Text</ParagraphType>
-    <Content>
-Это текст
-    </Content>
-  </Paragraph>
-  <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
-    <Content>
-Это код
-    </Content>
-  </Paragraph>
-  <Paragraph ID="2">
-    <ParagraphType>TestCheck</ParagraphType>
+    <ParagraphType>TestRadio</ParagraphType>
     <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+      <TestAsk>Який з наведених варіантів є правильним синтаксисом для створення списку?</TestAsk>
+      <TestRadio ID="0">list = (1, 2, 3)</TestRadio>
+      <TestRadio ID="1">list = {1, 2, 3}</TestRadio>
+      <TestRadio ID="2">list = [1, 2, 3]</TestRadio>
+      <TestRadio ID="3">list = &lt;1, 2, 3&gt;</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 2 -->
+  <Paragraph ID="1">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні методи для роботи з кортежами у Python:</TestAsk>
+      <TestRadio ID="0">count()</TestRadio>
+      <TestRadio ID="1">append()</TestRadio>
+      <TestRadio ID="2">index()</TestRadio>
+      <TestRadio ID="3">remove()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 3 -->
+  <Paragraph ID="2">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який метод повертає всі ключі словника?</TestAsk>
+      <TestRadio ID="0">values()</TestRadio>
+      <TestRadio ID="1">keys()</TestRadio>
+      <TestRadio ID="2">items()</TestRadio>
+      <TestRadio ID="3">get()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 4 -->
+  <Paragraph ID="3">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 3" CorrectVars="3">
+      <TestAsk>Виберіть правильні методи для роботи зі словниками у Python:</TestAsk>
+      <TestRadio ID="0">keys()</TestRadio>
+      <TestRadio ID="1">values()</TestRadio>
+      <TestRadio ID="2">append()</TestRadio>
+      <TestRadio ID="3">items()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 5 -->
+  <Paragraph ID="4">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який метод додає елемент до множини?</TestAsk>
+      <TestRadio ID="0">add()</TestRadio>
+      <TestRadio ID="1">append()</TestRadio>
+      <TestRadio ID="2">insert()</TestRadio>
+      <TestRadio ID="3">update()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 6 -->
+  <Paragraph ID="5">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2 3" CorrectVars="3">
+      <TestAsk>Виберіть правильні методи для роботи з множинами у Python:</TestAsk>
+      <TestRadio ID="0">add()</TestRadio>
+      <TestRadio ID="1">push()</TestRadio>
+      <TestRadio ID="2">union()</TestRadio>
+      <TestRadio ID="3">intersection()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 7 -->
+  <Paragraph ID="6">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Який з наведених варіантів є правильним синтаксисом для створення кортежу з одним елементом?</TestAsk>
+      <TestRadio ID="0">tuple = [1]</TestRadio>
+      <TestRadio ID="1">tuple = {1}</TestRadio>
+      <TestRadio ID="2">tuple = (1)</TestRadio>
+      <TestRadio ID="3">tuple = (1,)</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 8 -->
+  <Paragraph ID="7">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який метод перетворює всі символи рядка на великі?</TestAsk>
+      <TestRadio ID="0">upper()</TestRadio>
+      <TestRadio ID="1">lower()</TestRadio>
+      <TestRadio ID="2">capitalize()</TestRadio>
+      <TestRadio ID="3">title()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 9 -->
+  <Paragraph ID="8">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 3" CorrectVars="3">
+      <TestAsk>Виберіть правильні методи для роботи з рядками у Python:</TestAsk>
+      <TestRadio ID="0">strip()</TestRadio>
+      <TestRadio ID="1">split()</TestRadio>
+      <TestRadio ID="2">add()</TestRadio>
+      <TestRadio ID="3">replace()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 10 -->
+  <Paragraph ID="9">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який оператор використовується для перевірки наявності елемента у списку?</TestAsk>
+      <TestRadio ID="0">==</TestRadio>
+      <TestRadio ID="1">in</TestRadio>
+      <TestRadio ID="2">contains</TestRadio>
+      <TestRadio ID="3">has</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 11 -->
+  <Paragraph ID="10">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Який метод видаляє елемент з множини?</TestAsk>
+      <TestRadio ID="0">delete()</TestRadio>
+      <TestRadio ID="1">discard()</TestRadio>
+      <TestRadio ID="2">remove()</TestRadio>
+      <TestRadio ID="3">pop()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 12 -->
+  <Paragraph ID="11">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 3" CorrectVars="3">
+      <TestAsk>Виберіть правильні методи для роботи зі списками у Python:</TestAsk>
+      <TestRadio ID="0">append()</TestRadio>
+      <TestRadio ID="1">insert()</TestRadio>
+      <TestRadio ID="2">count()</TestRadio>
+      <TestRadio ID="3">remove()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 13 -->
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який метод повертає індекс першого входження елемента у списку?</TestAsk>
+      <TestRadio ID="0">find()</TestRadio>
+      <TestRadio ID="1">index()</TestRadio>
+      <TestRadio ID="2">search()</TestRadio>
+      <TestRadio ID="3">locate()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 14 -->
+  <Paragraph ID="13">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яка функція використовується для отримання довжини списку?</TestAsk>
+      <TestRadio ID="0">len()</TestRadio>
+      <TestRadio ID="1">length()</TestRadio>
+      <TestRadio ID="2">size()</TestRadio>
+      <TestRadio ID="3">count()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 15 -->
+  <Paragraph ID="14">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Який метод перетворює всі символи рядка на малі?</TestAsk>
+      <TestRadio ID="0">upper()</TestRadio>
+      <TestRadio ID="1">capitalize()</TestRadio>
+      <TestRadio ID="2">title()</TestRadio>
+      <TestRadio ID="3">lower()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 16 -->
+  <Paragraph ID="15">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 2" CorrectVars="3">
+      <TestAsk>Виберіть правильні методи для роботи з рядками у Python:</TestAsk>
+      <TestRadio ID="0">strip()</TestRadio>
+      <TestRadio ID="1">split()</TestRadio>
+      <TestRadio ID="2">join()</TestRadio>
+      <TestRadio ID="3">add()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 17 -->
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Який метод повертає всі значення словника?</TestAsk>
+      <TestRadio ID="0">keys()</TestRadio>
+      <TestRadio ID="1">items()</TestRadio>
+      <TestRadio ID="2">get()</TestRadio>
+      <TestRadio ID="3">values()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 18 -->
+  <Paragraph ID="17">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який метод повертає об'єднання множин?</TestAsk>
+      <TestRadio ID="0">union()</TestRadio>
+      <TestRadio ID="1">intersection()</TestRadio>
+      <TestRadio ID="2">add()</TestRadio>
+      <TestRadio ID="3">update()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 19 -->
+  <Paragraph ID="18">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Який метод повертає перетин множин?</TestAsk>
+      <TestRadio ID="0">union()</TestRadio>
+      <TestRadio ID="1">add()</TestRadio>
+      <TestRadio ID="2">intersection()</TestRadio>
+      <TestRadio ID="3">update()</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 20 -->
+  <Paragraph ID="19">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між методами та їх описом:</TestAsk>
+      <ComplLabel ID="0">append()</ComplLabel>
+      <ComplLabel ID="1">remove()</ComplLabel>
+      <ComplLabel ID="2">union()</ComplLabel>
+      <ComplLabel ID="3">keys()</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">Додає елемент до списку</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">Видаляє елемент зі списку</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">Повертає об'єднання множин</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">Повертає всі ключі словника</ComplElem>
     </Content>
   </Paragraph>
 </FullContent>

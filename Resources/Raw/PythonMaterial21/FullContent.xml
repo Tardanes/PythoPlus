@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <!-- Питання 1 -->
+  <Paragraph ID="0">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення функції у Python?</TestAsk>
+      <TestRadio ID="0">function</TestRadio>
+      <TestRadio ID="1">create</TestRadio>
+      <TestRadio ID="2">def</TestRadio>
+      <TestRadio ID="3">func</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 2 -->
+  <Paragraph ID="1">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для імпорту модуля у Python?</TestAsk>
+      <TestRadio ID="0">include</TestRadio>
+      <TestRadio ID="1">require</TestRadio>
+      <TestRadio ID="2">load</TestRadio>
+      <TestRadio ID="3">import</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 3 -->
+  <Paragraph ID="2">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення списків за допомогою спискових включень у Python:</TestAsk>
+      <TestRadio ID="0">[x for x in range(10)]</TestRadio>
+      <TestRadio ID="1">list(range(10))</TestRadio>
+      <TestRadio ID="2">[x**2 for x in range(10)]</TestRadio>
+      <TestRadio ID="3">[x, x**2 for x in range(10)]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 4 -->
+  <Paragraph ID="3">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення класу у Python:</TestAsk>
+      <CorrectEntry>class</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 5 -->
+  <Paragraph ID="4">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який метод використовується для читання вмісту файлу у Python?</TestAsk>
+      <TestRadio ID="0">open</TestRadio>
+      <TestRadio ID="1">read</TestRadio>
+      <TestRadio ID="2">write</TestRadio>
+      <TestRadio ID="3">file</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 6 -->
+  <Paragraph ID="5">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для обробки виключень у Python?</TestAsk>
+      <TestRadio ID="0">except</TestRadio>
+      <TestRadio ID="1">catch</TestRadio>
+      <TestRadio ID="2">handle</TestRadio>
+      <TestRadio ID="3">try</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 7 -->
+  <Paragraph ID="6">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення кортежів у Python:</TestAsk>
+      <TestRadio ID="0">()</TestRadio>
+      <TestRadio ID="1">(1, 2, 3)</TestRadio>
+      <TestRadio ID="2">[]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 8 -->
+  <Paragraph ID="7">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення lambda-функції у Python:</TestAsk>
+      <CorrectEntry>lambda</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 9 -->
+  <Paragraph ID="8">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Яка з наступних функцій є lambda-функцією?</TestAsk>
+      <TestRadio ID="0">def add(x, y): return x + y</TestRadio>
+      <TestRadio ID="1">function add(x, y): return x + y</TestRadio>
+      <TestRadio ID="2">add = def(x, y): return x + y</TestRadio>
+      <TestRadio ID="3">add = lambda x, y: x + y</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 10 -->
+  <Paragraph ID="9">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення умовної конструкції у Python?</TestAsk>
+      <TestRadio ID="0">switch</TestRadio>
+      <TestRadio ID="1">if</TestRadio>
+      <TestRadio ID="2">case</TestRadio>
+      <TestRadio ID="3">check</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 11 -->
+  <Paragraph ID="10">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення словників у Python:</TestAsk>
+      <TestRadio ID="0">{}</TestRadio>
+      <TestRadio ID="1">{"key": "value"}</TestRadio>
+      <TestRadio ID="2">[]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 12 -->
+  <Paragraph ID="11">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який викликається автоматично при створенні нового об'єкта класу у Python:</TestAsk>
+      <CorrectEntry>__init__</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 13 -->
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення циклу у Python?</TestAsk>
+      <TestRadio ID="0">for</TestRadio>
+      <TestRadio ID="1">loop</TestRadio>
+      <TestRadio ID="2">iterate</TestRadio>
+      <TestRadio ID="3">cycle</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 14 -->
+  <Paragraph ID="13">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: (lambda x, y: x * y)(2, 3)?</TestAsk>
+      <TestRadio ID="0">6</TestRadio>
+      <TestRadio ID="1">5</TestRadio>
+      <TestRadio ID="2">2</TestRadio>
+      <TestRadio ID="3">3</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 15 -->
+  <Paragraph ID="14">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення множин у Python:</TestAsk>
+      <TestRadio ID="0">set()</TestRadio>
+      <TestRadio ID="1">set([])</TestRadio>
+      <TestRadio ID="2">{1, 2, 3}</TestRadio>
+      <TestRadio ID="3">[1, 2, 3]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 16 -->
+  <Paragraph ID="15">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для виклику методу у Python:</TestAsk>
+      <CorrectEntry>self</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 17 -->
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для імпорту модулів у Python?</TestAsk>
+      <TestRadio ID="0">include</TestRadio>
+      <TestRadio ID="1">import</TestRadio>
+      <TestRadio ID="2">require</TestRadio>
+      <TestRadio ID="3">load</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 18 -->
+  <Paragraph ID="17">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 3" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення рядків у Python:</TestAsk>
+      <TestRadio ID="0">""</TestRadio>
+      <TestRadio ID="1">()</TestRadio>
+      <TestRadio ID="2">[]</TestRadio>
+      <TestRadio ID="3">''</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 19 -->
+  <Paragraph ID="18">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який використовується для запису даних у файл у Python:</TestAsk>
+      <CorrectEntry>write</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 20 -->
+  <Paragraph ID="19">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення спискових включень у Python?</TestAsk>
+      <TestRadio ID="0">for</TestRadio>
+      <TestRadio ID="1">list</TestRadio>
+      <TestRadio ID="2">include</TestRadio>
+      <TestRadio ID="3">create</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 21 -->
+  <Paragraph ID="20">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: [x**2 for x in range(5)]?</TestAsk>
+      <TestRadio ID="0">[1, 4, 9, 16, 25]</TestRadio>
+      <TestRadio ID="1">[0, 1, 2, 3, 4]</TestRadio>
+      <TestRadio ID="2">[0, 1, 4, 9, 16]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3, 4, 5]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 22 -->
+  <Paragraph ID="21">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення словників у Python:</TestAsk>
+      <TestRadio ID="0">{}</TestRadio>
+      <TestRadio ID="1">{"key": "value"}</TestRadio>
+      <TestRadio ID="2">[]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 23 -->
+  <Paragraph ID="22">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення lambda-функції у Python:</TestAsk>
+      <CorrectEntry>lambda</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 24 -->
+  <Paragraph ID="23">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Яка з наступних функцій є lambda-функцією?</TestAsk>
+      <TestRadio ID="0">def add(x, y): return x + y</TestRadio>
+      <TestRadio ID="1">function add(x, y): return x + y</TestRadio>
+      <TestRadio ID="2">add = def(x, y): return x + y</TestRadio>
+      <TestRadio ID="3">add = lambda x, y: x + y</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 25 -->
+  <Paragraph ID="24">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення умовної конструкції у Python?</TestAsk>
+      <TestRadio ID="0">switch</TestRadio>
+      <TestRadio ID="1">if</TestRadio>
+      <TestRadio ID="2">case</TestRadio>
+      <TestRadio ID="3">check</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 26 -->
+  <Paragraph ID="25">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення кортежів у Python:</TestAsk>
+      <TestRadio ID="0">()</TestRadio>
+      <TestRadio ID="1">(1, 2, 3)</TestRadio>
+      <TestRadio ID="2">[]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 27 -->
+  <Paragraph ID="26">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який викликається автоматично при створенні нового об'єкта класу у Python:</TestAsk>
+      <CorrectEntry>__init__</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 28 -->
+  <Paragraph ID="27">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення циклу у Python?</TestAsk>
+      <TestRadio ID="0">for</TestRadio>
+      <TestRadio ID="1">loop</TestRadio>
+      <TestRadio ID="2">iterate</TestRadio>
+      <TestRadio ID="3">cycle</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 29 -->
+  <Paragraph ID="28">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: (lambda x, y: x * y)(2, 3)?</TestAsk>
+      <TestRadio ID="0">6</TestRadio>
+      <TestRadio ID="1">5</TestRadio>
+      <TestRadio ID="2">2</TestRadio>
+      <TestRadio ID="3">3</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 30 -->
+  <Paragraph ID="29">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення множин у Python:</TestAsk>
+      <TestRadio ID="0">set()</TestRadio>
+      <TestRadio ID="1">set([])</TestRadio>
+      <TestRadio ID="2">{1, 2, 3}</TestRadio>
+      <TestRadio ID="3">[1, 2, 3]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 31 -->
+  <Paragraph ID="30">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для виклику методу у Python:</TestAsk>
+      <CorrectEntry>self</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 32 -->
+  <Paragraph ID="31">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для імпорту модулів у Python?</TestAsk>
+      <TestRadio ID="0">include</TestRadio>
+      <TestRadio ID="1">import</TestRadio>
+      <TestRadio ID="2">require</TestRadio>
+      <TestRadio ID="3">load</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 33 -->
+  <Paragraph ID="32">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 3" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення рядків у Python:</TestAsk>
+      <TestRadio ID="0">""</TestRadio>
+      <TestRadio ID="1">()</TestRadio>
+      <TestRadio ID="2">[]</TestRadio>
+      <TestRadio ID="3">''</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 34 -->
+  <Paragraph ID="33">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який використовується для запису даних у файл у Python:</TestAsk>
+      <CorrectEntry>write</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 35 -->
+  <Paragraph ID="34">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення спискових включень у Python?</TestAsk>
+      <TestRadio ID="0">for</TestRadio>
+      <TestRadio ID="1">list</TestRadio>
+      <TestRadio ID="2">include</TestRadio>
+      <TestRadio ID="3">create</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 36 -->
+  <Paragraph ID="35">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: [x**2 for x in range(5)]?</TestAsk>
+      <TestRadio ID="0">[1, 4, 9, 16, 25]</TestRadio>
+      <TestRadio ID="1">[0, 1, 2, 3, 4]</TestRadio>
+      <TestRadio ID="2">[0, 1, 4, 9, 16]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3, 4, 5]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 37 -->
+  <Paragraph ID="36">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення словників у Python:</TestAsk>
+      <TestRadio ID="0">{}</TestRadio>
+      <TestRadio ID="1">{"key": "value"}</TestRadio>
+      <TestRadio ID="2">[]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 38 -->
+  <Paragraph ID="37">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення lambda-функції у Python:</TestAsk>
+      <CorrectEntry>lambda</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 39 -->
+  <Paragraph ID="38">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Яка з наступних функцій є lambda-функцією?</TestAsk>
+      <TestRadio ID="0">def add(x, y): return x + y</TestRadio>
+      <TestRadio ID="1">function add(x, y): return x + y</TestRadio>
+      <TestRadio ID="2">add = def(x, y): return x + y</TestRadio>
+      <TestRadio ID="3">add = lambda x, y: x + y</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 40 -->
+  <Paragraph ID="39">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення умовної конструкції у Python?</TestAsk>
+      <TestRadio ID="0">switch</TestRadio>
+      <TestRadio ID="1">if</TestRadio>
+      <TestRadio ID="2">case</TestRadio>
+      <TestRadio ID="3">check</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 41 -->
+  <Paragraph ID="40">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення кортежів у Python:</TestAsk>
+      <TestRadio ID="0">()</TestRadio>
+      <TestRadio ID="1">(1, 2, 3)</TestRadio>
+      <TestRadio ID="2">[]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 42 -->
+  <Paragraph ID="41">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який викликається автоматично при створенні нового об'єкта класу у Python:</TestAsk>
+      <CorrectEntry>__init__</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 43 -->
+  <Paragraph ID="42">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення циклу у Python?</TestAsk>
+      <TestRadio ID="0">for</TestRadio>
+      <TestRadio ID="1">loop</TestRadio>
+      <TestRadio ID="2">iterate</TestRadio>
+      <TestRadio ID="3">cycle</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 44 -->
+  <Paragraph ID="43">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: (lambda x, y: x * y)(2, 3)?</TestAsk>
+      <TestRadio ID="0">6</TestRadio>
+      <TestRadio ID="1">5</TestRadio>
+      <TestRadio ID="2">2</TestRadio>
+      <TestRadio ID="3">3</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 45 -->
+  <Paragraph ID="44">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення множин у Python:</TestAsk>
+      <TestRadio ID="0">set()</TestRadio>
+      <TestRadio ID="1">set([])</TestRadio>
+      <TestRadio ID="2">{1, 2, 3}</TestRadio>
+      <TestRadio ID="3">[1, 2, 3]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 46 -->
+  <Paragraph ID="45">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для виклику методу у Python:</TestAsk>
+      <CorrectEntry>self</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 47 -->
+  <Paragraph ID="46">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для імпорту модулів у Python?</TestAsk>
+      <TestRadio ID="0">include</TestRadio>
+      <TestRadio ID="1">import</TestRadio>
+      <TestRadio ID="2">require</TestRadio>
+      <TestRadio ID="3">load</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 48 -->
+  <Paragraph ID="47">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 3" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення рядків у Python:</TestAsk>
+      <TestRadio ID="0">""</TestRadio>
+      <TestRadio ID="1">()</TestRadio>
+      <TestRadio ID="2">[]</TestRadio>
+      <TestRadio ID="3">''</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 49 -->
+  <Paragraph ID="48">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який використовується для запису даних у файл у Python:</TestAsk>
+      <CorrectEntry>write</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 50 -->
+  <Paragraph ID="49">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між описами та методами:</TestAsk>
+      <ComplLabel ID="0">Метод, який викликається при створенні об'єкта</ComplLabel>
+      <ComplLabel ID="1">Метод для виведення привітання</ComplLabel>
+      <ComplLabel ID="2">Метод для збільшення віку</ComplLabel>
+      <ComplLabel ID="3">Метод для виведення звуку тварини</ComplLabel>
+        <ComplElem ID="0" Correct_ID="0">__init__</ComplElem>
+        <ComplElem ID="1" Correct_ID="1">greet</ComplElem>
+        <ComplElem ID="2" Correct_ID="2">have_birthday</ComplElem>
+        <ComplElem ID="3" Correct_ID="3">speak</ComplElem>
+      </Content>
+  </Paragraph>
+
+</FullContent>
+

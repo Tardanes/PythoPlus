@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <!-- Питання 1 -->
+  <Paragraph ID="0">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення спискових включень у Python?</TestAsk>
+      <TestRadio ID="0">for</TestRadio>
+      <TestRadio ID="1">list</TestRadio>
+      <TestRadio ID="2">include</TestRadio>
+      <TestRadio ID="3">create</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 2 -->
+  <Paragraph ID="1">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: [x**2 for x in range(5)]?</TestAsk>
+      <TestRadio ID="0">[1, 4, 9, 16, 25]</TestRadio>
+      <TestRadio ID="1">[0, 1, 2, 3, 4]</TestRadio>
+      <TestRadio ID="2">[0, 1, 4, 9, 16]</TestRadio>
+      <TestRadio ID="3">[1, 2, 3, 4, 5]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 3 -->
+  <Paragraph ID="2">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення списків за допомогою спискових включень у Python:</TestAsk>
+      <TestRadio ID="0">[x for x in range(10)]</TestRadio>
+      <TestRadio ID="1">list(range(10))</TestRadio>
+      <TestRadio ID="2">[x**2 for x in range(10)]</TestRadio>
+      <TestRadio ID="3">[x, x**2 for x in range(10)]</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 4 -->
+  <Paragraph ID="3">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть спискове включення, яке створює список з чисел від 0 до 9:</TestAsk>
+      <CorrectEntry>[x for x in range(10)]</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 5 -->
+  <Paragraph ID="4">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення lambda-функції у Python?</TestAsk>
+      <TestRadio ID="0">lambda</TestRadio>
+      <TestRadio ID="1">function</TestRadio>
+      <TestRadio ID="2">def</TestRadio>
+      <TestRadio ID="3">anon</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 6 -->
+  <Paragraph ID="5">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: (lambda x, y: x * y)(2, 3)?</TestAsk>
+      <TestRadio ID="0">6</TestRadio>
+      <TestRadio ID="1">5</TestRadio>
+      <TestRadio ID="2">2</TestRadio>
+      <TestRadio ID="3">3</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 7 -->
+  <Paragraph ID="6">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення lambda-функцій у Python:</TestAsk>
+      <TestRadio ID="0">lambda x: x + 1</TestRadio>
+      <TestRadio ID="1">lambda x, y: x * y</TestRadio>
+      <TestRadio ID="2">def x: x + 1</TestRadio>
+      <TestRadio ID="3">function x, y: x * y</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 8 -->
+  <Paragraph ID="7">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть lambda-функцію, яка додає два числа:</TestAsk>
+      <CorrectEntry>lambda x, y: x + y</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 9 -->
+  <Paragraph ID="8">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Яка з наступних функцій є lambda-функцією?</TestAsk>
+      <TestRadio ID="0">def add(x, y): return x + y</TestRadio>
+      <TestRadio ID="1">function add(x, y): return x + y</TestRadio>
+      <TestRadio ID="2">add = def(x, y): return x + y</TestRadio>
+      <TestRadio ID="3">add = lambda x, y: x + y</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 10 -->
+  <Paragraph ID="9">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>В яких випадках зазвичай використовуються lambda-функції?</TestAsk>
+      <TestRadio ID="0">Для складної логіки</TestRadio>
+      <TestRadio ID="1">Для коротких та простих операцій</TestRadio>
+      <TestRadio ID="2">Для створення класів</TestRadio>
+      <TestRadio ID="3">Для обробки виключень</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 11 -->
+  <Paragraph ID="10">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи використання lambda-функцій у Python:</TestAsk>
+      <TestRadio ID="0">list(map(lambda x: x**2, range(10)))</TestRadio>
+      <TestRadio ID="1">list(map(def x: x**2, range(10)))</TestRadio>
+      <TestRadio ID="2">list(filter(lambda x: x % 2 == 0, range(10)))</TestRadio>
+      <TestRadio ID="3">list(filter(def x: x % 2 == 0, range(10)))</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 12 -->
+  <Paragraph ID="11">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть lambda-функцію, яка повертає квадрат числа:</TestAsk>
+      <CorrectEntry>lambda x: x**2</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 13 -->
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення класу у Python?</TestAsk>
+      <TestRadio ID="0">def</TestRadio>
+      <TestRadio ID="1">class</TestRadio>
+      <TestRadio ID="2">object</TestRadio>
+      <TestRadio ID="3">self</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 14 -->
+  <Paragraph ID="13">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Який метод викликається автоматично при створенні нового об'єкта класу?</TestAsk>
+      <TestRadio ID="0">__start__</TestRadio>
+      <TestRadio ID="1">__new__</TestRadio>
+      <TestRadio ID="2">__init__</TestRadio>
+      <TestRadio ID="3">__create__</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 15 -->
+  <Paragraph ID="14">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення класів у Python:</TestAsk>
+      <TestRadio ID="0">class Car:</TestRadio>
+      <TestRadio ID="1">class Dog:</TestRadio>
+      <TestRadio ID="2">def Car:</TestRadio>
+      <TestRadio ID="3">def Dog:</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 16 -->
+  <Paragraph ID="15">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення класу у Python:</TestAsk>
+      <CorrectEntry>class</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 17 -->
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який з наступних методів є методом класу у Python?</TestAsk>
+      <TestRadio ID="0">def __init__(self):</TestRadio>
+      <TestRadio ID="1">def start():</TestRadio>
+      <TestRadio ID="2">def make(self):</TestRadio>
+      <TestRadio ID="3">def model():</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 18 -->
+  <Paragraph ID="17">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: class Animal: def __init__(self, name): self.name = name def speak(self): print("Hello") my_animal = Animal("Leo") my_animal.speak()?</TestAsk>
+      <TestRadio ID="0">Leo</TestRadio>
+      <TestRadio ID="1">Animal</TestRadio>
+      <TestRadio ID="2">self</TestRadio>
+      <TestRadio ID="3">Hello</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 19 -->
+  <Paragraph ID="18">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи визначення методів у класі у Python:</TestAsk>
+      <TestRadio ID="0">def __init__(self):</TestRadio>
+      <TestRadio ID="1">def __init__():</TestRadio>
+      <TestRadio ID="2">def start(self):</TestRadio>
+      <TestRadio ID="3">def start():</TestRadio>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 20 -->
+  <Paragraph ID="19">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який викликається автоматично при створенні нового об'єкта класу у Python:</TestAsk>
+      <CorrectEntry>__init__</CorrectEntry>
+    </Content>
+  </Paragraph>
+
+  <!-- Питання 21 -->
+  <Paragraph ID="20">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між описами та методами:</TestAsk>
+      <ComplLabel ID="0">Метод, який викликається при створенні об'єкта</ComplLabel>
+      <ComplLabel ID="1">Метод для виведення привітання</ComplLabel>
+      <ComplLabel ID="2">Метод для збільшення віку</ComplLabel>
+      <ComplLabel ID="3">Метод для виведення звуку тварини</ComplLabel>
+        <ComplElem ID="0" Correct_ID="0">__init__</ComplElem>
+        <ComplElem ID="1" Correct_ID="1">greet</ComplElem>
+        <ComplElem ID="2" Correct_ID="2">have_birthday</ComplElem>
+        <ComplElem ID="3" Correct_ID="3">speak</ComplElem>
+      </Content>
+  </Paragraph>
+
+</FullContent>

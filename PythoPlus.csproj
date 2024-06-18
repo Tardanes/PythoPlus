@@ -141,8 +141,18 @@
 	  <None Remove="Resources\Images\settings.png" />
 	  <None Remove="Resources\Images\statistics.png" />
 	  <None Remove="Resources\Raw\Connection\conn.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial17\Context.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial17\FullContent.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial18\Context.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial18\FullContent.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial19\Context.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial19\FullContent.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial1\Context.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial1\FullContent.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial20\Context.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial20\FullContent.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial21\Context.xml" />
+	  <None Remove="Resources\Raw\PythonMaterial21\FullContent.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial2\Context.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial2\FullContent.xml" />
 	  <None Remove="Resources\Raw\PythonMaterial3\Context.xml" />
@@ -196,6 +206,36 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial17\Context.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial17\FullContent.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial18\Context.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial18\FullContent.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial19\Context.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial19\FullContent.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial20\Context.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial20\FullContent.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial21\Context.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\PythonMaterial21\FullContent.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
 	  <MauiAsset Update="Resources\Raw\PythonMaterial2\FullContent.xml">
 	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
 	  </MauiAsset>
