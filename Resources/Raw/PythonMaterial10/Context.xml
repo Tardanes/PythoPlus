@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>10</MaterialNumber>
+  <MaterialType>theory</MaterialType>
+  <MaterialName>Цикли</MaterialName>
+  <MaterialDescription>Використання циклів for та while. Вкладені цикли.</MaterialDescription>
+  <ParagraphCount>9</ParagraphCount>
+</Context>

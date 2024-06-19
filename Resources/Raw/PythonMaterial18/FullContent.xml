@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <Paragraph ID="0">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Lambda-функції. Створення та використання lambda-функцій. Відмінності між lambda-функціями та звичайними функціями.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="1">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      У цій темі ми розглянемо, як створювати та використовувати lambda-функції у Python, а також які відмінності існують між lambda-функціями та звичайними функціями.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення та використання lambda-функцій
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Lambda-функції (або анонімні функції) - це невеликі безіменні функції, які визначаються за допомогою ключового слова lambda. Вони можуть мати будь-яку кількість аргументів, але лише одне вираження.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення lambda-функції для додавання двох чисел
+      add = lambda x, y: x + y
+      print(add(2, 3))  # Виведе: 5
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання lambda-функцій
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Lambda-функції часто використовуються у функціях вищого порядку, таких як map, filter та reduce, де функція передається як аргумент.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Використання lambda-функції з функцією map
+      numbers = [1, 2, 3, 4, 5]
+      squares = list(map(lambda x: x**2, numbers))
+      print(squares)  # Виведе: [1, 4, 9, 16, 25]
+
+      # Використання lambda-функції з функцією filter
+      evens = list(filter(lambda x: x % 2 == 0, numbers))
+      print(evens)  # Виведе: [2, 4]
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Відмінності між lambda-функціями та звичайними функціями
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Основні відмінності між lambda-функціями та звичайними функціями полягають у наступному:
+      1. Lambda-функції не мають імені, тоді як звичайні функції мають.
+      2. Lambda-функції можуть мати лише одне вираження, тоді як звичайні функції можуть містити кілька виразів та операторів.
+      3. Lambda-функції зазвичай використовуються для коротких та простих операцій, тоді як звичайні функції використовуються для більш складної логіки.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Звичайна функція для додавання двох чисел
+      def add(x, y):
+      return x + y
+      print(add(2, 3))  # Виведе: 5
+
+      # Lambda-функція для додавання двох чисел
+      add_lambda = lambda x, y: x + y
+      print(add_lambda(2, 3))  # Виведе: 5
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення lambda-функції у Python?</TestAsk>
+      <TestRadio ID="0">def</TestRadio>
+      <TestRadio ID="1">function</TestRadio>
+      <TestRadio ID="2">lambda</TestRadio>
+      <TestRadio ID="3">anon</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: (lambda x, y: x * y)(2, 3)?</TestAsk>
+      <TestRadio ID="0">6</TestRadio>
+      <TestRadio ID="1">5</TestRadio>
+      <TestRadio ID="2">2</TestRadio>
+      <TestRadio ID="3">3</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи створення lambda-функцій у Python:</TestAsk>
+      <TestRadio ID="0">lambda x: x + 1</TestRadio>
+      <TestRadio ID="1">lambda x, y: x * y</TestRadio>
+      <TestRadio ID="2">def x: x + 1</TestRadio>
+      <TestRadio ID="3">function x, y: x * y</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть lambda-функцію, яка додає два числа:</TestAsk>
+      <CorrectEntry>lambda x, y: x + y</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="15">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Яка з наступних функцій є lambda-функцією?</TestAsk>
+      <TestRadio ID="0">def add(x, y): return x + y</TestRadio>
+      <TestRadio ID="1">function add(x, y): return x + y</TestRadio>
+      <TestRadio ID="2">add = def(x, y): return x + y</TestRadio>
+      <TestRadio ID="3">add = lambda x, y: x + y</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>В яких випадках зазвичай використовуються lambda-функції?</TestAsk>
+      <TestRadio ID="0">Для складної логіки</TestRadio>
+      <TestRadio ID="1">Для коротких та простих операцій</TestRadio>
+      <TestRadio ID="2">Для створення класів</TestRadio>
+      <TestRadio ID="3">Для обробки виключень</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="17">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи використання lambda-функцій у Python:</TestAsk>
+      <TestRadio ID="0">list(map(lambda x: x**2, range(10)))</TestRadio>
+      <TestRadio ID="1">list(map(def x: x**2, range(10)))</TestRadio>
+      <TestRadio ID="2">list(filter(lambda x: x % 2 == 0, range(10)))</TestRadio>
+      <TestRadio ID="3">list(filter(def x: x % 2 == 0, range(10)))</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="18">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть lambda-функцію, яка повертає квадрат числа:</TestAsk>
+      <CorrectEntry>lambda x: x**2</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="19">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між описами та функціями:</TestAsk>
+      <ComplLabel ID="0">Lambda-функція для додавання двох чисел</ComplLabel>
+      <ComplLabel ID="1">Звичайна функція для додавання двох чисел</ComplLabel>
+      <ComplLabel ID="2">Lambda-функція для обчислення квадрата числа</ComplLabel>
+      <ComplLabel ID="3">Звичайна функція для обчислення квадрата числа</ComplLabel>
+        <ComplElem ID="0" Correct_ID="0">lambda x, y: x + y</ComplElem>
+        <ComplElem ID="1" Correct_ID="1">def add(x, y): return x + y</ComplElem>
+        <ComplElem ID="2" Correct_ID="2">lambda x: x**2</ComplElem>
+        <ComplElem ID="3" Correct_ID="3">def square(x): return x**2</ComplElem>
+      </Content>
+  </Paragraph>
+</FullContent>

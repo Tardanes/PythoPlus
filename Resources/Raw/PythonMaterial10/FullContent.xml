@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <Paragraph ID="0">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Цикли. Використання циклів for та while. Вкладені цикли.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="1">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      У цій темі ми розглянемо, як використовувати цикли у Python, зокрема цикли for та while, а також як створювати вкладені цикли.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання циклу for
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Цикл for використовується для ітерації по послідовності (таких як список, кортеж, рядок або діапазон). Він виконує блок коду для кожного елемента в послідовності.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Приклад використання циклу for
+      fruits = ["apple", "banana", "cherry"]
+      for fruit in fruits:
+      print(fruit)
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання циклу while
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Цикл while виконує блок коду, поки умова є істинною. Він перевіряє умову перед кожною ітерацією.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Приклад використання циклу while
+      count = 0
+      while count &lt; 5:
+      print(count)
+      count += 1
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Вкладені цикли
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Вкладені цикли - це цикли всередині інших циклів. Вони дозволяють виконувати ітерації по багатовимірних структурах даних.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Приклад вкладених циклів
+      for i in range(3):
+      for j in range(2):
+      print(f"i = {i}, j = {j}")
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який цикл використовується для ітерації по послідовності?</TestAsk>
+      <TestRadio ID="0">while</TestRadio>
+      <TestRadio ID="1">for</TestRadio>
+      <TestRadio ID="2">do-while</TestRadio>
+      <TestRadio ID="3">repeat-until</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який цикл виконує блок коду, поки умова є істинною?</TestAsk>
+      <TestRadio ID="0">while</TestRadio>
+      <TestRadio ID="1">for</TestRadio>
+      <TestRadio ID="2">do-while</TestRadio>
+      <TestRadio ID="3">repeat-until</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні цикли для використання у Python:</TestAsk>
+      <TestRadio ID="0">for</TestRadio>
+      <TestRadio ID="1">while</TestRadio>
+      <TestRadio ID="2">do-while</TestRadio>
+      <TestRadio ID="3">repeat-until</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення циклу, що ітерує по послідовності у Python:</TestAsk>
+      <CorrectEntry>for</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="15">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: for i in range(3): print(i)?</TestAsk>
+      <TestRadio ID="0">3</TestRadio>
+      <TestRadio ID="1">0</TestRadio>
+      <TestRadio ID="2">0 1 2</TestRadio>
+      <TestRadio ID="3">1 2 3</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який оператор використовується для дострокового виходу з циклу?</TestAsk>
+      <TestRadio ID="0">continue</TestRadio>
+      <TestRadio ID="1">break</TestRadio>
+      <TestRadio ID="2">exit</TestRadio>
+      <TestRadio ID="3">stop</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="17">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні оператори для управління циклом у Python:</TestAsk>
+      <TestRadio ID="0">break</TestRadio>
+      <TestRadio ID="1">continue</TestRadio>
+      <TestRadio ID="2">exit</TestRadio>
+      <TestRadio ID="3">stop</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="18">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення циклу, що виконує блок коду, поки умова є істинною:</TestAsk>
+      <CorrectEntry>while</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="19">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між ключовими словами та їх функціями:</TestAsk>
+      <ComplLabel ID="0">for</ComplLabel>
+      <ComplLabel ID="1">while</ComplLabel>
+      <ComplLabel ID="2">break</ComplLabel>
+      <ComplLabel ID="3">continue</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">Ітерує по послідовності</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">Виконує блок коду, поки умова є істинною</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">Достроково виходить з циклу</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">Пропускає поточну ітерацію та переходить до наступної</ComplElem>
+    </Content>
+  </Paragraph>
+</FullContent>

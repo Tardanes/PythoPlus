@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <Paragraph ID="0">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Робота з файлами. Читання та запис файлів. Використання методів open, read, write.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="1">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      У цій темі ми розглянемо, як працювати з файлами у Python, як читати та записувати файли, а також як використовувати методи open, read та write.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Відкриття файлів за допомогою методу open
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Метод open використовується для відкриття файлів у Python. Він приймає два основних параметри: ім'я файлу та режим відкриття (читання, запис тощо).
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Відкриття файлу у режимі читання
+      file = open("example.txt", "r")
+
+      # Відкриття файлу у режимі запису
+      file = open("example.txt", "w")
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Читання файлів за допомогою методу read
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Метод read використовується для читання вмісту файлу. Він може читати весь файл або його частину, якщо вказати кількість символів.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Читання всього файлу
+      file = open("example.txt", "r")
+      content = file.read()
+      print(content)
+      file.close()
+
+      # Читання перших 5 символів файлу
+      file = open("example.txt", "r")
+      content = file.read(5)
+      print(content)
+      file.close()
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Запис файлів за допомогою методу write
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Метод write використовується для запису даних у файл. Якщо файл не існує, він буде створений. Якщо файл існує, його вміст буде перезаписано.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Запис у файл
+      file = open("example.txt", "w")
+      file.write("Hello, world!")
+      file.close()
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання менеджера контексту with
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Менеджер контексту with автоматично закриває файл після завершення роботи з ним, що зменшує ризик залишення файлів відкритими.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Використання with для читання файлу
+      with open("example.txt", "r") as file:
+      content = file.read()
+      print(content)
+
+      # Використання with для запису у файл
+      with open("example.txt", "w") as file:
+      file.write("Hello, world!")
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="14">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для відкриття файлів у Python?</TestAsk>
+      <TestRadio ID="0">open</TestRadio>
+      <TestRadio ID="1">read</TestRadio>
+      <TestRadio ID="2">write</TestRadio>
+      <TestRadio ID="3">file</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="15">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Який метод використовується для читання вмісту файлу у Python?</TestAsk>
+      <TestRadio ID="0">open</TestRadio>
+      <TestRadio ID="1">read</TestRadio>
+      <TestRadio ID="2">write</TestRadio>
+      <TestRadio ID="3">file</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="16">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть правильні методи для роботи з файлами у Python:</TestAsk>
+      <TestRadio ID="0">open</TestRadio>
+      <TestRadio ID="1">close</TestRadio>
+      <TestRadio ID="2">read</TestRadio>
+      <TestRadio ID="3">clear</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="17">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для відкриття файлів у Python:</TestAsk>
+      <CorrectEntry>open</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="18">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: file = open("example.txt", "w"); file.write("Hello"); file.close(); file = open("example.txt", "r"); print(file.read()); file.close()?</TestAsk>
+      <TestRadio ID="0">w</TestRadio>
+      <TestRadio ID="1">r</TestRadio>
+      <TestRadio ID="2">write</TestRadio>
+      <TestRadio ID="3">Hello</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="19">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який метод використовується для запису даних у файл у Python?</TestAsk>
+      <TestRadio ID="0">write</TestRadio>
+      <TestRadio ID="1">open</TestRadio>
+      <TestRadio ID="2">read</TestRadio>
+      <TestRadio ID="3">file</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="20">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="1 3" CorrectVars="2">
+      <TestAsk>Виберіть правильні режими відкриття файлів у Python:</TestAsk>
+      <TestRadio ID="0">a</TestRadio>
+      <TestRadio ID="1">w</TestRadio>
+      <TestRadio ID="2">n</TestRadio>
+      <TestRadio ID="3">r</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="21">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який використовується для читання вмісту файлу у Python:</TestAsk>
+      <CorrectEntry>read</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="22">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між методами та їх функціями:</TestAsk>
+      <ComplLabel ID="0">open</ComplLabel>
+      <ComplLabel ID="1">read</ComplLabel>
+      <ComplLabel ID="2">write</ComplLabel>
+      <ComplLabel ID="3">close</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">Відкриває файл</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">Читає вміст файлу</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">Записує дані у файл</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">Закриває файл</ComplElem>
+    </Content>
+  </Paragraph>
+</FullContent>

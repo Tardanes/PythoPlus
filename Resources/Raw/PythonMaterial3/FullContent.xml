@@ -2,20 +2,114 @@
 <FullContent>
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
-    <Content>
-
+    <Content Bold="true">
+      Робота з рядками. Основні операції та методи рядків.
     </Content>
   </Paragraph>
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
+    <ParagraphType>Text</ParagraphType>
     <Content>
-
+      У цій темі ми розглянемо основні операції та методи роботи з рядками у Python. Рядки є послідовністю символів і є одним з найпоширеніших типів даних у програмуванні.
     </Content>
   </Paragraph>
-  <Paragraph ID="2">
-    <ParagraphType>Test</ParagraphType>
-    <Content>
 
+  <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Основні операції з рядками
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Рядки у Python підтримують кілька основних операцій, таких як конкатенація, повторення, індексація та зрізи.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Конкатенація (об'єднання)
+      str1 = "Hello"
+      str2 = "World"
+      result = str1 + " " + str2
+      print(result)  # Виведе: Hello World
+
+      # Повторення
+      str3 = "Python"
+      result = str3 * 3
+      print(result)  # Виведе: PythonPythonPython
+
+      # Індексація
+      str4 = "abcdef"
+      print(str4[0])  # Виведе: a
+      print(str4[-1]) # Виведе: f
+
+      # Зрізи
+      print(str4[1:4]) # Виведе: bcd
+      print(str4[:3])  # Виведе: abc
+      print(str4[3:])  # Виведе: def
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Основні методи рядків
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Python надає багато вбудованих методів для роботи з рядками. Деякі з них наведені нижче:
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      str5 = " Hello, Python! "
+
+      # Метод strip() видаляє пробіли на початку та в кінці рядка
+      print(str5.strip())  # Виведе: "Hello, Python!"
+
+      # Метод lower() перетворює всі символи рядка на малі
+      print(str5.lower())  # Виведе: " hello, python! "
+
+      # Метод upper() перетворює всі символи рядка на великі
+      print(str5.upper())  # Виведе: " HELLO, PYTHON! "
+
+      # Метод replace() замінює підрядок на інший підрядок
+      print(str5.replace("Python", "World"))  # Виведе: " Hello, World! "
+
+      # Метод split() розбиває рядок на список підрядків за вказаним роздільником
+      print(str5.split(","))  # Виведе: [' Hello', ' Python! ']
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Який метод перетворює всі символи рядка на великі?</TestAsk>
+      <TestRadio ID="0">strip()</TestRadio>
+      <TestRadio ID="1">lower()</TestRadio>
+      <TestRadio ID="2">upper()</TestRadio>
+      <TestRadio ID="3">replace()</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 3" CorrectVars="3">
+      <TestAsk>Виберіть правильні методи для роботи з рядками у Python:</TestAsk>
+      <TestRadio ID="0">strip()</TestRadio>
+      <TestRadio ID="1">split()</TestRadio>
+      <TestRadio ID="2">join()</TestRadio>
+      <TestRadio ID="3">replace()</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який видаляє пробіли на початку та в кінці рядка:</TestAsk>
+      <CorrectEntry>strip</CorrectEntry>
     </Content>
   </Paragraph>
 </FullContent>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>13</MaterialNumber>
+  <MaterialType>theory</MaterialType>
+  <MaterialName>Модулі та пакети</MaterialName>
+  <MaterialDescription>Імпорт модулів та використання стандартних бібліотек. Створення власних модулів.</MaterialDescription>
+  <ParagraphCount>9</ParagraphCount>
+</Context>

@@ -2,7 +2,7 @@
 <Context>
   <MaterialNumber>1</MaterialNumber>
   <MaterialType>theory</MaterialType>
-  <MaterialName>Abstract Material 1</MaterialName>
-  <MaterialDescription>This is description for mat 1. Yes, it did. Okey, what is this header desc is sooooooooooo long? We chek this right now and right there...</MaterialDescription>
+  <MaterialName>Вступ</MaterialName>
+  <MaterialDescription>Дізнайтеся, що таке Python та як його встановити на ваш комп'ютер.</MaterialDescription>
   <ParagraphCount>3</ParagraphCount>
 </Context>

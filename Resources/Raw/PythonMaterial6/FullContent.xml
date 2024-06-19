@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <Paragraph ID="0">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Словники. Створення словників, доступ до елементів. Основні методи словників (keys, values, items).
+    </Content>
+  </Paragraph>
+  <Paragraph ID="1">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      У цій темі ми розглянемо, що таке словники у Python, як їх створювати, як отримувати доступ до їх елементів, а також основні методи роботи зі словниками.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Що таке словники?
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Словники (dictionaries) у Python - це неупорядковані колекції пар "ключ-значення", де ключі повинні бути унікальними. Словники використовуються для зберігання даних у форматі, що дозволяє швидко знайти значення за ключем.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="4">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення словників
+    </Content>
+  </Paragraph>
+  <Paragraph ID="5">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення словника за допомогою фігурних дужок
+      my_dict = {"name": "Alice", "age": 25, "city": "New York"}
+
+      # Створення словника за допомогою функції dict()
+      my_dict2 = dict(name="Bob", age=30, city="San Francisco")
+
+      print(my_dict)
+      print(my_dict2)
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Доступ до елементів словника
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Доступ до значень у словнику здійснюється за допомогою ключів. Ви можете отримати значення за ключем, додавати нові пари "ключ-значення" та змінювати існуючі значення.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="8">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      my_dict = {"name": "Alice", "age": 25, "city": "New York"}
+
+      # Отримання значення за ключем
+      print(my_dict["name"])  # Виведе: Alice
+
+      # Додавання нової пари "ключ-значення"
+      my_dict["email"] = "alice@example.com"
+      print(my_dict)  # Виведе: {'name': 'Alice', 'age': 25, 'city': 'New York', 'email': 'alice@example.com'}
+
+      # Зміна значення за ключем
+      my_dict["age"] = 26
+      print(my_dict)  # Виведе: {'name': 'Alice', 'age': 26, 'city': 'New York', 'email': 'alice@example.com'}
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Основні методи словників
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Python надає кілька вбудованих методів для роботи зі словниками. Деякі з них наведені нижче:
+    </Content>
+  </Paragraph>
+  <Paragraph ID="11">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      my_dict = {"name": "Alice", "age": 25, "city": "New York"}
+
+      # Метод keys() повертає всі ключі словника
+      keys = my_dict.keys()
+      print(keys)  # Виведе: dict_keys(['name', 'age', 'city'])
+
+      # Метод values() повертає всі значення словника
+      values = my_dict.values()
+      print(values)  # Виведе: dict_values(['Alice', 25, 'New York'])
+
+      # Метод items() повертає всі пари "ключ-значення" словника
+      items = my_dict.items()
+      print(items)  # Виведе: dict_items([('name', 'Alice'), ('age', 25), ('city', 'New York')])
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Який метод повертає всі ключі словника?</TestAsk>
+      <TestRadio ID="0">values()</TestRadio>
+      <TestRadio ID="1">items()</TestRadio>
+      <TestRadio ID="2">keys()</TestRadio>
+      <TestRadio ID="3">get()</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1 3" CorrectVars="3">
+      <TestAsk>Виберіть правильні методи для роботи зі словниками у Python:</TestAsk>
+      <TestRadio ID="0">keys()</TestRadio>
+      <TestRadio ID="1">values()</TestRadio>
+      <TestRadio ID="2">append()</TestRadio>
+      <TestRadio ID="3">items()</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який повертає всі значення словника:</TestAsk>
+      <CorrectEntry>values</CorrectEntry>
+    </Content>
+  </Paragraph>
+</FullContent>

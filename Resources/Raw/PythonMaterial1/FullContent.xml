@@ -2,24 +2,94 @@
 <FullContent>
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
-    <Content>
-Текст до консолі можна виводити таким чином:
+    <Content Bold="true">
+      Вступ. Дізнайтеся, що таке Python та як його встановити на ваш комп'ютер.
     </Content>
   </Paragraph>
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
+    <ParagraphType>Text</ParagraphType>
     <Content>
-print("hello world")
+      Python - це високорівнева мова програмування загального призначення, яка відома своєю простотою та зручністю для новачків. Вона була створена Гвідо ван Россумом і вперше випущена в 1991 році. Python підтримує кілька парадигм програмування, включаючи об'єктно-орієнтоване, імперативне, функціональне та процедурне програмування.
     </Content>
   </Paragraph>
   <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Для того, щоб розпочати програмування на Python, вам потрібно встановити інтерпретатор Python на ваш комп'ютер. Нижче наведено кроки для встановлення Python на різні операційні системи.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Встановлення Python на Windows
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      1. Перейдіть на офіційний сайт Python за адресою https://www.python.org/.
+      2. Натисніть на кнопку "Download" і виберіть останню версію Python для Windows.
+      3. Після завантаження інсталяційного файлу, запустіть його.
+      4. В інсталяторі оберіть опцію "Add Python to PATH" і натисніть "Install Now".
+      5. Після завершення встановлення, відкрийте командний рядок і введіть "python" для перевірки успішної інсталяції.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Встановлення Python на macOS
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      1. Перейдіть на офіційний сайт Python за адресою https://www.python.org/.
+      2. Натисніть на кнопку "Download" і виберіть останню версію Python для macOS.
+      3. Після завантаження інсталяційного файлу, запустіть його.
+      4. Дотримуйтесь інструкцій на екрані для завершення встановлення.
+      5. Відкрийте Terminal і введіть "python3" для перевірки успішної інсталяції.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Встановлення Python на Linux
+    </Content>
+  </Paragraph>
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      1. Відкрийте Terminal.
+      2. Введіть команду "sudo apt-get update" для оновлення списку пакетів.
+      3. Введіть команду "sudo apt-get install python3" для встановлення Python.
+      4. Після завершення встановлення, введіть "python3" для перевірки успішної інсталяції.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Що з наведеного є мовою програмування?</TestAsk>
+      <TestRadio ID="0">HTML</TestRadio>
+      <TestRadio ID="1">Python</TestRadio>
+      <TestRadio ID="2">CSS</TestRadio>
+      <TestRadio ID="3">SQL</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
     <ParagraphType>TestCheck</ParagraphType>
-    <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Що виведе цей код при запуску інтерпритатора:</TestAsk>
-      <TestRadio ID="0">"hello world"</TestRadio>
-      <TestRadio ID="1">print("hello world")</TestRadio>
-      <TestRadio ID="2">hello world</TestRadio>
-      <TestRadio ID="3">print(hello world)</TestRadio>
+    <Content Count="4" Correct="0 1 3" CorrectVars="3">
+      <TestAsk>Виберіть операційні системи, для яких можна встановити Python:</TestAsk>
+      <TestRadio ID="0">Windows</TestRadio>
+      <TestRadio ID="1">macOS</TestRadio>
+      <TestRadio ID="2">Android</TestRadio>
+      <TestRadio ID="3">Linux</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="11">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть назву офіційного сайту Python:</TestAsk>
+      <CorrectEntry>python.org</CorrectEntry>
     </Content>
   </Paragraph>
 </FullContent>

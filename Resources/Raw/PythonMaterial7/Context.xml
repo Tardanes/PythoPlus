@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>7</MaterialNumber>
+  <MaterialType>theory</MaterialType>
+  <MaterialName>Множини</MaterialName>
+  <MaterialDescription>Створення множин, основні операції з множинами. Використання методів множин (add, remove, union, intersection).</MaterialDescription>
+  <ParagraphCount>3</ParagraphCount>
+</Context>

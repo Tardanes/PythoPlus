@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>19</MaterialNumber>
+  <MaterialType>theory</MaterialType>
+  <MaterialName>Основи об'єктно-орієнтованого програмування (ООП)</MaterialName>
+  <MaterialDescription>Поняття класів та об'єктів. Створення класів та методів.</MaterialDescription>
+  <ParagraphCount>9</ParagraphCount>
+</Context>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Context>
   <MaterialNumber>2</MaterialNumber>
-  <MaterialType>practice</MaterialType>
-  <MaterialName>Material 2 Abstract</MaterialName>
-  <MaterialDescription>This is description for mat 1. Wow, this is rly intersteing!!</MaterialDescription>
-  <ParagraphCount>4</ParagraphCount>
+  <MaterialType>theory</MaterialType>
+  <MaterialName>Базові синтаксичні конструкції</MaterialName>
+  <MaterialDescription>Коментарі, змінні, основні типи даних та оператори (арифметичні та логічні).</MaterialDescription>
+  <ParagraphCount>3</ParagraphCount>
 </Context>

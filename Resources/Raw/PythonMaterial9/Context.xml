@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>9</MaterialNumber>
+  <MaterialType>theory</MaterialType>
+  <MaterialName>Умовні конструкції</MaterialName>
+  <MaterialDescription>Використання if, elif, else. Вкладені умовні конструкції.</MaterialDescription>
+  <ParagraphCount>6</ParagraphCount>
+</Context>

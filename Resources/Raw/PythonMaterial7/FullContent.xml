@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <Paragraph ID="0">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Множини. Створення множин, основні операції з множинами. Використання методів множин (add, remove, union, intersection).
+    </Content>
+  </Paragraph>
+  <Paragraph ID="1">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      У цій темі ми розглянемо, що таке множини у Python, як їх створювати, основні операції з множинами, а також основні методи, які можна використовувати для роботи з множинами.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Що таке множини?
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Множини (sets) - це неупорядковані колекції унікальних елементів. Множини використовуються для зберігання множин даних без дублікатів і для виконання математичних операцій, таких як об'єднання, перетин та різниця.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="4">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення множин
+    </Content>
+  </Paragraph>
+  <Paragraph ID="5">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення множини за допомогою фігурних дужок
+      my_set = {1, 2, 3, "apple", "banana"}
+
+      # Створення множини за допомогою функції set()
+      my_set2 = set([4, 5, 6, "orange", "grape"])
+
+      print(my_set)
+      print(my_set2)
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Основні операції з множинами
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Множини підтримують кілька основних операцій, таких як додавання, видалення елементів, об'єднання, перетин та різниця.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="8">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      my_set = {1, 2, 3}
+      my_set2 = {3, 4, 5}
+
+      # Додавання елемента до множини
+      my_set.add(4)
+      print(my_set)  # Виведе: {1, 2, 3, 4}
+
+      # Видалення елемента з множини
+      my_set.remove(2)
+      print(my_set)  # Виведе: {1, 3, 4}
+
+      # Об'єднання множин
+      union_set = my_set.union(my_set2)
+      print(union_set)  # Виведе: {1, 3, 4, 5}
+
+      # Перетин множин
+      intersection_set = my_set.intersection(my_set2)
+      print(intersection_set)  # Виведе: {3, 4}
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Використання методів множин
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Python надає кілька вбудованих методів для роботи з множинами. Деякі з них наведені нижче:
+    </Content>
+  </Paragraph>
+  <Paragraph ID="11">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      my_set = {1, 2, 3}
+
+      # Метод add() додає елемент до множини
+      my_set.add(4)
+      print(my_set)  # Виведе: {1, 2, 3, 4}
+
+      # Метод remove() видаляє елемент з множини
+      my_set.remove(2)
+      print(my_set)  # Виведе: {1, 3, 4}
+
+      # Метод union() повертає об'єднання множин
+      my_set2 = {3, 4, 5}
+      union_set = my_set.union(my_set2)
+      print(union_set)  # Виведе: {1, 3, 4, 5}
+
+      # Метод intersection() повертає перетин множин
+      intersection_set = my_set.intersection(my_set2)
+      print(intersection_set)  # Виведе: {3, 4}
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який метод додає елемент до множини?</TestAsk>
+      <TestRadio ID="0">add()</TestRadio>
+      <TestRadio ID="1">append()</TestRadio>
+      <TestRadio ID="2">insert()</TestRadio>
+      <TestRadio ID="3">update()</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2 3" CorrectVars="3">
+      <TestAsk>Виберіть правильні методи для роботи з множинами у Python:</TestAsk>
+      <TestRadio ID="0">add()</TestRadio>
+      <TestRadio ID="1">push()</TestRadio>
+      <TestRadio ID="2">union()</TestRadio>
+      <TestRadio ID="3">intersection()</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть метод, який видаляє елемент з множини:</TestAsk>
+      <CorrectEntry>remove</CorrectEntry>
+    </Content>
+  </Paragraph>
+</FullContent>

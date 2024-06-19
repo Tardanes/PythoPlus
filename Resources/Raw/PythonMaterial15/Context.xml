@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>15</MaterialNumber>
+  <MaterialType>theory</MaterialType>
+  <MaterialName>Робота з файлами</MaterialName>
+  <MaterialDescription>Читання та запис файлів. Використання методів open, read, write.</MaterialDescription>
+  <ParagraphCount>9</ParagraphCount>
+</Context>

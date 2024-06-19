@@ -3,78 +3,165 @@
   <Paragraph ID="0">
     <ParagraphType>Text</ParagraphType>
     <Content Bold="true">
-      Lorem ipsum for the king. This is true theory for my kingdom...
+      Базові синтаксичні конструкції. Коментарі, змінні, основні типи даних та оператори (арифметичні та логічні).
     </Content>
   </Paragraph>
   <Paragraph ID="1">
-    <ParagraphType>Code</ParagraphType>
+    <ParagraphType>Text</ParagraphType>
     <Content>
-      print("Hello world!");
-      print("Hello world!");
-      print("Hello world!");
-      print("Hello world!");
-      print("Hello world!");
-
-      print("Hello world!");
+      У цій темі ми розглянемо основні синтаксичні конструкції мови Python, включаючи коментарі, змінні, типи даних та оператори.
     </Content>
   </Paragraph>
+
   <Paragraph ID="2">
-    <ParagraphType>TestRadio</ParagraphType>
-    <Content Count="4" Correct="2" CorrectVars="1">
-      <TestAsk>Выберите 3-й вариант:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Коментарі
     </Content>
   </Paragraph>
   <Paragraph ID="3">
-    <ParagraphType>TestCheck</ParagraphType>
-    <Content Count="4" Correct="1 3" CorrectVars="2">
-      <TestAsk>Выберите 2-й и 4-й варианты:</TestAsk>
-      <TestRadio ID="0">1-й вариант</TestRadio>
-      <TestRadio ID="1">2-й вариант</TestRadio>
-      <TestRadio ID="2">3-й вариант</TestRadio>
-      <TestRadio ID="3">4-й вариант</TestRadio>
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Коментарі використовуються для пояснення коду і ігноруються інтерпретатором. У Python є два типи коментарів: однорядкові і багаторядкові.
     </Content>
   </Paragraph>
   <Paragraph ID="4">
-    <ParagraphType>Text</ParagraphType>
+    <ParagraphType>Code</ParagraphType>
     <Content>
-      Wow, this is text! Rly nice!!!!
+      # Це однорядковий коментар
+      """
+      Це
+      багаторядковий
+      коментар
+      """
     </Content>
   </Paragraph>
+
   <Paragraph ID="5">
-    <ParagraphType>Image</ParagraphType>
-    <Content>
-      dotnet_bot.png
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Змінні
     </Content>
   </Paragraph>
   <Paragraph ID="6">
     <ParagraphType>Text</ParagraphType>
     <Content>
-      Lorem ipsum for the king. This is true theory for my kingdom... No, it`s better.
+      Змінні використовуються для зберігання даних. У Python змінні створюються при присвоєнні їм значень.
     </Content>
   </Paragraph>
   <Paragraph ID="7">
-    <ParagraphType>Compliance</ParagraphType>
+    <ParagraphType>Code</ParagraphType>
     <Content>
-      <TestAsk>Проведите соответствие:</TestAsk>
-      <ComplLabel ID="0">Варёное...</ComplLabel>
-      <ComplLabel ID="1">Сладкий...</ComplLabel>
-      <ComplLabel ID="2">Крепкий...</ComplLabel>
-      <ComplLabel ID="3">Зелёный...</ComplLabel>
-      <ComplElem ID="0" Correct_ID="2">чай</ComplElem>
-      <ComplElem ID="1" Correct_ID="0">яйцо</ComplElem>
-      <ComplElem ID="2" Correct_ID="3">огурец</ComplElem>
-      <ComplElem ID="3" Correct_ID="1">пряник</ComplElem>
+      x = 5
+      y = "Hello"
     </Content>
   </Paragraph>
+
   <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Основні типи даних
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      У Python є кілька стандартних типів даних, включаючи числові (int, float), рядкові (str), списки (list), кортежі (tuple) та словники (dict).
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      a = 10        # int
+      b = 20.5      # float
+      c = "Python"  # str
+      d = [1, 2, 3] # list
+      e = (4, 5, 6) # tuple
+      f = {"key": "value"} # dict
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Оператори
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Арифметичні оператори
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Арифметичні оператори використовуються для виконання базових математичних операцій: додавання, віднімання, множення, ділення і т.д.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      x = 10
+      y = 3
+      print(x + y)  # додавання
+      print(x - y)  # віднімання
+      print(x * y)  # множення
+      print(x / y)  # ділення
+      print(x % y)  # модуль
+      print(x ** y) # піднесення до степеня
+      print(x // y) # цілочисельне ділення
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="15">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Логічні оператори
+    </Content>
+  </Paragraph>
+  <Paragraph ID="16">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Логічні оператори використовуються для виконання логічних операцій: and, or, not.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="17">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      a = True
+      b = False
+      print(a and b) # логічне І
+      print(a or b)  # логічне АБО
+      print(not a)   # логічне НЕ
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="18">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Який з наведених варіантів є правильним оператором для піднесення до степеня в Python?</TestAsk>
+      <TestRadio ID="0">**</TestRadio>
+      <TestRadio ID="1">^</TestRadio>
+      <TestRadio ID="2">%</TestRadio>
+      <TestRadio ID="3">#</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="19">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 2" CorrectVars="2">
+      <TestAsk>Виберіть основні типи даних у Python:</TestAsk>
+      <TestRadio ID="0">int</TestRadio>
+      <TestRadio ID="1">char</TestRadio>
+      <TestRadio ID="2">str</TestRadio>
+      <TestRadio ID="3">bool</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="20">
     <ParagraphType>Entry</ParagraphType>
     <Content>
-      <TestAsk>Напишите слово "print" на английском языке:</TestAsk>
-      <CorrectEntry>print</CorrectEntry>
+      <TestAsk>Напишіть оператор для логічного І в Python:</TestAsk>
+      <CorrectEntry>and</CorrectEntry>
     </Content>
   </Paragraph>
 </FullContent>

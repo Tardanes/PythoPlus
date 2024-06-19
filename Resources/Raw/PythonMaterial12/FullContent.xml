@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FullContent>
+  <Paragraph ID="0">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Функції. Створення та виклик функцій. Параметри та аргументи функцій, повернення значень.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="1">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      У цій темі ми розглянемо, як створювати та викликати функції у Python, як працювати з параметрами та аргументами функцій, а також як повертати значення з функцій.
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="2">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Створення та виклик функцій
+    </Content>
+  </Paragraph>
+  <Paragraph ID="3">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Функції у Python створюються за допомогою ключового слова def, за яким слідує ім'я функції і круглі дужки. Будь-який код, що входить до функції, повинен бути відступлений.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="4">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення функції
+      def greet():
+      print("Hello, world!")
+
+      # Виклик функції
+      greet()
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="5">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Параметри та аргументи функцій
+    </Content>
+  </Paragraph>
+  <Paragraph ID="6">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Функції можуть приймати параметри, які передаються їм під час виклику. Аргументи - це значення, які передаються функції при виклику.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="7">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення функції з параметрами
+      def greet(name):
+      print(f"Hello, {name}!")
+
+      # Виклик функції з аргументом
+      greet("Alice")
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="8">
+    <ParagraphType>Text</ParagraphType>
+    <Content Bold="true">
+      Повернення значень з функцій
+    </Content>
+  </Paragraph>
+  <Paragraph ID="9">
+    <ParagraphType>Text</ParagraphType>
+    <Content>
+      Функції можуть повертати значення за допомогою ключового слова return. Після виконання оператора return функція завершує свою роботу.
+    </Content>
+  </Paragraph>
+  <Paragraph ID="10">
+    <ParagraphType>Code</ParagraphType>
+    <Content>
+      # Створення функції, яка повертає значення
+      def add(a, b):
+      return a + b
+
+      # Виклик функції та збереження результату
+      result = add(3, 5)
+      print(result)  # Виведе: 8
+    </Content>
+  </Paragraph>
+
+  <Paragraph ID="11">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="0" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для створення функції у Python?</TestAsk>
+      <TestRadio ID="0">def</TestRadio>
+      <TestRadio ID="1">function</TestRadio>
+      <TestRadio ID="2">func</TestRadio>
+      <TestRadio ID="3">create</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="12">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Яке ключове слово використовується для повернення значення з функції?</TestAsk>
+      <TestRadio ID="0">return_value</TestRadio>
+      <TestRadio ID="1">give_back</TestRadio>
+      <TestRadio ID="2">return</TestRadio>
+      <TestRadio ID="3">output</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="13">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи передачі аргументів функції у Python:</TestAsk>
+      <TestRadio ID="0">позиційні аргументи</TestRadio>
+      <TestRadio ID="1">іменовані аргументи</TestRadio>
+      <TestRadio ID="2">складені аргументи</TestRadio>
+      <TestRadio ID="3">змішані аргументи</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="14">
+    <ParagraphType>Entry</ParagraphType>
+    <Content>
+      <TestAsk>Напишіть ключове слово, яке використовується для створення функції у Python:</TestAsk>
+      <CorrectEntry>def</CorrectEntry>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="15">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="1" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: def greet(): print("Hello"); greet()?</TestAsk>
+      <TestRadio ID="0">greet</TestRadio>
+      <TestRadio ID="1">Hello</TestRadio>
+      <TestRadio ID="2">Error</TestRadio>
+      <TestRadio ID="3">Нічого</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="16">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="2" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: def add(a, b): return a + b; result = add(2, 3); print(result)?</TestAsk>
+      <TestRadio ID="0">a + b</TestRadio>
+      <TestRadio ID="1">23</TestRadio>
+      <TestRadio ID="2">5</TestRadio>
+      <TestRadio ID="3">Error</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="17">
+    <ParagraphType>TestRadio</ParagraphType>
+    <Content Count="4" Correct="3" CorrectVars="1">
+      <TestAsk>Що буде виведено на екран при виконанні наступного коду: def square(x): return x * x; print(square(4))?</TestAsk>
+      <TestRadio ID="0">4</TestRadio>
+      <TestRadio ID="1">8</TestRadio>
+      <TestRadio ID="2">16</TestRadio>
+      <TestRadio ID="3">Error</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="18">
+    <ParagraphType>TestCheck</ParagraphType>
+    <Content Count="4" Correct="0 1" CorrectVars="2">
+      <TestAsk>Виберіть правильні способи повернення значень з функції у Python:</TestAsk>
+      <TestRadio ID="0">за допомогою ключового слова return</TestRadio>
+      <TestRadio ID="1">без ключового слова return</TestRadio>
+      <TestRadio ID="2">за допомогою ключового слова output</TestRadio>
+      <TestRadio ID="3">за допомогою ключового слова give_back</TestRadio>
+    </Content>
+  </Paragraph>
+  <Paragraph ID="19">
+    <ParagraphType>Compliance</ParagraphType>
+    <Content>
+      <TestAsk>Проведіть відповідність між ключовими словами та їх функціями:</TestAsk>
+      <ComplLabel ID="0">def</ComplLabel>
+      <ComplLabel ID="1">return</ComplLabel>
+      <ComplLabel ID="2">greet()</ComplLabel>
+      <ComplLabel ID="3">add(a, b)</ComplLabel>
+      <ComplElem ID="0" Correct_ID="0">Створює функцію</ComplElem>
+      <ComplElem ID="1" Correct_ID="1">Повертає значення з функції</ComplElem>
+      <ComplElem ID="2" Correct_ID="2">Викликає функцію без параметрів</ComplElem>
+      <ComplElem ID="3" Correct_ID="3">Викликає функцію з параметрами</ComplElem>
+    </Content>
+  </Paragraph>
+</FullContent>

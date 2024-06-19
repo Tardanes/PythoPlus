@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+  <MaterialNumber>20</MaterialNumber>
+  <MaterialType>practice</MaterialType>
+  <MaterialName>Тест. Спискові включення, lambda-функції, класи, методи, ООП</MaterialName>
+  <MaterialDescription>Перевірте знання з попередніх тем!</MaterialDescription>
+  <ParagraphCount>20</ParagraphCount>
+</Context>
